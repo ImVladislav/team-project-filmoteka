@@ -1,5 +1,4 @@
 @import './common';
-@import './example';
 @import './utils/vars';
 @import './base/reset';
 @import './base/general';
@@ -8,3 +7,6 @@
 
 @import './components/container';
 @import './components/modals';
+@import './base/main';
+@import './base/header';
+@import './components/modal';

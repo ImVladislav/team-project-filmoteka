@@ -7,6 +7,9 @@ h5,
 h6 {
   margin: 0;
 }
+a {
+  text-decoration: none;
+}
 
 ul,
 ol {
@@ -23,5 +26,4 @@ img {
   display: block;
   max-width: 100%;
   height: auto;
-  width: 100%;
 }

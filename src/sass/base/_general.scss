@@ -1,5 +1,9 @@
 body {
-  font-family: 'DM Sans', serif;
+  font-family: 'Roboto', sans-serif;
+}
+
+body.no-scroll {
+  overflow-y: hidden;
 }
 
 .link {
