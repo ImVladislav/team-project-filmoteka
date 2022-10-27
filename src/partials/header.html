@@ -1,7 +1,7 @@
 <header class="header">
   <div class="container header__container">
     <nav class="navigation">
-      <a href="" class="header__logo">
+      <a href="/src/index.html" class="header__logo">
         <svg class="header__icon" width="24" height="24">
           <use href="./images/symbol-defs.svg#header_logo_icon"></use>
         </svg>
@@ -9,10 +9,14 @@
       </a>
       <ul class="header__list">
         <li class="header__list-item">
-          <a href="" class="header__list-link">Home</a>
+          <a
+            href="/src/index.html"
+            class="header__list-link header__list-link-active"
+            >Home</a
+          >
         </li>
         <li class="header__list-item">
-          <a href="" class="header__list-link">My Library</a>
+          <a href="/src/mylibrary.html" class="header__list-link">My Library</a>
         </li>
       </ul>
     </nav>
@@ -26,7 +30,11 @@
           placeholder="Movie search"
           class="header__form-input js-input"
         />
-        <button type="submit" class="header__search">CLICK ME</button>
+        <button type="submit" class="header__search">
+          <svg class="header__icon" width="24" height="24">
+            <use href="./images/symbol-defs.svg#header_input_search_btn"></use>
+          </svg>
+        </button>
       </div>
     </form>
   </div>
