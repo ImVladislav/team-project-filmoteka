@@ -1,3 +1,33 @@
 <header class="header">
-    
+  <div class="container header__container">
+    <nav class="navigation">
+      <a href="" class="header__logo">
+        <svg class="header__icon" width="24" height="24">
+          <use href="./images/symbol-defs.svg#header_logo_icon"></use>
+        </svg>
+        <span class="header__logo-text">Filmoteka </span>
+      </a>
+      <ul class="header__list">
+        <li class="header__list-item">
+          <a href="" class="header__list-link">Home</a>
+        </li>
+        <li class="header__list-item">
+          <a href="" class="header__list-link">My Library</a>
+        </li>
+      </ul>
+    </nav>
+
+    <form action="submit" class="header__form">
+      <div class="header__form-search">
+        <input
+          type="text"
+          name="serch_film"
+          autofocus
+          placeholder="Movie search"
+          class="header__form-input js-input"
+        />
+        <button type="submit" class="header__search">CLICK ME</button>
+      </div>
+    </form>
+  </div>
 </header>
