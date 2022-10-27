@@ -7,10 +7,13 @@ export class ServerApi {
 
     async getMovie() {
         const data = await axios ({
-            url: `https://api.themoviedb.org/3/trending/movie/week?api_key=${KEY}`,
+            url: this.baseUrl,
         });
+
         const movies = await data.data;
+
         console.log(movies);
+
         return movies;
     }
 }

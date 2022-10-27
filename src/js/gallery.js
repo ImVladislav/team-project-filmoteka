@@ -1,13 +1,5 @@
-import { ServerApi } from "./serverApi";
-import { murkupGalleryOnPageLoading } from "../utilities.js/murkupGalleryOnPageLoading";
-
-const serverApi = new ServerApi;
-async function murkupGallery(params) {
-    const movies = await serverApi.getMovie();
-
-    murkupGalleryOnPageLoading(movies.results);
-    console.log(movies.results);
-}
+import { ServerApi } from "./utilitiesJS/serverApi";
+import { murkupGallery } from "./utilitiesJS/murkupGalleryOnPageLoading";
 
 murkupGallery();
 

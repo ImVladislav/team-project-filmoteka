@@ -1,5 +1,7 @@
+import { refs } from "./refs";
+import { ServerApi } from "./serverApi";
 
-const gallery = document.querySelector(`.gallery`);
+const serverApi = new ServerApi;
 
 export function murkupGalleryOnPageLoading(movies) {
     const moviesMurkup = movies.map(movie => {
@@ -12,5 +14,12 @@ export function murkupGalleryOnPageLoading(movies) {
       </li>`
     }).join(``);
     
-    return gallery.insertAdjacentHTML(`beforeend`, moviesMurkup);
+    return refs.gallery.insertAdjacentHTML(`beforeend`, moviesMurkup);
+}
+
+export async function murkupGallery(params) {
+    const movies = await serverApi.getMovie();
+
+    murkupGalleryOnPageLoading(movies.results);
+    console.log(movies.results);
 }
