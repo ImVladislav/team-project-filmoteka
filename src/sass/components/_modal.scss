@@ -8,12 +8,12 @@
   background-color: rgba(0, 0, 0, 0.5);
   opacity: 0;
   visibility: hidden;
+  transition: all 500ms ease-in-out;
 }
 
 .modal-overlay.visiable {
-    opacity: 1;
-    visibility: visible;
-    transition: 500ms ease-in-out;
+  opacity: 1;
+  visibility: visible;
 }
 
 .modal-content {
@@ -22,8 +22,25 @@
   top: 50%;
   left: 50%;
   margin: 0 auto;
-  width: 500px;
-  height: 500px;
+  width: 280px;
+  height: 90vh;
+
+  padding: 48px 20px 40px 20px;
+
   box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.17);
   transform: translate(-50%, -50%);
+
+  @media screen and (min-width: 768px) {
+    width: 704px;
+    height: 552px;
+
+    padding: 40px 36px;
+  }
+
+  @media screen and (min-width: 1024px) {
+    width: 806px;
+    height: 558px;
+
+    padding: 40px 12px;
+  }
 }
