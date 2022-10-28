@@ -1,3 +1,5 @@
+import { posterСheck } from "./utilitiesJS/posterCheck";
+
 export const movieDescriptionMurkup = ({
   id,
   poster_path,
@@ -9,7 +11,9 @@ export const movieDescriptionMurkup = ({
   vote_average,
   vote_count,
 }) => {
-  const baseImageUrl = 'https://image.tmdb.org/t/p/w500';
+
+  const src = posterСheck(poster_path);
+
   const genreList = [];
   genres.forEach(({ name }) => genreList.push(name));
 
@@ -17,7 +21,7 @@ export const movieDescriptionMurkup = ({
     <div class="movie__description" data-movie-id='${id}'>
     <div class="movie__poster-wrappaer">
       <img
-        src="${baseImageUrl}${poster_path}"
+        src="${src}"
         alt="${title}"
         class="movie__poster"
        
@@ -48,4 +52,6 @@ export const movieDescriptionMurkup = ({
     </div>
   </div>
   `;
+
+  
 };
