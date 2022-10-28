@@ -42,8 +42,8 @@ export const movieDescriptionMurkup = ({
       <h4 class="about__title">About</h4>
       <p class="about__text">${overview}</p>
       <div class="btn__container">
-        <button type="button" class="modal__btn">add to watched</button>
-        <button type="button" class="modal__btn">add to queue</button>
+        <button type="button" class="modal__btn" data-add-watched>add to watched</button>
+        <button type="button" class="modal__btn" data-add-queue>add to queue</button>
       </div>
     </div>
   </div>

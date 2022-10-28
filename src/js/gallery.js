@@ -2,6 +2,7 @@ import { refs } from './utilitiesJS/refs';
 import { ServerApi } from './utilitiesJS/serverApi';
 import { murkupGallery } from './utilitiesJS/murkupGalleryOnPageLoading';
 import { movieDescriptionMurkup } from './descriptionMurkup';
+import { onOpenModal } from './modal';
 
 const serverApi = new ServerApi();
 
@@ -12,19 +13,17 @@ serverApi.getMovieOnDemand();
 refs.gallery.addEventListener(`click`, onClickMovie);
 
 async function onClickMovie(e) {
-  if (e.target.nodeName !== `IMG`) {
+  if (e.target.parentElement.className !== 'film__item') {
     return;
   }
 
-  const title = e.target.getAttribute(`alt`);
+  onOpenModal();
 
-  const movie = await serverApi.getMovieOnDemand(title);
-  const id = await movie[0].id;
+  const id = e.target.parentElement.dataset.id;
 
   const detailsMovie = await serverApi.getDetailsMovie(id);
 
   const movieMurkup = await movieDescriptionMurkup(detailsMovie);
 
   refs.movieDescription.insertAdjacentHTML('beforeend', movieMurkup);
-  //   console.log(detailsMovie);
 }
