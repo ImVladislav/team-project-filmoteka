@@ -2,13 +2,11 @@ import { refs } from './refs';
 import { serverApi } from './serverApi';
 import { posterСheck } from './posterCheck';
 
-
 export function murkupGalleryOnPageLoading(movies) {
   const moviesMurkup = movies
     .map(({ original_title, poster_path, id }) => {
-       
-     const src = posterСheck(poster_path);
-     
+      const src = posterСheck(poster_path);
+
       return `
         <li class="film__item" data-id="${id}">
         <img src="${src}" class="film__img" alt="${original_title}" />
@@ -26,4 +24,3 @@ export async function murkupGallery(params) {
 
   murkupGalleryOnPageLoading(movies.results);
 }
-
