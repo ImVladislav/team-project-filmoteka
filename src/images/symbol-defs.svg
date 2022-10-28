@@ -24,5 +24,9 @@
 			<path fill="none" stroke="#fff" style="stroke: var(--color1, #fff)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6667" d="M28 28.001l-5.8-5.8">
 			</path>
 		</symbol>
+		<symbol id="icon-heart" viewBox="0 0 32 32">
+<path fill="#2a75e6" style="fill: var(--color1, #2a75e6)" d="M23.342 3c-0.003 0-0.006 0-0.009 0-3.204 0-5.976 1.846-7.312 4.532l-0.021 0.047c-1.357-2.733-4.13-4.579-7.333-4.579-0.003 0-0.006 0-0.010 0h0.001c-4.505 0-8.158 3.638-8.158 8.125 0 10.563 15.5 17.875 15.5 17.875s15.5-7.313 15.5-17.875c0-4.487-3.652-8.125-8.158-8.125z"></path>
+<path fill="#f9d549" style="fill: var(--color2, #f9d549)" d="M1.595 16c3.534 7.871 14.405 13 14.405 13s10.871-5.129 14.405-13z"></path>
+</symbol>
 	</defs>
 </svg>
