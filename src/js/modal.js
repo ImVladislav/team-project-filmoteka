@@ -3,6 +3,7 @@ const refs = {
   content: document.querySelector('.modal-content'),
   gallery: document.querySelector('.gallery'),
   body: document.querySelector('body'),
+  movieDescription: document.querySelector('[data-movie-description]'),
 };
 
 refs.gallery.addEventListener('click', onOpenModal);
@@ -14,8 +15,9 @@ function onOpenModal() {
 }
 
 function onCloseModal(e) {
-  if (e.target !== refs.content) {
+  if (e.target === refs.overlay) {
     refs.overlay.classList.remove('visiable');
     refs.body.classList.remove('no-scroll');
+    refs.movieDescription.textContent = '';
   }
 }
