@@ -1,2 +1,0 @@
-const e={body:document.querySelector("body"),overlay:document.querySelector(".modal-overlay"),content:document.querySelector(".modal-content"),gallery:document.querySelector(".gallery"),formRef:document.querySelector(".header__form"),movieDescription:document.querySelector("[data-movie-description]")};function o(){e.overlay.classList.remove("visiable"),e.body.classList.remove("no-scroll"),e.movieDescription.textContent=""}e.overlay.addEventListener("click",(function(t){t.target===e.overlay&&o()}));
-//# sourceMappingURL=mylibrary.2f5e9c73.js.map
