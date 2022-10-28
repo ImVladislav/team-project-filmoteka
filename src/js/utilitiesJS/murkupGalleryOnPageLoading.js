@@ -1,15 +1,15 @@
 import { refs } from './refs';
-import { ServerApi } from './serverApi';
-
-const serverApi = new ServerApi();
+import { serverApi } from './serverApi';
+import { posterСheck } from './posterCheck';
 
 export function murkupGalleryOnPageLoading(movies) {
   const moviesMurkup = movies
-    .map(movie => {
-      const { original_title, poster_path } = movie;
+    .map(({ original_title, poster_path, id }) => {
+      const src = posterСheck(poster_path);
+
       return `
-        <li class="film__item">
-        <img src="https://image.tmdb.org/t/p/w500${poster_path}" class="film__img" alt="${original_title}" />
+        <li class="film__item" data-id="${id}">
+        <img src="${src}" class="film__img" alt="${original_title}" />
         <p class="film__title">${original_title}</p>
         <p class="film__genre">Drama, Action | 2020</p>
       </li>`;
@@ -23,5 +23,4 @@ export async function murkupGallery(params) {
   const movies = await serverApi.getPopularMovie();
 
   murkupGalleryOnPageLoading(movies.results);
-  // console.log(movies.results);
 }

@@ -1,21 +1,29 @@
-const refs = {
-  overlay: document.querySelector('.modal-overlay'),
-  content: document.querySelector('.modal-content'),
-  gallery: document.querySelector('.gallery'),
-  body: document.querySelector('body'),
-};
+import { refs } from './utilitiesJS/refs';
 
-refs.gallery.addEventListener('click', onOpenModal);
 refs.overlay.addEventListener('click', onCloseModal);
 
-function onOpenModal() {
+export function onOpenModal() {
   refs.overlay.classList.add('visiable');
   refs.body.classList.add('no-scroll');
+
+  window.addEventListener('keydown', onEscClick);
 }
 
-function onCloseModal(e) {
-  if (e.target !== refs.content) {
-    refs.overlay.classList.remove('visiable');
-    refs.body.classList.remove('no-scroll');
+export function onCloseModal(e) {
+  if (e.target === refs.overlay) {
+    closeModal();
   }
+}
+
+function onEscClick(evt) {
+  if (evt.code === 'Escape') {
+    closeModal();
+    window.removeEventListener('keydown', onEscClick);
+  }
+}
+
+function closeModal() {
+  refs.overlay.classList.remove('visiable');
+  refs.body.classList.remove('no-scroll');
+  refs.movieDescription.textContent = '';
 }

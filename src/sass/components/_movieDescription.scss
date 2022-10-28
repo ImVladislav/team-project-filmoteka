@@ -20,9 +20,9 @@
   }
 }
 
-// .movie__poster {
-
-// }
+.movie__poster {
+  height: 380px;
+}
 
 // .movie__container {
 // }
@@ -84,6 +84,18 @@
   align-items: center;
 
   color: #000000;
+}
+
+.vote {
+  padding: 1px 10px;
+}
+
+.vote-accent {
+  background-color: #ff6b01;
+  border-radius: 5px;
+  color: #ffffff;
+  display: inline-block;
+  margin-right: 4px;
 }
 
 .about__title {

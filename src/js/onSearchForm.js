@@ -1,10 +1,10 @@
 import Notiflix from 'notiflix';
 import { refs } from './utilitiesJS/refs';
-import { ServerApi } from './utilitiesJS/serverApi';
+import { serverApi } from './utilitiesJS/serverApi';
 import { murkupGalleryOnPageLoading } from './utilitiesJS/murkupGalleryOnPageLoading';
 import { clearPage } from './utilitiesJS/clearPage';
 
-const serverApi = new ServerApi();
+
 let searchQuery = ' ';
 refs.formRef.addEventListener('submit', onSubmitClick);
 
@@ -15,15 +15,12 @@ function onSubmitClick(event) {
     .toLowerCase();
 
   if (!searchQuery) {
-    Notiflix.Notify.failure(
-      'Search result not successful. Enter the correct movie name and ',
-      {
-        position: 'center-center',
-        cssAnimationStyle: 'from-top',
-        showOnlyTheLastOne: true,
-        clickToClose: true,
-      }
-    );
+    Notiflix.Notify.failure('Enter the name of the movie', {
+      position: 'center-top',
+      fontFamily: 'inherit',
+      borderRadius: '25px',
+      clickToClose: true,
+    });
     clearPage();
     return;
   }
@@ -33,5 +30,24 @@ function onSubmitClick(event) {
 
 async function murkupSearchMovie() {
   const movies = await serverApi.getMovieOnDemand(searchQuery);
+  if (movies.length === 0) {
+    Notiflix.Notify.failure(
+      'Search result not successful. Enter the correct movie name and',
+      {
+        position: 'center-top',
+        fontFamily: 'inherit',
+        borderRadius: '25px',
+        clickToClose: true,
+      }
+    );
+    searchQuery = ' ';
+    return;
+  }
   murkupGalleryOnPageLoading(movies);
+  Notiflix.Notify.success('We found movies', {
+    position: 'center-top',
+    fontFamily: 'inherit',
+    borderRadius: '25px',
+    clickToClose: true,
+  });
 }

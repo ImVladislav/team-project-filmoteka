@@ -1,26 +1,35 @@
-import { refs } from "./utilitiesJS/refs";
-import { ServerApi } from "./utilitiesJS/serverApi";
-import { murkupGallery } from "./utilitiesJS/murkupGalleryOnPageLoading";
+import { refs } from './utilitiesJS/refs';
+import { serverApi } from './utilitiesJS/serverApi';
+import { murkupGallery } from './utilitiesJS/murkupGalleryOnPageLoading';
+import { movieDescriptionMurkup } from './descriptionMurkup';
+import { onOpenModal } from './modal';
+import { onAddQueueClick, onAddWatchClick } from './addFavorites';
 
-const serverApi = new ServerApi;
+
 
 murkupGallery();
-
-serverApi.getMovieOnDemand();
 
 refs.gallery.addEventListener(`click`, onClickMovie);
 
 async function onClickMovie(e) {
-    if (e.target.nodeName !== `IMG`) {
-        return;
-    }
-    
-    const title = e.target.getAttribute(`alt`);
+  if (e.target.parentElement.className !== 'film__item') {
+    return;
+  }
 
-    const movie = await serverApi.getMovieOnDemand(title);
-    const id = await movie[0].id;
-   
-    const detailsMovie = await serverApi.getDetailsMovie(id);
-    
-    console.log(detailsMovie);
+  onOpenModal();
+
+  const id = e.target.parentElement.dataset.id;
+
+  const detailsMovie = await serverApi.getDetailsMovie(id);
+ 
+  const movieMurkup = await movieDescriptionMurkup(detailsMovie);
+
+  refs.movieDescription.insertAdjacentHTML('beforeend', movieMurkup);
+
+  document
+    .querySelector('[data-add-watched]')
+    .addEventListener('click', () => onAddWatchClick(detailsMovie));
+  document
+    .querySelector('[data-add-queue]')
+    .addEventListener('click', () => onAddQueueClick(detailsMovie));
 }
