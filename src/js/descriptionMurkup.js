@@ -1,5 +1,5 @@
 import { posterСheck } from "./utilitiesJS/posterCheck";
-import { serverApi } from "./utilitiesJS/serverApi";
+
 export const movieDescriptionMurkup = ({
   id,
   poster_path,
@@ -12,7 +12,7 @@ export const movieDescriptionMurkup = ({
   vote_count,
 }) => {
 
-  // const src = posterСheck(poster_path);
+  const src = posterСheck(poster_path);
 
   const genreList = [];
   genres.forEach(({ name }) => genreList.push(name));
@@ -41,7 +41,7 @@ export const movieDescriptionMurkup = ({
     <div class="movie__description" data-movie-id='${id}'>
     <div class="movie__poster-wrappaer">
       <img
-        src="${serverApi.baseSrc}${poster_path}"
+        src="${src}"
         alt="${title}"
         class="movie__poster"
        
