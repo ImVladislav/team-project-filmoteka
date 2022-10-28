@@ -1,10 +1,10 @@
 import Notiflix from 'notiflix';
 import { refs } from './utilitiesJS/refs';
-import { ServerApi } from './utilitiesJS/serverApi';
+import { serverApi } from './utilitiesJS/serverApi';
 import { murkupGalleryOnPageLoading } from './utilitiesJS/murkupGalleryOnPageLoading';
 import { clearPage } from './utilitiesJS/clearPage';
 
-const serverApi = new ServerApi();
+
 let searchQuery = ' ';
 refs.formRef.addEventListener('submit', onSubmitClick);
 
