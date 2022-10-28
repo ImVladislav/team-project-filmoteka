@@ -6,9 +6,9 @@ const serverApi = new ServerApi();
 export function murkupGalleryOnPageLoading(movies) {
   const moviesMurkup = movies
     .map(movie => {
-      const { original_title, poster_path } = movie;
+      const { original_title, poster_path, id } = movie;
       return `
-        <li class="film__item">
+        <li class="film__item" data-id="${id}">
         <img src="https://image.tmdb.org/t/p/w500${poster_path}" class="film__img" alt="${original_title}" />
         <p class="film__title">${original_title}</p>
         <p class="film__genre">Drama, Action | 2020</p>
