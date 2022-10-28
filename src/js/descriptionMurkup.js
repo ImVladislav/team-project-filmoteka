@@ -13,6 +13,26 @@ export const movieDescriptionMurkup = ({
   const genreList = [];
   genres.forEach(({ name }) => genreList.push(name));
 
+  let watched = '';
+  let findedWatched = false;
+
+  if (localStorage.getItem('watch')) {
+    watched = JSON.parse(localStorage.getItem('watch'));
+    findedWatched = watched.some(item => item.id === id);
+  }
+
+  let watchedTextBtn = findedWatched ? 'remove from watched' : 'add to watched';
+
+  let queue = '';
+  let findedQueue = false;
+
+  if (localStorage.getItem('queue')) {
+    queue = JSON.parse(localStorage.getItem('queue'));
+    findedQueue = queue.some(item => item.id === id);
+  }
+
+  let queueTextBtn = findedQueue ? 'remove from queue' : 'add to queue';
+
   return `
     <div class="movie__description" data-movie-id='${id}'>
     <div class="movie__poster-wrappaer">
@@ -42,8 +62,8 @@ export const movieDescriptionMurkup = ({
       <h4 class="about__title">About</h4>
       <p class="about__text">${overview}</p>
       <div class="btn__container">
-        <button type="button" class="modal__btn" data-add-watched>add to watched</button>
-        <button type="button" class="modal__btn" data-add-queue>add to queue</button>
+        <button type="button" class="modal__btn" data-add-watched>${watchedTextBtn}</button>
+        <button type="button" class="modal__btn" data-add-queue>${queueTextBtn}</button>
       </div>
     </div>
   </div>
