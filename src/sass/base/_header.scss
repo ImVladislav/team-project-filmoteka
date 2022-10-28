@@ -120,7 +120,11 @@
 
 .header__list-item {
   margin-right: 39px;
+  &:last-child {
+    margin-right: 0;
+  }
 }
+
 
 .header__list-link {
   position: relative;
@@ -137,17 +141,13 @@
 
   padding-top: 10px;
   padding-bottom: 10px;
-}
-
-.header__list-link:hover {
-  color: #ff6b08;
-}
-
-.header__list-link:focus {
-  color: #ff6b08;
-}
-
-.header__list-link-active:after {
+  &:hover {
+    color: #ff6b08;
+  }
+  &:focus {
+    color: #ff6b08;
+  }
+  &-active::after {
     content: '';
     position: absolute;
     left: 50%;
@@ -156,10 +156,7 @@
     background-color: red;
     width: 100%;
     height: 3px;
-}
-
-.header__list-item:last-child {
-  margin-right: 0;
+  }
 }
 
 .header__form {
