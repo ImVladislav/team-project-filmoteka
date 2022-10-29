@@ -20,7 +20,6 @@ async function onClickMovie(e) {
 
   const detailsMovie = await serverApi.getDetailsMovie(id);
 
-
   const movieMurkup = await movieDescriptionMurkup(detailsMovie);
 
   const moviePosterDescr = await moviePoster(detailsMovie);
@@ -28,10 +27,11 @@ async function onClickMovie(e) {
   await refs.movieDescription.insertAdjacentHTML('afterbegin', movieMurkup);
   await refs.moviePoster.insertAdjacentHTML('afterbegin', moviePosterDescr);
 
-  await refs.addWatched.addEventListener('click', () =>
-    onAddWatchClick(detailsMovie)
-  );
-  console.log(refs.movie.dataset);
+  await refs.addWatched.addEventListener('click', () => {
+    console.log(detailsMovie);
+    onAddWatchClick(detailsMovie);
+  });
+
   await refs.addQueue.addEventListener('click', () =>
     onAddQueueClick(detailsMovie)
   );
