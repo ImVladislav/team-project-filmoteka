@@ -2,12 +2,14 @@ import { refs } from './utilitiesJS/refs';
 import { posterСheck } from './utilitiesJS/posterCheck';
 import { onOpenModal } from './modal';
 import { serverApi } from './utilitiesJS/serverApi';
+
 import { movieDescriptionMurkup, createMessage } from './descriptionMurkup';
 import { create } from 'basiclightbox';
 
 refs.btnWathed.addEventListener('click', onBtnWatchedClick);
 
 function onBtnWatchedClick() {
+
   try {
     const watched = JSON.parse(localStorage.getItem('watch'));
     if (!watched) {
@@ -21,6 +23,7 @@ function onBtnWatchedClick() {
   } catch (error) {
     console.log(error.message);
   }
+
 }
 
 function murkupGalleryOnBtnWatched(movies) {
@@ -48,7 +51,6 @@ async function onClickMovie(e) {
   }
 
   onOpenModal();
-
   const id = e.target.parentElement.dataset.id;
 
   const detailsMovie = await serverApi.getDetailsMovie(id);

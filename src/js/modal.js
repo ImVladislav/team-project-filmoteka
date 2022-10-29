@@ -25,5 +25,6 @@ function onEscClick(evt) {
 function closeModal() {
   refs.overlay.classList.remove('visiable');
   refs.body.classList.remove('no-scroll');
-  refs.movieDescription.textContent = '';
+  refs.movieDescription.firstElementChild.textContent = '';
+  refs.moviePoster.firstElementChild.textContent = '';
 }
