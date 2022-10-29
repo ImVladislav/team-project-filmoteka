@@ -1,0 +1,38 @@
+html.dark {
+  color: #fff;
+  background: $color-bgn-dark;
+  fill: #ffffff;
+}
+.dark {
+  color: #fff;
+  background: $color-bgn-dark;
+}
+.footer.dark {
+  background: #191919;
+}
+
+.footer__container.dark {
+  color: #fff;
+  background: #191919;
+}
+.footer__link.dark {
+  color: #fff;
+  background: #191919;
+}
+
+.header__icon--sun {
+  fill: #fff;
+}
+
+.header__icon--moon {
+  fill: #fff;
+}
+
+.header__theme {
+  cursor: pointer;
+  text-align: center;
+  background: none;
+  margin: 0 auto;
+  display: flex;
+  border: none;
+}

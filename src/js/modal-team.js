@@ -1,4 +1,6 @@
 import { teamItems } from './utilitiesJS/team-items';
+import { refs } from './utilitiesJS/refs';
+
 import symbol from '../images/symbol-defs.svg';
 
 function createMarkup(teamItems) {
@@ -18,29 +20,33 @@ function createMarkup(teamItems) {
     .join('');
 }
 
-const refs = {
-  overlay: document.querySelector('.modal-team-overlay'),
-  content: document.querySelector('.modal-team-content'),
-  teams: document.querySelector('.js-team-modal'),
-  body: document.querySelector('body'),
-};
-
-refs.teams.addEventListener('click', onOpenModal);
-refs.overlay.addEventListener('click', onCloseModal);
+refs.team.addEventListener('click', onOpenModal);
+refs.overlayTeam.addEventListener('click', onCloseModal);
+refs.btnClose.addEventListener('click', closeModal);
 
 function onOpenModal(e) {
   e.preventDefault();
-  refs.overlay.classList.add('visiable');
+  refs.overlayTeam.classList.add('visiable');
   refs.body.classList.add('no-scroll');
   const markup = createMarkup(teamItems);
-  refs.content.innerHTML = markup;
-  window.addEventListener('keydown', onCloseModal);
+  refs.wrap.innerHTML = markup;
+  window.addEventListener('keydown', onEscClick);
 }
 
 function onCloseModal(e) {
-  if (e.target !== refs.content || e.code === 'Escape') {
-    refs.overlay.classList.remove('visiable');
-    refs.body.classList.remove('no-scroll');
-    window.removeEventListener('keydown', onCloseModal);
+  if (e.target === refs.overlayTeam) {
+    closeModal();
   }
+}
+
+function onEscClick(e) {
+  if (e.code === 'Escape') {
+    closeModal();
+    window.removeEventListener('keydown', onEscClick);
+  }
+}
+
+function closeModal() {
+  refs.overlayTeam.classList.remove('visiable');
+  refs.body.classList.remove('no-scroll');
 }
