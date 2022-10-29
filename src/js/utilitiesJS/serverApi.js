@@ -14,7 +14,7 @@ class ServerApi {
     const data = await axios({
       url: `${this.baseUrl}/trending/movie/week?${this.KEY}&page=${this.#page}`,
     });
-
+    
     return await data.data;
   }
 
@@ -24,6 +24,7 @@ class ServerApi {
         this.#page
       }&include_adult=false&query=${query}`,
     });
+    
     return await data.data;
   }
 
