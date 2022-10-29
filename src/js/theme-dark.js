@@ -27,6 +27,7 @@ function addDarkClass() {
       refs.contentTeam.classList.add('dark');
       refs.wrap.classList.add('dark');
       refs.btnClose.classList.add('dark');
+      refs.scollIcon.classList.add('dark');
     } else {
       refs.htmlDark.classList.remove('dark');
 
@@ -41,6 +42,7 @@ function addDarkClass() {
       refs.contentTeam.classList.remove('dark');
       refs.wrap.classList.remove('dark');
       refs.btnClose.classList.remove('dark');
+      refs.scollIcon.classList.remove('dark');
     }
   } catch (err) {}
 }
