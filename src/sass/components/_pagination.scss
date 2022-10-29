@@ -1,5 +1,7 @@
 .tui-page-btn {
-  display: inline-block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin-right: 16px;
   text-align: center;
   vertical-align: middle;
@@ -8,6 +10,9 @@
   color: #000;
   margin-top: 60px;
 }
+html.dark .tui-page-btn {
+  color: #fff;
+}
 
 .tui-is-selected {
   background-color: #ff6b08;
@@ -15,4 +20,9 @@
   height: 40px;
   color: #fff;
   border-radius: 5px;
+}
+.tui-pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

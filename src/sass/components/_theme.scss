@@ -1,38 +1,47 @@
-html.dark {
-  color: #fff;
-  background: $color-bgn-dark;
-  fill: #ffffff;
-}
 .dark {
   color: #fff;
   background: $color-bgn-dark;
+  fill: #ffffff;
+  stroke: #ffffff;
 }
+
 .footer.dark {
   background: #191919;
 }
 
 .footer__container.dark {
-  color: #fff;
-  background: #191919;
-}
-.footer__link.dark {
-  color: #fff;
   background: #191919;
 }
 
-.header__icon--sun {
-  fill: #fff;
-}
-
+.header__icon--sun,
 .header__icon--moon {
   fill: #fff;
+  &:hover,
+  &:focus {
+    fill: $color-accent;
+    stroke: $color-accent;
+  }
 }
 
 .header__theme {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header__theme-text,
+.header__theme-text.dark {
+  color: #fff;
+}
+.header__theme-btn {
   cursor: pointer;
   text-align: center;
   background: none;
-  margin: 0 auto;
+
   display: flex;
   border: none;
+}
+
+.scroll-top__icon.dark {
+  fill: #fff;
 }

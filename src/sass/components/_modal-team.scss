@@ -32,15 +32,16 @@
   box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.17);
   transform: translate(-50%, -50%);
 
-  @media screen and (min-width: 768px) {
-    width: 704px;
-    height: 552px;
+  @include tablet {
+    overflow-y: hidden;
+    width: 700px;
+    height: 500px;
 
-    padding: 40px 36px;
+    padding: 40px 12px;
   }
-  @media screen and (min-width: 1024px) {
-    width: 806px;
-    height: 558px;
+  @include desktop {
+    width: 1000px;
+    height: 600px;
 
     padding: 40px 12px;
   }
@@ -52,7 +53,7 @@
   background-color: transparent;
   padding: 0;
   cursor: pointer;
-  stroke-width: 3px;
+  stroke-width: 10px;
   stroke: #000000;
   transition: stroke 300ms $timing-function;
   &:hover,
@@ -60,12 +61,13 @@
     stroke: $color-accent;
   }
 }
+
 .modal-team-wrap {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 20px;
-  color: $color-text;
+  // color: $color-text;
 }
 .team-card {
   text-align: center;
@@ -78,11 +80,22 @@
 .team-image {
   border-radius: 15%;
   padding-bottom: 10px;
+  @include tablet {
+    width: 100px;
+    height: 100px;
+  }
+  @include desktop {
+    width: 150px;
+    height: 150px;
+  }
 }
 .team-name {
   font-size: 12px;
 
   padding-bottom: 5px;
+  @include desktop {
+    font-size: 18px;
+  }
 }
 .team-role {
   font-family: Roboto;
@@ -91,11 +104,23 @@
   font-weight: 700;
   line-height: 1.67;
   padding-bottom: 5px;
+  @include desktop {
+    font-size: 20px;
+    line-height: 1.4;
+  }
 }
 .team-git__icon {
-  transition: fill 300ms $timing-function;
+  transition: fill 300ms $timing-function, stroke 300ms $timing-function;
   &:hover,
   &:focus {
     fill: $color-accent;
   }
+}
+.modal-team-wrap.dark .team-git__icon {
+  fill: white;
+}
+.modal-team-wrap.dark .team-git__icon:hover,
+.modal-team-wrap.dark .team-git__icon:focus {
+  stroke: $color-accent;
+  fill: $color-accent;
 }
