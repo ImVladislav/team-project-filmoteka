@@ -9,12 +9,25 @@ import { onAddQueueClick, onAddWatchClick } from './addFavorites';
 
 import { clearPage } from './utilitiesJS/clearPage';
 
+
 refs.btnWathed.addEventListener('click', onBtnWatchedClick);
 
 function onBtnWatchedClick() {
-  clearPage();
-  const watched = JSON.parse(localStorage.getItem('watch'));
-  murkupGalleryOnBtnWatched(watched);
+
+  try {
+    const watched = JSON.parse(localStorage.getItem('watch'));
+    if (!watched) {
+      refs.mainList.classList.add('not-films');
+      refs.containerLib.insertAdjacentHTML('beforeend', createMessage());
+      refs.btnWathed.removeEventListener('click', onBtnWatchedClick);
+      return;
+    }
+
+    murkupGalleryOnBtnWatched(watched);
+  } catch (error) {
+    console.log(error.message);
+  }
+
 }
 
 function murkupGalleryOnBtnWatched(movies) {
