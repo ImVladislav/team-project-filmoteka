@@ -14,7 +14,7 @@ class ServerApi {
     const data = await axios({
       url: `${this.baseUrl}/trending/movie/week?${this.KEY}&page=${this.#page}`,
     });
-
+    
     return await data.data;
   }
 
