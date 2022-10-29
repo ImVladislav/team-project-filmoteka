@@ -31,7 +31,6 @@ function addDarkClass() {
     } else {
       refs.htmlDark.classList.remove('dark');
       refs.headerThemeText.textContent = 'Dark';
-
       refs.iconSunBgc.classList.add('visually-hidden');
       refs.iconMoonBgc.classList.remove('visually-hidden');
       refs.footer.classList.remove('dark');
