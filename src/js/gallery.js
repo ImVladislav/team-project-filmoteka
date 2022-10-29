@@ -36,3 +36,5 @@ async function onClickMovie(e) {
     onAddQueueClick(detailsMovie)
   );
 }
+
+
