@@ -18,12 +18,10 @@
 			<path fill="none" stroke="#fff" style="stroke: var(--color1, #fff)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6667" d="M22.667 9.333h6.667">
 			</path>
 		</symbol>
-		<symbol id="header_input_search_btn" viewBox="0 0 32 32">
-			<path fill="none" stroke="#fff" style="stroke: var(--color1, #fff)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6667" d="M14.667 25.333c5.891 0 10.667-4.776 10.667-10.667s-4.776-10.667-10.667-10.667c-5.891 0-10.667 4.776-10.667 10.667s4.776 10.667 10.667 10.667z">
-			</path>
-			<path fill="none" stroke="#fff" style="stroke: var(--color1, #fff)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6667" d="M28 28.001l-5.8-5.8">
-			</path>
-		</symbol>
+		
+		<symbol id="icon-search" viewBox="0 0 32 32">
+<path d="M31.597 29.708l-9.181-9.188c1.81-2.171 2.899-4.945 2.899-7.975 0-6.912-5.673-12.532-12.65-12.532s-12.664 5.627-12.664 12.539 5.673 12.532 12.65 12.532c2.964 0 5.692-1.017 7.857-2.715l9.214 9.214c0.538 0.538 1.338 0.538 1.876 0s0.538-1.338 0-1.876zM2.689 12.552c0-5.43 4.473-9.844 9.962-9.844s9.962 4.414 9.962 9.844-4.473 9.844-9.962 9.844-9.962-4.42-9.962-9.844z"></path>
+</symbol>
 		<symbol id="icon-heart" viewBox="0 0 32 32">
 			<path fill="#2a75e6" style="fill: var(--color1, #2a75e6)" d="M23.342 3c-0.003 0-0.006 0-0.009 0-3.204 0-5.976 1.846-7.312 4.532l-0.021 0.047c-1.357-2.733-4.13-4.579-7.333-4.579-0.003 0-0.006 0-0.010 0h0.001c-4.505 0-8.158 3.638-8.158 8.125 0 10.563 15.5 17.875 15.5 17.875s15.5-7.313 15.5-17.875c0-4.487-3.652-8.125-8.158-8.125z">
 			</path>
