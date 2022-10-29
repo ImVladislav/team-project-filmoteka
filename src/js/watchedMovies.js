@@ -3,10 +3,12 @@ import { posterСheck } from './utilitiesJS/posterCheck';
 import { onOpenModal } from './modal';
 import { serverApi } from './utilitiesJS/serverApi';
 import { movieDescriptionMurkup } from './descriptionMurkup';
+import { clearPage } from './utilitiesJS/clearPage';
 
 refs.btnWathed.addEventListener('click', onBtnWatchedClick);
 
 function onBtnWatchedClick() {
+  clearPage();
   const watched = JSON.parse(localStorage.getItem('watch'));
   murkupGalleryOnBtnWatched(watched);
 }
@@ -36,7 +38,6 @@ async function onClickMovie(e) {
   }
 
   onOpenModal();
-
   const id = e.target.parentElement.dataset.id;
 
   const detailsMovie = await serverApi.getDetailsMovie(id);
