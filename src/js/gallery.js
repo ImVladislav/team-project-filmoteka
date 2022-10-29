@@ -31,3 +31,5 @@ async function onClickMovie(e) {
     .querySelector('[data-add-queue]')
     .addEventListener('click', () => onAddQueueClick(detailsMovie));
 }
+
+
