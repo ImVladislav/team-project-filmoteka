@@ -1,6 +1,7 @@
 import { posterСheck } from './utilitiesJS/posterCheck';
 
 export const movieDescriptionMurkup = ({
+  id,
   title,
   original_title,
   popularity,
@@ -8,7 +9,11 @@ export const movieDescriptionMurkup = ({
   genres,
   vote_average,
   vote_count,
+  poster_path,
 }) => {
+  const src = posterСheck(poster_path);
+  const movieDescriptionId = document.querySelector('.movie__description');
+  movieDescriptionId.dataset.movieId = `${id}`;
   const genreList = [];
   genres.forEach(({ name }) => genreList.push(name));
 
@@ -40,27 +45,23 @@ export const movieDescriptionMurkup = ({
       </div>
       <h4 class="about__title">About</h4>
       <p class="about__text">${overview}</p>
-      <div class="btn__container">
-        <button type="button" class="modal__btn" data-add-watched>${watchedTextBtn}</button>
-        <button type="button" class="modal__btn" data-add-queue>${queueTextBtn}</button>
-      </div>
     </div>
   </div>
   `;
 };
 
-export const moviePoster = ({ poster_path, title }) => {
-  const src = posterСheck(poster_path);
-  return `
-  <div>
-  <div class="movie__poster-wrappaer">
-      <img
-        src="${src}"
-        alt="${title}"
-        class="movie__poster"       
-      />
-    </div></div>`;
-};
+// export const moviePoster = ({ poster_path, title }) => {
+//   const src = posterСheck(poster_path);
+//   return `
+//   <div>
+//   <div class="movie__poster-wrappaer">
+//       <img
+//         src="${src}"
+//         alt="${title}"
+//         class="movie__poster"       
+//       />
+//     </div></div>`;
+// };
 
 export function createMessage() {
   console.log('розмітка');
