@@ -16,6 +16,5 @@ export const onAddQueueClick = data => {
     storage = JSON.parse(localStorage.getItem('queue'));
 
   storage.push(data);
-  console.log(storage);
   localStorage.setItem('queue', JSON.stringify(storage));
 };
