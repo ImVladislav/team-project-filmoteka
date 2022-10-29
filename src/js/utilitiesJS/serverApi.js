@@ -34,6 +34,14 @@ class ServerApi {
     return await data.data;
   }
 
+    async getTrailer(id) {
+    const response = await fetch(
+      `https://api.themoviedb.org/3/movie/${id}/videos?api_key=7770a554235a470dd8487676c4d97407&language=en-US`
+    );
+    const data = await response.json();
+    return data;
+  };
+
   setPage(page) {
     this.#page = page;
   }

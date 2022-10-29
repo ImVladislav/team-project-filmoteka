@@ -19,4 +19,5 @@ export const refs = {
 
   btnWathed: document.querySelector('.js-watched'),
   btnQueue: document.querySelector('.js-queue'),
+  trailerBtn: document.querySelector('.btn-ytb'),
 };
