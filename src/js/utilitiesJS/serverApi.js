@@ -24,10 +24,7 @@ class ServerApi {
         this.#page
       }&include_adult=false&query=${query}`,
     });
-<<<<<<< Updated upstream
-=======
 
->>>>>>> Stashed changes
     return await data.data;
   }
 
@@ -38,22 +35,12 @@ class ServerApi {
     return await data.data;
   }
 
-<<<<<<< Updated upstream
-    async getTrailer(id) {
-    const response = await fetch(
-      `https://api.themoviedb.org/3/movie/${id}/videos?api_key=7770a554235a470dd8487676c4d97407&language=en-US`
-    );
-    const data = await response.json();
-    return data;
-  };
-=======
   async getTrailer(id) {
     const data = await axios({
       url: `${this.baseUrl}/movie/${id}?${this.KEY}&language=en-US`,
     });
     return await data;
   }
->>>>>>> Stashed changes
 
   setPage(page) {
     this.#page = page;
