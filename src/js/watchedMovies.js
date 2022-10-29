@@ -2,13 +2,25 @@ import { refs } from './utilitiesJS/refs';
 import { posterСheck } from './utilitiesJS/posterCheck';
 import { onOpenModal } from './modal';
 import { serverApi } from './utilitiesJS/serverApi';
-import { movieDescriptionMurkup } from './descriptionMurkup';
+import { movieDescriptionMurkup, createMessage } from './descriptionMurkup';
+import { create } from 'basiclightbox';
 
 refs.btnWathed.addEventListener('click', onBtnWatchedClick);
 
 function onBtnWatchedClick() {
-  const watched = JSON.parse(localStorage.getItem('watch'));
-  murkupGalleryOnBtnWatched(watched);
+  try {
+    const watched = JSON.parse(localStorage.getItem('watch'));
+    if (!watched) {
+      refs.mainList.classList.add('not-films');
+      refs.containerLib.insertAdjacentHTML('beforeend', createMessage());
+      refs.btnWathed.removeEventListener('click', onBtnWatchedClick);
+      return;
+    }
+
+    murkupGalleryOnBtnWatched(watched);
+  } catch (error) {
+    console.log(error.message);
+  }
 }
 
 function murkupGalleryOnBtnWatched(movies) {

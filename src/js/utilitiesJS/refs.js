@@ -13,6 +13,8 @@ export const refs = {
   overlayTeam: document.querySelector('.modal-team-overlay'),
   btnClose: document.querySelector('.modal-team__close-btn'),
 
+  mainList: document.querySelector('.main'),
+  containerLib: document.querySelector('.container-lib'),
   btnWathed: document.querySelector('.js-watched'),
   btnQueue: document.querySelector('.js-queue'),
 };
