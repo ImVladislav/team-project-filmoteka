@@ -18,12 +18,13 @@ pagination.on('beforeMove', async event => {
 export function murkupGalleryOnPageLoading(movies) {
   const moviesMurkup = movies
     .map(({ original_title, poster_path, id }) => {
+
       const src = posterСheck(poster_path);
 
       return `
         <li class="film__item" data-id="${id}">
         <img src="${src}" class="film__img" alt="${original_title}" />
-        <p class="film__title">${original_title}</p>
+        <p class="film__title">${title}</p>
         <p class="film__genre">Drama, Action | 2020</p>
       </li>`;
     })
@@ -34,6 +35,5 @@ export function murkupGalleryOnPageLoading(movies) {
 
 export async function murkupGallery(params) {
   const movies = await serverApi.getPopularMovie();
-
   murkupGalleryOnPageLoading(movies.results);
 }

@@ -1,0 +1,84 @@
+.modal-team-overlay {
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 500ms ease-in-out;
+
+  &.visiable {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.modal-team-content {
+  overflow-y: scroll;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  background-color: $color-footer;
+  color: $color-text;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: 0 auto;
+  width: 280px;
+  height: 90vh;
+
+  padding: 48px 20px 40px 20px;
+  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.17);
+  transform: translate(-50%, -50%);
+
+  @media screen and (min-width: 768px) {
+    width: 704px;
+    height: 552px;
+
+    padding: 40px 36px;
+  }
+  @media screen and (min-width: 1024px) {
+    width: 806px;
+    height: 558px;
+
+    padding: 40px 12px;
+  }
+}
+
+.team-card {
+  text-align: center;
+  border-radius: 30px;
+  transition: box-shadow 300ms $timing-function;
+  &:hover {
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.17);
+  }
+}
+.team-image {
+  border-radius: 15%;
+  padding-bottom: 10px;
+}
+.team-name {
+  font-size: 12px;
+
+  padding-bottom: 5px;
+}
+.team-role {
+  font-family: Roboto;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.67;
+  padding-bottom: 5px;
+}
+.team-git__icon {
+  fill: $color-text;
+  transition: fill 300ms $timing-function;
+  &:hover,
+  &:focus {
+    fill: $color-accent;
+  }
+}
