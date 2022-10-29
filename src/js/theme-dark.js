@@ -27,9 +27,9 @@ function addDarkClass() {
       refs.contentTeam.classList.add('dark');
       refs.wrap.classList.add('dark');
       refs.btnClose.classList.add('dark');
+      refs.btnClose.classList.add('tuiPageBtn');
     } else {
       refs.htmlDark.classList.remove('dark');
-
       refs.headerThemeText.textContent = 'Dark';
 
       refs.iconSunBgc.classList.add('visually-hidden');
@@ -41,6 +41,7 @@ function addDarkClass() {
       refs.contentTeam.classList.remove('dark');
       refs.wrap.classList.remove('dark');
       refs.btnClose.classList.remove('dark');
+      refs.btnClose.classList.remove('tuiPageBtn');
     }
   } catch (err) {}
 }
