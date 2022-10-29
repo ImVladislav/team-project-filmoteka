@@ -1,4 +1,4 @@
-import { posterСheck } from "./utilitiesJS/posterCheck";
+import { posterСheck } from './utilitiesJS/posterCheck';
 
 export const movieDescriptionMurkup = ({
   id,
@@ -11,7 +11,6 @@ export const movieDescriptionMurkup = ({
   vote_average,
   vote_count,
 }) => {
-
   const src = posterСheck(poster_path);
 
   const genreList = [];
@@ -72,6 +71,4 @@ export const movieDescriptionMurkup = ({
     </div>
   </div>
   `;
-
-  
 };
