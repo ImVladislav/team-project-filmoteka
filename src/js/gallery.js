@@ -1,11 +1,9 @@
 import { refs } from './utilitiesJS/refs';
 import { serverApi } from './utilitiesJS/serverApi';
 import { murkupGallery } from './utilitiesJS/murkupGalleryOnPageLoading';
-import { movieDescriptionMurkup } from './descriptionMurkup';
+import { movieDescriptionMurkup, moviePoster } from './descriptionMurkup';
 import { onOpenModal } from './modal';
 import { onAddQueueClick, onAddWatchClick } from './addFavorites';
-
-
 
 murkupGallery();
 
@@ -21,15 +19,20 @@ async function onClickMovie(e) {
   const id = e.target.parentElement.dataset.id;
 
   const detailsMovie = await serverApi.getDetailsMovie(id);
- 
+  console.log('onClickMovie : detailsMovie', detailsMovie);
+
   const movieMurkup = await movieDescriptionMurkup(detailsMovie);
 
-  refs.movieDescription.insertAdjacentHTML('beforeend', movieMurkup);
+  const moviePosterDescr = await moviePoster(detailsMovie);
 
-  document
-    .querySelector('[data-add-watched]')
-    .addEventListener('click', () => onAddWatchClick(detailsMovie));
-  document
-    .querySelector('[data-add-queue]')
-    .addEventListener('click', () => onAddQueueClick(detailsMovie));
+  await refs.movieDescription.insertAdjacentHTML('afterbegin', movieMurkup);
+  await refs.moviePoster.insertAdjacentHTML('afterbegin', moviePosterDescr);
+
+  await refs.addWatched.addEventListener('click', () =>
+    onAddWatchClick(detailsMovie)
+  );
+  console.log(refs.movie.dataset);
+  await refs.addQueue.addEventListener('click', () =>
+    onAddQueueClick(detailsMovie)
+  );
 }
