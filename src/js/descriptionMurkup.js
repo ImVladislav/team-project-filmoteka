@@ -21,6 +21,7 @@ export const movieDescriptionMurkup = ({
 
   if (localStorage.getItem('watch')) {
     watched = JSON.parse(localStorage.getItem('watch'));
+
     findedWatched = watched.some(item => item.id === id);
   }
 
