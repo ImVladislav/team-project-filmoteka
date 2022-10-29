@@ -29,4 +29,10 @@ export const refs = {
   darkBtn: document.querySelector('.header__theme-btn'),
   footer: document.querySelector('.footer'),
   footerContainer: document.querySelector('.footer__container'),
+
+  headerLib: document.querySelector('.header__theme--my-lib'),
+
+  scrollBtn: document.querySelector('.is-show'),
+  scollIcon: document.querySelector('.scroll-top__icon'),
+
 };
