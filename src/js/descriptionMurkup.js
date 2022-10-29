@@ -75,6 +75,5 @@ export const movieDescriptionMurkup = ({
 };
 
 export function createMessage() {
-  console.log('розмітка');
   return '<p class="js-empty-message">Ви ще не переглянули жодного фільму</p>';
 }
