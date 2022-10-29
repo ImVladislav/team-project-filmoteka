@@ -24,5 +24,5 @@ function murkupGalleryOnBtnQueued(movies) {
     })
     .join(``);
 
-  return refs.galleryLibrary.insertAdjacentHTML(`beforeend`, moviesMurkup);
+  return (refs.galleryLibrary.innerHTML = moviesMurkup);
 }
