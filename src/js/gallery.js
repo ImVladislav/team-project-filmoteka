@@ -19,7 +19,7 @@ async function onClickMovie(e) {
   const id = e.target.parentElement.dataset.id;
 
   const detailsMovie = await serverApi.getDetailsMovie(id);
-  console.log('onClickMovie : detailsMovie', detailsMovie);
+
 
   const movieMurkup = await movieDescriptionMurkup(detailsMovie);
 

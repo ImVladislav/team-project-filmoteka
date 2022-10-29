@@ -5,6 +5,7 @@ import { refs } from './utilitiesJS/refs';
 import { serverApi } from './utilitiesJS/serverApi';
 import { murkupGalleryOnPageLoading } from './utilitiesJS/murkupGalleryOnPageLoading';
 import { clearPage } from './utilitiesJS/clearPage';
+
 import { options } from './pagination';
 
 let searchQuery = ' ';
