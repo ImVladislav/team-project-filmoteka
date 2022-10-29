@@ -28,9 +28,11 @@ async function onClickMovie(e) {
   await refs.moviePoster.insertAdjacentHTML('afterbegin', moviePosterDescr);
 
   await refs.addWatched.addEventListener('click', () => {
+
     onAddWatchClick(detailsMovie);
   });
   console.log(refs.movie.dataset);
+
   await refs.addQueue.addEventListener('click', () =>
     onAddQueueClick(detailsMovie)
   );

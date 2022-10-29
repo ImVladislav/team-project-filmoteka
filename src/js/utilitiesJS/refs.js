@@ -21,4 +21,14 @@ export const refs = {
   containerLib: document.querySelector('.container-lib'),
   btnWathed: document.querySelector('.js-watched'),
   btnQueue: document.querySelector('.js-queue'),
+
+  htmlDark: document.querySelector('html'),
+  headerThemeText: document.querySelector('.header__theme-text'),
+  iconSunBgc: document.querySelector('.header__icon--sun'),
+  iconMoonBgc: document.querySelector('.header__icon--moon'),
+  darkBtn: document.querySelector('.header__theme-btn'),
+  footer: document.querySelector('.footer'),
+  footerContainer: document.querySelector('.footer__container'),
+  headerLib: document.querySelector('.header__theme--my-lib'),
+
 };

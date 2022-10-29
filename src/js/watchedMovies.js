@@ -1,10 +1,14 @@
 import { refs } from './utilitiesJS/refs';
 import { posterСheck } from './utilitiesJS/posterCheck';
 import { onOpenModal } from './modal';
+import { movieDescriptionMurkup, moviePoster } from './descriptionMurkup';
 import { serverApi } from './utilitiesJS/serverApi';
+import { movieDescriptionMurkup, moviePoster } from './descriptionMurkup';
+import { onOpenModal } from './modal';
+import { onAddQueueClick, onAddWatchClick } from './addFavorites';
 
-import { movieDescriptionMurkup, createMessage } from './descriptionMurkup';
-import { create } from 'basiclightbox';
+import { clearPage } from './utilitiesJS/clearPage';
+
 
 refs.btnWathed.addEventListener('click', onBtnWatchedClick);
 
@@ -40,7 +44,7 @@ function murkupGalleryOnBtnWatched(movies) {
     })
     .join(``);
 
-  return refs.galleryLibrary.insertAdjacentHTML(`beforeend`, moviesMurkup);
+  return (refs.galleryLibrary.innerHTML = moviesMurkup);
 }
 
 refs.galleryLibrary.addEventListener(`click`, onClickMovie);
@@ -57,12 +61,16 @@ async function onClickMovie(e) {
 
   const movieMurkup = await movieDescriptionMurkup(detailsMovie);
 
-  refs.movieDescription.insertAdjacentHTML('beforeend', movieMurkup);
+  const moviePosterDescr = await moviePoster(detailsMovie);
 
-  document
-    .querySelector('[data-add-watched]')
-    .addEventListener('click', () => onAddWatchClick(detailsMovie));
-  document
-    .querySelector('[data-add-queue]')
-    .addEventListener('click', () => onAddQueueClick(detailsMovie));
+  await refs.movieDescription.insertAdjacentHTML('afterbegin', movieMurkup);
+  await refs.moviePoster.insertAdjacentHTML('afterbegin', moviePosterDescr);
+
+  await refs.addWatched.addEventListener('click', () =>
+    onAddWatchClick(detailsMovie)
+  );
+
+  await refs.addQueue.addEventListener('click', () =>
+    onAddQueueClick(detailsMovie)
+  );
 }
