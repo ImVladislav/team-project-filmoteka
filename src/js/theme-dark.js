@@ -27,7 +27,9 @@ function addDarkClass() {
       refs.contentTeam.classList.add('dark');
       refs.wrap.classList.add('dark');
       refs.btnClose.classList.add('dark');
-      refs.btnClose.classList.add('tuiPageBtn');
+
+      refs.scollIcon.classList.add('dark');
+
     } else {
       refs.htmlDark.classList.remove('dark');
       refs.headerThemeText.textContent = 'Dark';
@@ -40,7 +42,8 @@ function addDarkClass() {
       refs.contentTeam.classList.remove('dark');
       refs.wrap.classList.remove('dark');
       refs.btnClose.classList.remove('dark');
-      refs.btnClose.classList.remove('tuiPageBtn');
+      refs.scollIcon.classList.remove('dark');
+
     }
   } catch (err) {}
 }
