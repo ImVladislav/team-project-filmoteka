@@ -1,8 +1,6 @@
 import { posterСheck } from './utilitiesJS/posterCheck';
 
 export const movieDescriptionMurkup = ({
-  id,
-  poster_path,
   title,
   original_title,
   popularity,
@@ -11,31 +9,8 @@ export const movieDescriptionMurkup = ({
   vote_average,
   vote_count,
 }) => {
-  const src = posterСheck(poster_path);
-
   const genreList = [];
   genres.forEach(({ name }) => genreList.push(name));
-
-  let watched = '';
-  let findedWatched = false;
-
-  if (localStorage.getItem('watch')) {
-    watched = JSON.parse(localStorage.getItem('watch'));
-
-    findedWatched = watched.some(item => item.id === id);
-  }
-
-  let watchedTextBtn = findedWatched ? 'remove from watched' : 'add to watched';
-
-  let queue = '';
-  let findedQueue = false;
-
-  if (localStorage.getItem('queue')) {
-    queue = JSON.parse(localStorage.getItem('queue'));
-    findedQueue = queue.some(item => item.id === id);
-  }
-
-  let queueTextBtn = findedQueue ? 'remove from queue' : 'add to queue';
 
   return `
     <div class="movie__description" data-movie-id='${id}'>
@@ -73,3 +48,21 @@ export const movieDescriptionMurkup = ({
   </div>
   `;
 };
+
+export const moviePoster = ({ poster_path, title }) => {
+  const src = posterСheck(poster_path);
+  return `
+  <div>
+  <div class="movie__poster-wrappaer">
+      <img
+        src="${src}"
+        alt="${title}"
+        class="movie__poster"       
+      />
+    </div></div>`;
+};
+
+export function createMessage() {
+  console.log('розмітка');
+  return '<p class="js-empty-message">Ви ще не переглянули жодного фільму</p>';
+}
