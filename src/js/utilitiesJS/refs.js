@@ -21,4 +21,5 @@ export const refs = {
   containerLib: document.querySelector('.container-lib'),
   btnWathed: document.querySelector('.js-watched'),
   btnQueue: document.querySelector('.js-queue'),
+  trailerBtn: document.querySelector('.btn-ytb'),
 };
