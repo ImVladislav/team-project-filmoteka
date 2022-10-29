@@ -17,7 +17,7 @@ pagination.on('beforeMove', async event => {
 
 export function murkupGalleryOnPageLoading(movies) {
   const moviesMurkup = movies
-    .map(({ original_title, poster_path, id }) => {
+    .map(({ original_title, title, poster_path, id }) => {
 
       const src = posterСheck(poster_path);
 
