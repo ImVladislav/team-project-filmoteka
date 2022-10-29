@@ -1,6 +1,7 @@
 import { posterСheck } from './utilitiesJS/posterCheck';
 
 export const movieDescriptionMurkup = ({
+  id,
   title,
   original_title,
   popularity,
