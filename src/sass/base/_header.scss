@@ -64,7 +64,7 @@
 
 .navigation {
   margin-bottom: 44px;
-  color: white;
+  color: $color-white;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -79,13 +79,13 @@
 .header__logo {
   display: flex;
   align-items: center;
-  color: white;
+  color: $color-white;
   gap: 10px;
 }
 
 .header__icon--first,
 .header__icon--second {
-  fill: #ffffff;
+  fill: $color-white;
 }
 
 .header__logo .header__icon--first,
@@ -114,6 +114,7 @@
 }
 
 .header__logo-text {
+  transition: color 300ms $timing-function;
   &:hover,
   &:focus {
     color: $color-accent;
@@ -171,13 +172,12 @@
   align-items: center;
   text-align: center;
   text-transform: uppercase;
-  color: #ffffff;
+  color: $color-white;
 
   padding-top: 10px;
   padding-bottom: 10px;
-  &:hover {
-    color: #ff6b08;
-  }
+  transition: color 300ms $timing-function;
+  &:hover,
   &:focus {
     color: #ff6b08;
   }

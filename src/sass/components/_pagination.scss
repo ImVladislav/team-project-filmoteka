@@ -7,18 +7,18 @@
   vertical-align: middle;
   font-weight: 500;
   font-size: 12px;
-  color: #000;
+  color: $color-main-text;
   margin-top: 60px;
 }
 html.dark .tui-page-btn {
-  color: #fff;
+  color: $color-white;
 }
 
 .tui-is-selected {
-  background-color: #ff6b08;
+  background-color: $color-accent;
   width: 40px;
   height: 40px;
-  color: #fff;
+  color: $color-white;
   border-radius: 5px;
 }
 .tui-pagination {
