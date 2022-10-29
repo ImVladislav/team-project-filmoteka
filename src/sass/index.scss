@@ -1,5 +1,6 @@
 @import './common';
 @import './utils/vars';
+@import './components/theme';
 @import './base/reset';
 @import './base/general';
 @import './utils/visually-hidden';
@@ -14,3 +15,5 @@
 @import './components/modal';
 @import './components/movieDescription';
 @import './components/modal-team';
+
+@import './components/theme';

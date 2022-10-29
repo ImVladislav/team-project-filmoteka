@@ -57,7 +57,7 @@
   padding-bottom: 92px;
   @media screen and (min-width: 768px) {
     padding-top: 40px;
-    padding-bottom: 80px;
+    padding-bottom: 20px;
   }
 }
 
@@ -125,7 +125,6 @@
   }
 }
 
-
 .header__list-link {
   position: relative;
   font-family: 'Roboto';
@@ -182,6 +181,7 @@
   border-bottom: 0.5px solid white;
   caret-color: white;
   color: white;
+  margin-bottom: 60;
 }
 
 .header__search {
