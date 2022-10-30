@@ -31,6 +31,11 @@ export const refs = {
   scrollBtn: document.querySelector('.is-show'),
   scollIcon: document.querySelector('.scroll-top__icon'),
 
+
+  spinner: document.querySelector('.js-spinner'),
+  load: document.querySelector('[data-load]'),
+  backdrop: document.querySelector('.backdrop'),
+
   openModalBtn: document.querySelector('[data-about-modal-open]'),
   modal: document.querySelector('[data-about-modal]'),
   registrationWrapper: document.querySelector('.registrationWrapper'),
@@ -40,4 +45,5 @@ export const refs = {
   changeFormLogin: document.querySelector('.login'),
   registerForm: document.querySelector('.register-form'),
   loginForm: document.querySelector('.login-form'),
+
 };
