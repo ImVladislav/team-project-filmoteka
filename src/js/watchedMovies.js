@@ -15,18 +15,16 @@ import {
   makeQueueTextContent,
   makeWatchTextContent,
 } from './utilitiesJS/modalBtnTextContent';
+import { createMessage } from './utilitiesJS/createEmptyLibMessage';
 
 refs.btnWathed.addEventListener('click', onBtnWatchedClick);
 
 function onBtnWatchedClick() {
   try {
     const watched = JSON.parse(localStorage.getItem('watch'));
-    options.totalItems = watched.length;
-    let start = 0;
-    let end = 20;
 
-    if (!watched.length) {
-      refs.mainList.classList.add('not-films');
+    if (!watched || watched.length === 0) {
+
       refs.containerLib.insertAdjacentHTML('beforeend', createMessage());
       refs.btnWathed.removeEventListener('click', onBtnWatchedClick);
       const item = document.querySelector('.tui-js');
