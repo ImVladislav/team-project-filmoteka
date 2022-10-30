@@ -69,7 +69,15 @@ async function onClickMovie(e) {
   const queueBtn = document.querySelector('[data-add-queue]');
   const closeModalBtn = document.querySelector('[data-modal-close]');
 
-  watchBtn.addEventListener('click', () => onAddWatchClick(detailsMovie));
-  queueBtn.addEventListener('click', () => onAddQueueClick(detailsMovie));
-  closeModalBtn.addEventListener('click', closeModal);
+  watchBtn.addEventListener('click', () => {
+    onAddWatchClick(detailsMovie);
+    const watched = JSON.parse(localStorage.getItem('watch'));
+    murkupGalleryOnBtnWatched(watched);
+  });
+  queueBtn.addEventListener('click', () => {
+    onAddQueueClick(detailsMovie);
+    const queued = JSON.parse(localStorage.getItem('queue'));
+    murkupGalleryOnBtnWatched(queued);
+  });
+  closeModalBtn.addEventListener('click', onCloseModalLib);
 }
