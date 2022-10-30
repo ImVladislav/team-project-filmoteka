@@ -5,21 +5,25 @@
   margin-bottom: 60px;
   font-weight: 500;
   font-size: 12px;
+
 }
 
 .tui-page-btn {
   display: inline-block;
   margin-right: 16px;
   color: #ff6b08;
+
 }
 
 
 .tui-is-selected {
+
   background-color: #ff6b08;
   padding-top: 13px;
+
   width: 40px;
   height: 40px;
-  color: #fff;
+  color: $color-white;
   border-radius: 5px;
 }
 

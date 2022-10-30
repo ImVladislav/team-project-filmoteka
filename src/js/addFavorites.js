@@ -6,15 +6,6 @@ export const onAddWatchClick = data => {
     storage = JSON.parse(localStorage.getItem('watch'));
   }
 
-  if (btn.textContent === 'remove from watched') {
-    localStorage.setItem(
-      'watch',
-      JSON.stringify(storage.filter(item => item.id !== data.id))
-    );
-    btn.textContent = 'add to watched';
-    return;
-  }
-
   storage.push(data);
   localStorage.setItem('watch', JSON.stringify(storage));
 

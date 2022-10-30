@@ -30,5 +30,4 @@ export const refs = {
 
   scrollBtn: document.querySelector('.is-show'),
   scollIcon: document.querySelector('.scroll-top__icon'),
-
 };
