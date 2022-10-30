@@ -7,14 +7,11 @@ import { options } from './pagination';
 import { murkupGalleryOnPageLoading } from './utilitiesJS/murkupGalleryOnPageLoading';
 import { options } from './pagination';
 
-import { spinnerPlay, spinnerStop } from './spinner';
-
 let searchQuery = ' ';
 refs.formRef.addEventListener('submit', onSubmitClick);
 
 async function onSubmitClick(event) {
   event.preventDefault();
-  spinnerPlay();
 
   const inputRef = document.querySelector('.header__form-input');
   inputRef.addEventListener('change', () => {
@@ -37,8 +34,6 @@ async function onSubmitClick(event) {
   }
 
   await murkupSearchMovie();
-
-  spinnerStop();
 
   const container = document.querySelector('.tui-pagination');
 
