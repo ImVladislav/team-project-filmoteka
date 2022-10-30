@@ -128,13 +128,17 @@
 
 .about__text {
   margin-bottom: 20px;
-  overflow-y: scroll;
-  height: 100px;
+ 
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 500;
   font-size: 12px;
   line-height: 1.67;
+  
+  @include tablet-close {
+      overflow-y: scroll;
+      height: 100px;
+    }
 
   @include tablet {
     width: 264px;
