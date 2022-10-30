@@ -32,6 +32,7 @@ class ServerApi {
     const data = await axios({
       url: `${this.baseUrl}/movie/${id}?${this.KEY}&language=en-US`,
     });
+
     return await data.data;
   }
 
