@@ -22,7 +22,7 @@ function onEscClick(evt) {
   }
 }
 
-function closeModal() {
+export function closeModal() {
   refs.overlay.classList.remove('visiable');
   refs.body.classList.remove('no-scroll');
   refs.movieDescription.textContent = '';
