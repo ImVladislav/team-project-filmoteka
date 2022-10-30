@@ -12,12 +12,17 @@ import {
 
 import { handleClick } from './treiler';
 
+import { spinnerPlay, spinnerStop } from './spinner';
+
 
 murkupGallery();
 
 refs.gallery.addEventListener(`click`, onClickMovie);
 
 async function onClickMovie(e) {
+
+  spinnerPlay();
+  
   if (e.target.parentElement.className !== 'film__item') {
     return;
   }
@@ -31,6 +36,9 @@ async function onClickMovie(e) {
   const movieMurkup = await movieDescriptionMurkup(detailsMovie);
 
   refs.movieDescription.insertAdjacentHTML('beforeend', movieMurkup);
+
+  spinnerStop();
+
   makeWatchTextContent(detailsMovie);
   makeQueueTextContent(detailsMovie);
 
