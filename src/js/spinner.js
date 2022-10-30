@@ -24,10 +24,6 @@ const opts = {
 
 const spinner = new Spinner(opts).spin(refs.spinner);
 
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
 export function spinnerPlay() {
   spinner.spin(refs.spinner);
   refs.load.classList.remove('is-hidden');
