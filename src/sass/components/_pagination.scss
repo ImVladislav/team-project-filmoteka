@@ -1,18 +1,26 @@
+.tui-pagination {
+  text-align: center;
+  margin-top: 60px;
+  margin-bottom: 60px;
+  font-weight: 500;
+  font-size: 12px;
+}
+
 .tui-page-btn {
   display: inline-block;
   margin-right: 16px;
-  text-align: center;
-  vertical-align: middle;
-  font-weight: 500;
-  font-size: 12px;
-  color: #000;
-  margin-top: 60px;
+  color: #ff6b08;
 }
 
 .tui-is-selected {
   background-color: #ff6b08;
+  padding-top: 13px;
   width: 40px;
   height: 40px;
   color: #fff;
   border-radius: 5px;
+}
+
+.tui-is-disabled {
+  color: #ccc;
 }
