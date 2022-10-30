@@ -12,6 +12,7 @@ import {
 
 import { handleClick } from './treiler';
 
+
 murkupGallery();
 
 refs.gallery.addEventListener(`click`, onClickMovie);

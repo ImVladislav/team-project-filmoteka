@@ -6,9 +6,13 @@ import { posterСheck } from './posterCheck';
 import { options } from '../pagination';
 import { genresArr } from './genres';
 
+import { spinnerPlay, spinnerStop } from '../spinner';
+
 const container = document.querySelector('.tui-pagination');
 
 const pagination = new Pagination(container, options);
+
+spinnerPlay();
 
 pagination.on('beforeMove', async event => {
   pagination.setTotalItems(serverApi.total_results);
@@ -72,4 +76,7 @@ export async function murkupGallery() {
   serverApi.setTotalResults(total_results);
 
   murkupGalleryOnPageLoading(movies.results);
+
+  spinnerStop();
+
 }
