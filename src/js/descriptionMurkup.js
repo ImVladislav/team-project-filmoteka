@@ -51,7 +51,7 @@ export const movieDescriptionMurkup = ({
       
     </div>
   </div>
-  <button type="button" class="btn-ytb youtube"><svg class="modal__close-icon icon-youtube" width="44" height="44">
+  <button type="button" class="btn-ytb youtube"><svg class="icon-youtube" width="44" height="44">
       <use href="${symbol}#icon-youtube"></use>
     </svg></button>
   <button type="button" class="modal__close" data-modal-close>
