@@ -10,10 +10,17 @@
 @import './base/main';
 @import './base/header';
 @import './base/headerMyLib';
+@import './base/mainMyLib';
 @import './base/footer';
 @import './components/modal';
 @import './components/movieDescription';
 @import './components/pagination';
 @import './components/modal-team';
 
+
+
 @import './components/theme';
+@import './components/scroll-top-btn';
+@import './components/spinner';
+@import './components/trailerModal';
+

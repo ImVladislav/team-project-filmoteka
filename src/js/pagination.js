@@ -8,7 +8,7 @@ export const options = {
   template: {
     page: '<a href="#" class="tui-page-btn">{{page}}</a>',
     currentPage:
-      '<strong class="tui-page-btn tui-is-selected">{{page}}</strong>',
+      '<a href="#" class="tui-page-btn tui-is-selected">{{page}}</a>',
     moveButton:
       '<a href="#" class="tui-page-btn tui-{{type}}">' +
       '<span class="tui-ico-{{type}}">{{type}}</span>' +

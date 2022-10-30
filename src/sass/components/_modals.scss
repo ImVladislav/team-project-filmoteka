@@ -29,7 +29,7 @@
     transform: scale(1.2);
   }
 
-  @media screen and (max-width: 767px) {
+  @include tablet-close {
     width: 400px;
   }
 }
@@ -37,7 +37,7 @@
 .modal-geo,
 .modal-franchise,
 .modal-about {
-height: fit-content;
+  height: fit-content;
 }
 
 .modal-about__frame {
@@ -202,6 +202,7 @@ height: fit-content;
   }
 
   @include mobile {
+
     &:hover,
     &:focus {
       font-size: 18px;
@@ -210,6 +211,7 @@ height: fit-content;
   }
 
   @include tablet {
+
     &:hover,
     &:focus {
       font-size: 18px;
@@ -233,8 +235,9 @@ height: fit-content;
 
 .submit-button.franchise {
   bottom: 2.5%;
+
   @include mobile {
-     bottom: 2.5%;
+    bottom: 2.5%;
   }
 }
 

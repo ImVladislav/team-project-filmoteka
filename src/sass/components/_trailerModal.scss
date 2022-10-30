@@ -1,0 +1,26 @@
+.lightbox__button {
+  position: absolute;
+  top: -30px;
+  right: -30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  border: 2px solid $color-main-text;
+  border-radius: 50px;
+}
+
+.player {
+  max-width: 560px;
+  max-height: 315px;
+
+  @include tablet {
+    width: 560px;
+    height: 315px;
+  }
+  @include desktop {
+    width: 840px;
+    height: 472px;
+  }
+}

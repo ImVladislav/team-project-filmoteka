@@ -1,0 +1,38 @@
+html {
+    scroll-behavior: smooth;
+}
+
+.scroll-top-btn {
+    cursor: pointer;
+    text-align: center;
+    background: none;
+    display: flex;
+    border: none;
+    position: fixed;
+    bottom: 70px;
+    right: 50px;
+    z-index: 1;
+}
+
+.scroll-top__icon {
+    display: block;
+    width: 32px;
+    height: 32px;
+    fill: $color-bgn-dark;
+  &:hover,
+  &:focus {
+    transition: 300ms;
+    fill: $color-accent;
+    stroke: $color-accent;
+  }
+}
+
+.is-show {
+    opacity: 1;
+    transition: 400ms;
+}
+
+.is-hidden {
+    visibility: hidden;
+    opacity: 0;
+}

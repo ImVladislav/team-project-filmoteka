@@ -1,24 +1,27 @@
 .movie__description {
-  @media screen and (min-width: 768px) {
+  position: relative;
+
+  @include tablet {
     display: flex;
   }
 }
 
 .movie__poster-wrappaer {
-  @media screen and (max-width: 767px) {
+  @include tablet-close {
     margin-bottom: 20px;
   }
 
-  @media screen and (min-width: 768px) {
+  @include tablet {
     margin-right: 68px;
     width: 264px;
   }
 
-  @media screen and (min-width: 1024px) {
+  @include tablet-plus {
     margin-right: 16px;
     width: 325px;
   }
 }
+
 
 .movie__poster {
   width: 240px;
@@ -37,6 +40,7 @@
 // .movie__container {
 // }
 
+
 .movie__title {
   margin-bottom: 20px;
 
@@ -46,8 +50,6 @@
   font-size: 20px;
   line-height: 1.15;
   text-transform: uppercase;
-
-  // color: #000000;
 
   @media screen and (min-width: 1024px) {
     font-size: 30px;
@@ -92,8 +94,6 @@
 
   display: flex;
   align-items: center;
-
-  // color: #000000;
 }
 
 .vote {
@@ -103,7 +103,7 @@
 .vote-accent {
   background-color: #ff6b01;
   border-radius: 5px;
-  color: #ffffff;
+  color: $color-white;
   display: inline-block;
   margin-right: 4px;
 }
@@ -118,8 +118,6 @@
   line-height: 1.333;
 
   text-transform: uppercase;
-
-  // color: #000000;
 }
 
 .about__text {
@@ -132,13 +130,11 @@
   font-size: 12px;
   line-height: 1.67;
 
-  // color: #000000;
-
-  @media screen and (min-width: 768px) {
+  @include tablet {
     width: 264px;
   }
 
-  @media screen and (min-width: 1024px) {
+  @include tablet-plus {
     width: 391px;
   }
 }
@@ -147,12 +143,12 @@
   display: flex;
   justify-content: space-between;
 
-  @media screen and (min-width: 768px) {
-    width: 264px;
+  @include tablet {
+    width: 300px;
   }
 
-  @media screen and (min-width: 1024px) {
-    width: 287px;
+  @include tablet-plus {
+    width: 400px;
   }
 }
 
@@ -163,9 +159,7 @@
   padding-bottom: 6px;
 
   border-radius: 5px;
-  border: 1px solid #000000;
-
-  //   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  border: 1px solid $color-main-text;
 
   font-family: 'Roboto';
   font-style: normal;
@@ -175,7 +169,7 @@
   text-align: center;
   text-transform: uppercase;
 
-  color: #000000;
+  color: $color-main-text;
 
   transition: all 250ms linear;
 
@@ -183,14 +177,77 @@
   &:focus {
     background: #ff6b01;
     border: 1px solid #ff6b01;
-    color: #ffffff;
+    color: $color-white;
   }
 
-  @media screen and (min-width: 768px) {
+  @include tablet {
     width: 125px;
   }
 
-  @media screen and (min-width: 1024px) {
+  @include tablet-plus {
     width: 136px;
   }
 }
+
+.modal__close {
+  position: absolute;
+  top: -40;
+  right: -13;
+  width: 30px;
+  height: 30px;
+
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background-color: transparent;
+  padding: 0;
+  cursor: pointer;
+  stroke-width: 3px;
+  stroke: $color-main-text;
+  transition: stroke 300ms $timing-function;
+
+  &:hover,
+  &:focus {
+    stroke: $color-accent;
+  }
+
+  @include tablet {
+    top: -30;
+    right: -28;
+  }
+
+  @include tablet-plus {
+    top: -25;
+    right: 0;
+  }
+
+}
+
+.youtube {
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  text-align: center;
+  transition: all 250ms linear;
+
+  &:hover,
+  &:focus {
+    background: transparent;
+    border: none;
+  }
+}
+.icon-youtube {
+  fill: red;
+  stroke: red;
+}
+
+.icon-youtube:hover,
+.icon-youtube:focus {
+  fill: $color-accent;
+  stroke: $color-accent;
+}
+

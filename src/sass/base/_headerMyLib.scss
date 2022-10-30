@@ -1,6 +1,8 @@
 .header-myLib {
+  max-height: 230px;
   margin-bottom: 20px;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url(/src/images/headerMyLib_background_mobile.jpg);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+    url(/src/images/headerMyLib_background_mobile.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-color: grey;
@@ -8,42 +10,57 @@
 
   @include retina {
     background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
-      url(/src/images/headerMyLib_background_mobile@x2.jpg)
+      url(/src/images/headerMyLib_background_mobile@x2.jpg);
   }
 
   @include retina3x {
     background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
-      url(/src/images/headerMyLib_background_mobile@x3.jpg)
+      url(/src/images/headerMyLib_background_mobile@x3.jpg);
   }
 
   @include tablet {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url(/src/images/headerMyLib_background_tablet.jpg);
+    max-height: 219px;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+      url(/src/images/headerMyLib_background_tablet.jpg);
 
     @include retina {
-      background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url(/src/images/headerMyLib_background_tablet@x2.jpg);
+      background-image: linear-gradient(rgba(0, 0, 0, 0.56),
+          rgba(0, 0, 0, 0.56)),
+        url(/src/images/headerMyLib_background_tablet@x2.jpg);
     }
 
     @include retina3x {
-      background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url(/src/images/headerMyLib_background_tablet@x3.jpg);
+      background-image: linear-gradient(rgba(0, 0, 0, 0.56),
+          rgba(0, 0, 0, 0.56)),
+        url(/src/images/headerMyLib_background_tablet@x3.jpg);
     }
   }
 
   @include desktop {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url(/src/images/headerMyLib_background.jpg);
+    max-height: 219px;
+    max-width: 2000px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+      url(/src/images/headerMyLib_background.jpg);
 
     @include retina {
-      background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url(/src/images/headerMyLib_background@x2.jpg);
+      background-image: linear-gradient(rgba(0, 0, 0, 0.56),
+          rgba(0, 0, 0, 0.56)),
+        url(/src/images/headerMyLib_background@x2.jpg);
     }
 
     @include retina3x {
-      background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url(/src/images/headerMyLib_background@x3.jpg);
+      background-image: linear-gradient(rgba(0, 0, 0, 0.56),
+          rgba(0, 0, 0, 0.56)),
+        url(/src/images/headerMyLib_background@x3.jpg);
     }
   }
 }
 
 .headerMylib__container {
   padding-top: 40px;
-  padding-bottom: 62px;
+  padding-bottom: 20px;
 
   @include desktop {
     padding-top: 40px;
@@ -52,8 +69,9 @@
 }
 
 .library__btns {
-  margin-top: 62px;
+  // margin-top: 62px;
   margin-right: -20px;
+  margin-bottom: 20px;
 
   display: flex;
   justify-content: center;
@@ -74,7 +92,7 @@
   display: block;
   text-align: center;
   font-size: 12px;
-  color: #ffffff;
+  color: $color-white;
   line-height: 1.33;
   font-weight: 500;
 
@@ -85,12 +103,13 @@
 
   width: 130px;
   height: 44px;
-  border: 1px solid #ffffff;
+  border: 1px solid $color-white;
   border-radius: 5px;
   background: none;
 
   margin-right: 20px;
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   @include tablet {
     width: 152px;
