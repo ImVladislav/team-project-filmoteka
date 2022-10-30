@@ -22,24 +22,23 @@
   }
 }
 
-
 .movie__poster {
   width: 240px;
   height: 357px;
-
+  margin-left: auto;
+  margin-right: auto;
   @include tablet {
     width: 264px;
     height: 373.55px;
   }
- @include desktop {
-  width: 375px;
-  height: 478px;
- }
+  @include desktop {
+    width: 375px;
+    height: 478px;
+  }
 }
 
 // .movie__container {
 // }
-
 
 .movie__title {
   margin-bottom: 20px;
@@ -50,6 +49,10 @@
   font-size: 20px;
   line-height: 1.15;
   text-transform: uppercase;
+
+  @include tablet-close {
+    text-align: center;
+  }
 
   @media screen and (min-width: 1024px) {
     font-size: 30px;
@@ -122,13 +125,17 @@
 
 .about__text {
   margin-bottom: 20px;
-  overflow-y: scroll;
-    height: 100px;
+
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 500;
   font-size: 12px;
   line-height: 1.67;
+
+  @include tablet-close {
+    overflow-y: scroll;
+    height: 100px;
+  }
 
   @include tablet {
     width: 264px;
@@ -153,7 +160,7 @@
 }
 
 .modal__btn {
-  width: 110px;
+  width: 130px;
   height: 44px;
   padding-top: 6px;
   padding-bottom: 6px;
@@ -181,11 +188,11 @@
   }
 
   @include tablet {
-    width: 125px;
+    width: 140px;
   }
 
   @include tablet-plus {
-    width: 136px;
+    width: 190px;
   }
 }
 
@@ -222,32 +229,51 @@
     top: -25;
     right: 0;
   }
-
+}
+.modal-content.dark .modal__close {
+  stroke: $color-white;
+  transition: fill 300ms $timing-function, stroke 300ms $timing-function;
+}
+.modal-content.dark .modal__close:hover,
+.modal-content.dark .modal__close:focus {
+  stroke: $color-accent;
 }
 
 .youtube {
-  width: 44px;
-  height: 44px;
-  padding: 0;
-  border: none;
-  background: transparent;
+  position: absolute;
+  top: 5px;
+  left: 25px;
+  width: 43px;
+  height: 30px;
   text-align: center;
-  transition: all 250ms linear;
+  background: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0;
+  transition: all 0.25s linear;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-  &:hover,
-  &:focus {
-    background: transparent;
-    border: none;
+  transition: all 250ms linear;
+  @include tablet {
+    left: 5px;
+  }
+  @include tablet-plus {
+    left: 36px;
+  }
+  @include desktop {
+    left: 6px;
   }
 }
 .icon-youtube {
-  fill: red;
-  stroke: red;
+  fill: #ff0000;
+  stroke: #ff0000;
+  transition: all 250ms linear;
 }
 
 .icon-youtube:hover,
 .icon-youtube:focus {
-  fill: $color-accent;
-  stroke: $color-accent;
+  fill: #b80000;
+  stroke: #b80000;
 }
-
