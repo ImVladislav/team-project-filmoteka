@@ -31,7 +31,7 @@ async function onClickMovie(e) {
 
     onAddWatchClick(detailsMovie);
   });
-  console.log(refs.movie.dataset);
+  // console.log(refs.movie.dataset);
 
   await refs.addQueue.addEventListener('click', () =>
     onAddQueueClick(detailsMovie)

@@ -36,11 +36,19 @@ class ServerApi {
   }
 
   async getTrailer(id) {
-    const data = await axios({
-      url: `${this.baseUrl}/movie/${id}?${this.KEY}&language=en-US`,
-    });
-    return await data;
+    const response = await fetch(
+      `https://api.themoviedb.org/3/movie/${id}/videos?api_key=7770a554235a470dd8487676c4d97407&language=en-US`
+    );
+    const data = await response.json();
+    return data;
   }
+  // async getTrailer(id) {
+  //   const data = await axios({
+  //     url: `${this.baseUrl}/movie/${id}/videos?${this.KEY}&language=en-US`,
+  //   });
+
+  //   return await data;
+  // }
 
   setPage(page) {
     this.#page = page;

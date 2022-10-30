@@ -8,7 +8,7 @@ const handleClick = async event => {
   const trailerId = movieDescriptionId.dataset.movieId;
 
   let trailerKey = '';
-  serverApi.getTrailer(trailerId).then(({ results }) => {
+  serverApi.getTrailer(trailerId).then(({results}) => {  
     results.map(element => {
       if (element.type === 'Trailer' && element.name === 'Official Trailer') {
         trailerKey = element.key;
