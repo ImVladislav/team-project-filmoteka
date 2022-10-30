@@ -79,5 +79,5 @@ async function onClickMovie(e) {
     const queued = JSON.parse(localStorage.getItem('queue'));
     murkupGalleryOnBtnWatched(queued);
   });
-  closeModalBtn.addEventListener('click', onCloseModalLib);
+  closeModalBtn.addEventListener('click', closeModal);
 }
