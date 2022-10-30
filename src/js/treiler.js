@@ -35,4 +35,4 @@ const handleClick = async event => {
   });
 };
 
-refs.trailerBtn.addEventListener('click', handleClick);
+// refs.trailerBtn.addEventListener('click', handleClick);
