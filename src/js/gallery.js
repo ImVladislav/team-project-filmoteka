@@ -1,6 +1,5 @@
 import { refs } from './utilitiesJS/refs';
 import { serverApi } from './utilitiesJS/serverApi';
-import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 import { murkupGallery } from './utilitiesJS/murkupGalleryOnPageLoading';
 import { movieDescriptionMurkup } from './descriptionMurkup';
@@ -45,8 +44,3 @@ async function onClickMovie(e) {
 
   closeModalBtn.addEventListener('click', closeModal);
 }
-
-let lightbox = new SimpleLightbox('.gallery a', {
-  captionDelay: 250,
-  captionsData: 'alt',
-});

@@ -6,7 +6,6 @@ import { options } from './pagination';
 
 import { murkupGalleryOnPageLoading } from './utilitiesJS/murkupGalleryOnPageLoading';
 import { options } from './pagination';
-import { clearPage } from './utilitiesJS/clearPage';
 
 let searchQuery = ' ';
 refs.formRef.addEventListener('submit', onSubmitClick);
@@ -31,9 +30,7 @@ async function onSubmitClick(event) {
     return;
   }
 
-
   await murkupSearchMovie();
-
 
   const container = document.querySelector('.tui-pagination');
 
