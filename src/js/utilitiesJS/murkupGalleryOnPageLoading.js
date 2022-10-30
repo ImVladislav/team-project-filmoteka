@@ -4,14 +4,19 @@ import { refs } from './refs';
 import { serverApi } from './serverApi';
 import { posterСheck } from './posterCheck';
 import { options } from '../pagination';
+<<<<<<< Updated upstream
 import { genres } from './genres';
+=======
+import { genresArr } from './genres';
+import { spinnerPlay, spinnerStop } from '../spinner';
+>>>>>>> Stashed changes
 
 const container = document.querySelector('.tui-pagination');
 
 const pagination = new Pagination(container, options);
 
 pagination.on('beforeMove', async event => {
-  pagination.setTotalItems(serverApi.total_results);
+  pagination.setTotalItems(serverApi.totalResults);
   const currentPage = event.page;
   serverApi.setPage(currentPage);
   murkupGallery();
@@ -55,6 +60,17 @@ export function murkupGalleryOnPageLoading(movies) {
        
       return `
 
+<<<<<<< Updated upstream
+=======
+        // проверка на дату релиза
+        if (release_date === '') {
+          releaseDate = 'Release data no found';
+        } else {
+          releaseDate = release_date.slice(0, 4);
+        }
+
+        return `
+>>>>>>> Stashed changes
         <li class="film__item" data-id="${id}">
         <img src="${src}" class="film__img" alt="${original_title}" />
         <p class="film__title">${title}</p>
@@ -74,8 +90,14 @@ export async function murkupGallery() {
   const total_results = movies.total_results;
   serverApi.setTotalResults(total_results);
 
+<<<<<<< Updated upstream
 
   murkupGalleryOnPageLoading(movies.results);
  
+=======
+  murkupGalleryOnPageLoading(movies.results);
+
+  spinnerStop();
+>>>>>>> Stashed changes
 }
 

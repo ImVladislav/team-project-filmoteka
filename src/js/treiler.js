@@ -1,9 +1,9 @@
 import * as basicLightbox from 'basiclightbox';
-import { refs } from './utilitiesJS/refs';
 
+import { refs } from './utilitiesJS/refs';
 import { serverApi } from './utilitiesJS/serverApi';
 
-export const  handleClick = async event => {
+export const handleClick = async event => {
   const movieDescriptionId = document.querySelector('.movie__description');
   const trailerId = movieDescriptionId.dataset.movieId;
 

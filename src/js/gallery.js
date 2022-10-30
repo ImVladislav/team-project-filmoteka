@@ -1,3 +1,5 @@
+import 'simplelightbox/dist/simple-lightbox.min.css';
+
 import { refs } from './utilitiesJS/refs';
 import { serverApi } from './utilitiesJS/serverApi';
 import { murkupGallery } from './utilitiesJS/murkupGalleryOnPageLoading';
@@ -8,8 +10,7 @@ import {
   makeQueueTextContent,
   makeWatchTextContent,
 } from './utilitiesJS/modalBtnTextContent';
-
-import {handleClick} from './treiler';
+import { handleClick } from './treiler';
 
 murkupGallery();
 
@@ -35,7 +36,7 @@ async function onClickMovie(e) {
   const watchBtn = document.querySelector('[data-add-watched]');
   const queueBtn = document.querySelector('[data-add-queue]');
   const closeModalBtn = document.querySelector('[data-modal-close]');
-  const trailerBtn = document.querySelector('.btn-ytb')
+  const trailerBtn = document.querySelector('.btn-ytb');
 
   watchBtn.addEventListener('click', () => onAddWatchClick(detailsMovie));
   queueBtn.addEventListener('click', () => onAddQueueClick(detailsMovie));
