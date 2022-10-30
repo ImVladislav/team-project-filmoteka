@@ -5,6 +5,7 @@ import { movieDescriptionMurkup, moviePoster } from './descriptionMurkup';
 import { onOpenModal } from './modal';
 import { onAddQueueClick, onAddWatchClick } from './addFavorites';
 
+
 murkupGallery();
 
 refs.gallery.addEventListener(`click`, onClickMovie);

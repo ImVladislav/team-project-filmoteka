@@ -9,13 +9,10 @@ import { onAddQueueClick, onAddWatchClick } from './addFavorites';
 
 import { clearPage } from './utilitiesJS/clearPage';
 
-import { spinnerPlay, spinnerStop } from './spinner';
-
 
 refs.btnWathed.addEventListener('click', onBtnWatchedClick);
 
 function onBtnWatchedClick() {
-  spinnerPlay();
 
   try {
     const watched = JSON.parse(localStorage.getItem('watch'));
