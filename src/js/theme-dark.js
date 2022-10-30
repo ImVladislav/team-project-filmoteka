@@ -30,6 +30,9 @@ function addDarkClass() {
 
       refs.scollIcon.classList.add('dark');
 
+      refs.registerForm.classList.add('dark');
+      refs.loginForm.classList.add('dark')
+
     } else {
       refs.htmlDark.classList.remove('dark');
       refs.headerThemeText.textContent = 'Dark';
@@ -43,6 +46,9 @@ function addDarkClass() {
       refs.wrap.classList.remove('dark');
       refs.btnClose.classList.remove('dark');
       refs.scollIcon.classList.remove('dark');
+
+      refs.registerForm.classList.remove('dark');
+      refs.loginForm.classList.remove('dark')
 
     }
   } catch (err) {}
