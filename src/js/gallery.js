@@ -16,9 +16,9 @@ async function onClickMovie(e) {
 
   onOpenModal();
 
-  const id = e.target.parentElement.dataset.id;
+  let id = e.target.parentElement.dataset.id;
 
-  const detailsMovie = await serverApi.getDetailsMovie(id);
+  let detailsMovie = await serverApi.getDetailsMovie(id);
 
   const movieMurkup = await movieDescriptionMurkup(detailsMovie);
 
@@ -28,12 +28,19 @@ async function onClickMovie(e) {
   await refs.moviePoster.insertAdjacentHTML('afterbegin', moviePosterDescr);
 
   await refs.addWatched.addEventListener('click', () => {
+    if (detailsMovie === '') {
+      return;
+    }
 
     onAddWatchClick(detailsMovie);
+    detailsMovie = '';
   });
-  console.log(refs.movie.dataset);
 
-  await refs.addQueue.addEventListener('click', () =>
-    onAddQueueClick(detailsMovie)
-  );
+  await refs.addQueue.addEventListener('click', () => {
+    if (detailsMovie === '') {
+      return;
+    }
+    onAddQueueClick(detailsMovie);
+    detailsMovie = '';
+  });
 }

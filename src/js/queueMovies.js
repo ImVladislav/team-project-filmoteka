@@ -5,7 +5,7 @@ import { clearPage } from './utilitiesJS/clearPage';
 refs.btnQueue.addEventListener('click', onBtnQueueClick);
 
 function onBtnQueueClick() {
-  clearPage();
+  // clearPage();
   const queue = JSON.parse(localStorage.getItem('queue'));
   murkupGalleryOnBtnQueued(queue);
 }
