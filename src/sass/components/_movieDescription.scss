@@ -1,22 +1,22 @@
 .movie__description {
   position: relative;
 
-  @media screen and (min-width: 768px) {
+  @include tablet {
     display: flex;
   }
 }
 
 .movie__poster-wrappaer {
-  @media screen and (max-width: 767px) {
+  @include tablet-close {
     margin-bottom: 20px;
   }
 
-  @media screen and (min-width: 768px) {
+  @include tablet {
     margin-right: 68px;
     width: 264px;
   }
 
-  @media screen and (min-width: 1024px) {
+  @include tablet-plus {
     margin-right: 16px;
     width: 325px;
   }
@@ -110,11 +110,11 @@
   font-size: 12px;
   line-height: 1.67;
 
-  @media screen and (min-width: 768px) {
+  @include tablet {
     width: 264px;
   }
 
-  @media screen and (min-width: 1024px) {
+  @include tablet-plus {
     width: 391px;
   }
 }
@@ -123,11 +123,11 @@
   display: flex;
   justify-content: space-between;
 
-  @media screen and (min-width: 768px) {
+  @include tablet {
     width: 300px;
   }
 
-  @media screen and (min-width: 1024px) {
+  @include tablet-plus {
     width: 400px;
   }
 }
@@ -160,11 +160,11 @@
     color: $color-white;
   }
 
-  @media screen and (min-width: 768px) {
+  @include tablet {
     width: 125px;
   }
 
-  @media screen and (min-width: 1024px) {
+  @include tablet-plus {
     width: 136px;
   }
 }
@@ -187,17 +187,18 @@
   stroke-width: 3px;
   stroke: #000000;
   transition: stroke 300ms $timing-function;
+
   &:hover,
   &:focus {
     stroke: $color-accent;
   }
 
-  @media screen and (min-width: 768px) {
+  @include tablet {
     top: -30;
     right: -28;
   }
 
-  @media screen and (min-width: 1024px) {
+  @include tablet-plus {
     top: -25;
     right: 0;
   }
