@@ -34,5 +34,4 @@ export const refs = {
   load: document.querySelector('[data-load]'),
   backdrop: document.querySelector('.backdrop'),
 
-
 };
