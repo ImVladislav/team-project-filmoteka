@@ -29,4 +29,10 @@ export const refs = {
   headerLib: document.querySelector('.header__theme--my-lib'),
   scrollBtn: document.querySelector('.is-show'),
   scollIcon: document.querySelector('.scroll-top__icon'),
+
+  spinner: document.querySelector('.js-spinner'),
+  load: document.querySelector('[data-load]'),
+  backdrop: document.querySelector('.backdrop'),
+
+
 };
