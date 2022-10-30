@@ -1,9 +1,9 @@
 import { refs } from './utilitiesJS/refs';
 import { posterСheck } from './utilitiesJS/posterCheck';
 import { onOpenModal } from './modal';
-import { movieDescriptionMurkup, moviePoster } from './descriptionMurkup';
+import { movieDescriptionMurkup, posterСheck } from './descriptionMurkup';
 import { serverApi } from './utilitiesJS/serverApi';
-import { movieDescriptionMurkup, moviePoster } from './descriptionMurkup';
+import { movieDescriptionMurkup, posterСheck } from './descriptionMurkup';
 import { onOpenModal } from './modal';
 import { onAddQueueClick, onAddWatchClick } from './addFavorites';
 
