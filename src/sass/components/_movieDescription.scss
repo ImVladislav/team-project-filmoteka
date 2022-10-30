@@ -202,6 +202,14 @@
     right: 0;
   }
 }
+.modal-content.dark .modal__close {
+  stroke: $color-white;
+  transition: fill 300ms $timing-function, stroke 300ms $timing-function;
+}
+.modal-content.dark .modal__close:hover,
+.modal-content.dark .modal__close:focus {
+  stroke: $color-accent;
+}
 
 .youtube {
   width: 44px;
