@@ -19,6 +19,7 @@ html {
   width: 32px;
   height: 32px;
   fill: $color-main-text;
+  stroke: $color-main-text;
   &:hover,
   &:focus {
     transition: 300ms;
