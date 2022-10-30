@@ -6,9 +6,13 @@ import { posterСheck } from './posterCheck';
 import { options } from '../pagination';
 import { genresArr } from './genres';
 
+import { spinnerPlay, spinnerStop } from '../spinner';
+
 const container = document.querySelector('.tui-pagination');
 
 const pagination = new Pagination(container, options);
+
+spinnerPlay();
 
 pagination.on('beforeMove', async event => {
   pagination.setTotalItems(serverApi.total_results);
@@ -28,6 +32,7 @@ export function murkupGalleryOnPageLoading(movies) {
         let releaseDate = null;
 
         // проверка на жанры фильмов
+
         const genresMovies = genresArr.reduce((acc, genre) => {
           if (genre_ids.includes(genre.id)) {
             acc.push(genre.name);
@@ -50,9 +55,8 @@ export function murkupGalleryOnPageLoading(movies) {
         } else {
           releaseDate = release_date.slice(0, 4);
         }
-
+        
         return `
-
         <li class="film__item" data-id="${id}">
         <img src="${src}" class="film__img" alt="${original_title}" />
         <p class="film__title">${title}</p>
@@ -72,4 +76,7 @@ export async function murkupGallery() {
   serverApi.setTotalResults(total_results);
 
   murkupGalleryOnPageLoading(movies.results);
+
+  spinnerStop();
+
 }

@@ -3,11 +3,16 @@ import { refs } from './utilitiesJS/refs';
 
 import { serverApi } from './utilitiesJS/serverApi';
 
-export const  handleClick = async event => {
+import { spinnerPlay, spinnerStop } from './spinner';
+
+export const handleClick = async event => {
   const movieDescriptionId = document.querySelector('.movie__description');
   const trailerId = movieDescriptionId.dataset.movieId;
 
   let trailerKey = '';
+
+  spinnerPlay();
+
   serverApi.getTrailer(trailerId).then(({ results }) => {
     results.map(element => {
       if (element.type === 'Trailer' && element.name === 'Official Trailer') {
@@ -27,6 +32,8 @@ export const  handleClick = async event => {
  
 `);
 
+spinnerStop();
+
     instance.show();
     const modalCloseBtn = document.querySelector(
       '[data-action="close-lightbox"]'
@@ -35,4 +42,4 @@ export const  handleClick = async event => {
   });
 };
 
-
+// refs.trailerBtn.addEventListener('click', handleClick);
