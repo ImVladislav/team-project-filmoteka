@@ -1,19 +1,20 @@
 import { refs } from './utilitiesJS/refs';
 import { posterСheck } from './utilitiesJS/posterCheck';
 import { onOpenModal } from './modal';
-import { movieDescriptionMurkup, moviePoster } from './descriptionMurkup';
+import { movieDescriptionMurkup } from './descriptionMurkup';
 import { serverApi } from './utilitiesJS/serverApi';
-import { movieDescriptionMurkup, moviePoster } from './descriptionMurkup';
+import { movieDescriptionMurkup } from './descriptionMurkup';
 import { onOpenModal } from './modal';
 import { onAddQueueClick, onAddWatchClick } from './addFavorites';
-
-import { clearPage } from './utilitiesJS/clearPage';
-
+import { closeModal, onOpenModal } from './modal';
+import {
+  makeQueueTextContent,
+  makeWatchTextContent,
+} from './utilitiesJS/modalBtnTextContent';
 
 refs.btnWathed.addEventListener('click', onBtnWatchedClick);
 
 function onBtnWatchedClick() {
-
   try {
     const watched = JSON.parse(localStorage.getItem('watch'));
     if (!watched) {
@@ -27,7 +28,6 @@ function onBtnWatchedClick() {
   } catch (error) {
     console.log(error.message);
   }
-
 }
 
 function murkupGalleryOnBtnWatched(movies) {
@@ -61,16 +61,15 @@ async function onClickMovie(e) {
 
   const movieMurkup = await movieDescriptionMurkup(detailsMovie);
 
-  const moviePosterDescr = await moviePoster(detailsMovie);
+  refs.movieDescription.insertAdjacentHTML('beforeend', movieMurkup);
+  makeWatchTextContent(detailsMovie);
+  makeQueueTextContent(detailsMovie);
 
-  await refs.movieDescription.insertAdjacentHTML('afterbegin', movieMurkup);
-  await refs.moviePoster.insertAdjacentHTML('afterbegin', moviePosterDescr);
+  const watchBtn = document.querySelector('[data-add-watched]');
+  const queueBtn = document.querySelector('[data-add-queue]');
+  const closeModalBtn = document.querySelector('[data-modal-close]');
 
-  await refs.addWatched.addEventListener('click', () =>
-    onAddWatchClick(detailsMovie)
-  );
-
-  await refs.addQueue.addEventListener('click', () =>
-    onAddQueueClick(detailsMovie)
-  );
+  watchBtn.addEventListener('click', () => onAddWatchClick(detailsMovie));
+  queueBtn.addEventListener('click', () => onAddQueueClick(detailsMovie));
+  closeModalBtn.addEventListener('click', closeModal);
 }

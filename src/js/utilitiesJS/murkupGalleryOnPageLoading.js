@@ -11,6 +11,7 @@ const container = document.querySelector('.tui-pagination');
 const pagination = new Pagination(container, options);
 
 pagination.on('beforeMove', async event => {
+  pagination.setTotalItems(serverApi.total_results);
   const currentPage = event.page;
   serverApi.setPage(currentPage);
   murkupGallery();
@@ -18,6 +19,7 @@ pagination.on('beforeMove', async event => {
 
 export function murkupGalleryOnPageLoading(movies) {
   const moviesMurkup = movies
+
     .map(({ original_title, title, poster_path, id, genre_ids, release_date }) => {
       
       const src = posterСheck(poster_path);
@@ -52,12 +54,14 @@ export function murkupGalleryOnPageLoading(movies) {
       }
        
       return `
+
         <li class="film__item" data-id="${id}">
         <img src="${src}" class="film__img" alt="${original_title}" />
         <p class="film__title">${title}</p>
         <p class="film__genre">${genresMovie.join(`, `)} | ${releaseDate}</p>
       </li>`;
-    })
+      }
+    )
     .join(``);
 
   return (refs.gallery.innerHTML = moviesMurkup);
@@ -65,7 +69,12 @@ export function murkupGalleryOnPageLoading(movies) {
 
 export async function murkupGallery() {
   const movies = await serverApi.getPopularMovie();
-  
+
+
+  const total_results = movies.total_results;
+  serverApi.setTotalResults(total_results);
+
+
   murkupGalleryOnPageLoading(movies.results);
  
 }

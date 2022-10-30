@@ -5,11 +5,7 @@ export const refs = {
   gallery: document.querySelector(`.gallery`),
   galleryLibrary: document.querySelector(`.gallery-library`),
   formRef: document.querySelector('.header__form'),
-  moviePoster: document.querySelector('.movie__description'),
-  movieDescription: document.querySelector('.movie__container'),
-  addWatched: document.querySelector('[data-add-watched]'),
-  addQueue: document.querySelector('[data-add-queue]'),
-  movie: document.querySelector('[data-movie-id]'),
+  movieDescription: document.querySelector('[data-movie-description]'),
 
   team: document.querySelector('.js-team-modal'),
   wrap: document.querySelector('.modal-team-wrap'),
@@ -34,5 +30,7 @@ export const refs = {
 
   scrollBtn: document.querySelector('.is-show'),
   scollIcon: document.querySelector('.scroll-top__icon'),
+
   trailerBtn: document.querySelector('.btn-ytb'),
+
 };
