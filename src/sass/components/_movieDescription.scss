@@ -22,6 +22,25 @@
   }
 }
 
+
+.movie__poster {
+  width: 240px;
+  height: 357px;
+
+  @include tablet {
+    width: 264px;
+    height: 373.55px;
+  }
+ @include desktop {
+  width: 375px;
+  height: 478px;
+ }
+}
+
+// .movie__container {
+// }
+
+
 .movie__title {
   margin-bottom: 20px;
 
@@ -40,7 +59,7 @@
 .description__container {
   display: flex;
   margin-bottom: 20px;
-  height: 88px;
+  // height: 88px;
 }
 
 .description__title-wrapper {
@@ -103,7 +122,8 @@
 
 .about__text {
   margin-bottom: 20px;
-
+  overflow-y: scroll;
+    height: 100px;
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 500;
