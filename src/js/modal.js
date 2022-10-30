@@ -1,5 +1,6 @@
 import { refs } from './utilitiesJS/refs';
 
+
 refs.overlay.addEventListener('click', onCloseModal);
 
 export function onOpenModal() {
@@ -7,6 +8,7 @@ export function onOpenModal() {
   refs.body.classList.add('no-scroll');
 
   window.addEventListener('keydown', onEscClick);
+
 }
 
 export function onCloseModal(e) {

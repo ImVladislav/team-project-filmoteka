@@ -3,7 +3,7 @@ import { refs } from './utilitiesJS/refs';
 
 import { serverApi } from './utilitiesJS/serverApi';
 
-const handleClick = async event => {
+export const  handleClick = async event => {
   const movieDescriptionId = document.querySelector('.movie__description');
   const trailerId = movieDescriptionId.dataset.movieId;
 
@@ -35,4 +35,4 @@ const handleClick = async event => {
   });
 };
 
-refs.trailerBtn.addEventListener('click', handleClick);
+
