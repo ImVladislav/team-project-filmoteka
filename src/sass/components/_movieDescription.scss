@@ -1,4 +1,6 @@
 .movie__description {
+  position: relative;
+
   @media screen and (min-width: 768px) {
     display: flex;
   }
@@ -19,13 +21,6 @@
     width: 325px;
   }
 }
-
-.movie__poster {
-  height: 380px;
-}
-
-// .movie__container {
-// }
 
 .movie__title {
   margin-bottom: 20px;
@@ -146,8 +141,6 @@
   border-radius: 5px;
   border: 1px solid $color-main-text;
 
-  //   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 500;
@@ -173,5 +166,39 @@
 
   @media screen and (min-width: 1024px) {
     width: 136px;
+  }
+}
+
+.modal__close {
+  position: absolute;
+  top: -40;
+  right: -13;
+  width: 30px;
+  height: 30px;
+
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background-color: transparent;
+  padding: 0;
+  cursor: pointer;
+  stroke-width: 3px;
+  stroke: #000000;
+  transition: stroke 300ms $timing-function;
+  &:hover,
+  &:focus {
+    stroke: $color-accent;
+  }
+
+  @media screen and (min-width: 768px) {
+    top: -30;
+    right: -28;
+  }
+
+  @media screen and (min-width: 1024px) {
+    top: -25;
+    right: 0;
   }
 }

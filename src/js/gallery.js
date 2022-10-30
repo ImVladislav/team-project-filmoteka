@@ -2,7 +2,7 @@ import { refs } from './utilitiesJS/refs';
 import { serverApi } from './utilitiesJS/serverApi';
 import { murkupGallery } from './utilitiesJS/murkupGalleryOnPageLoading';
 import { movieDescriptionMurkup } from './descriptionMurkup';
-import { onOpenModal } from './modal';
+import { closeModal, onOpenModal } from './modal';
 import { onAddQueueClick, onAddWatchClick } from './addFavorites';
 import {
   makeQueueTextContent,
@@ -20,9 +20,9 @@ async function onClickMovie(e) {
 
   onOpenModal();
 
-  let id = e.target.parentElement.dataset.id;
+  const id = e.target.parentElement.dataset.id;
 
-  let detailsMovie = await serverApi.getDetailsMovie(id);
+  const detailsMovie = await serverApi.getDetailsMovie(id);
 
   const movieMurkup = await movieDescriptionMurkup(detailsMovie);
 
@@ -32,23 +32,9 @@ async function onClickMovie(e) {
 
   const watchBtn = document.querySelector('[data-add-watched]');
   const queueBtn = document.querySelector('[data-add-queue]');
+  const closeModalBtn = document.querySelector('[data-modal-close]');
 
-
-  await refs.addWatched.addEventListener('click', () => {
-    if (detailsMovie === '') {
-      return;
-    }
-
-    onAddWatchClick(detailsMovie);
-    detailsMovie = '';
-  });
-
-  await refs.addQueue.addEventListener('click', () => {
-    if (detailsMovie === '') {
-      return;
-    }
-    onAddQueueClick(detailsMovie);
-    detailsMovie = '';
-  });
-
+  watchBtn.addEventListener('click', () => onAddWatchClick(detailsMovie));
+  queueBtn.addEventListener('click', () => onAddQueueClick(detailsMovie));
+  closeModalBtn.addEventListener('click', closeModal);
 }
