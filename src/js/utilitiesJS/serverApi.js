@@ -1,4 +1,5 @@
 import axios from 'axios';
+import Notiflix from 'notiflix';
 
 const KEY = `7770a554235a470dd8487676c4d97407`;
 
@@ -24,6 +25,14 @@ class ServerApi {
         this.#page
       }&include_adult=false&query=${query}`,
     });
+    if (this.#page === 1 && data.data.results.length) {
+      Notiflix.Notify.success('We found movies', {
+        position: 'center-top',
+        fontFamily: 'inherit',
+        borderRadius: '25px',
+        clickToClose: true,
+      });
+    }
 
     return await data.data;
   }
