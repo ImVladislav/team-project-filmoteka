@@ -3,6 +3,7 @@ import { refs } from './utilitiesJS/refs';
 refs.overlay.addEventListener('click', onCloseModal);
 
 export function onOpenModal() {
+  
   refs.overlay.classList.add('visiable');
   refs.body.classList.add('no-scroll');
 
