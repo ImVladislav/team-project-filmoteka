@@ -185,7 +185,7 @@
   padding: 0;
   cursor: pointer;
   stroke-width: 3px;
-  stroke: #000000;
+  stroke: $color-main-text;
   transition: stroke 300ms $timing-function;
   &:hover,
   &:focus {
@@ -201,4 +201,30 @@
     top: -25;
     right: 0;
   }
+}
+
+.youtube {
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  text-align: center;
+  transition: all 250ms linear;
+
+  &:hover,
+  &:focus {
+    background: transparent;
+    border: none;
+  }
+}
+.icon-youtube {
+  fill: red;
+  stroke: red;
+}
+
+.icon-youtube:hover,
+.icon-youtube:focus {
+  fill: $color-accent;
+  stroke: $color-accent;
 }
