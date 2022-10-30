@@ -17,6 +17,7 @@
 
   @include tablet {
     background-image: url(/src/images/header_background_tablet.jpg);
+    margin-bottom: 60px;
 
     @include retina {
       background-image: url(/src/images/header_background_tablet_x2.jpg);
@@ -31,7 +32,7 @@
     background-image: url(/src/images/header_background.jpg);
     max-width: 2000px;
     margin: 0 auto;
-    margin-bottom: 20px;
+    margin-bottom: 60px;
 
     @include retina {
       background-image: url(/src/images/header_background_x2.jpg);

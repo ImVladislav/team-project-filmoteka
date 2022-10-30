@@ -47,13 +47,15 @@
   }
 }
 .modal-team__close-btn {
+  width: 30px;
+  height: 30px;
   margin-left: auto;
   display: block;
   border: none;
   background-color: transparent;
   padding: 0;
   cursor: pointer;
-  stroke-width: 10px;
+  stroke-width: 3px;
   stroke: $color-main-text;
   transition: stroke 300ms $timing-function;
   &:hover,
