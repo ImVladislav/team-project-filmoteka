@@ -34,5 +34,4 @@ export const refs = {
   spinner: document.querySelector('.js-spinner'),
   load: document.querySelector('[data-load]'),
   backdrop: document.querySelector('.backdrop'),
-
 };
