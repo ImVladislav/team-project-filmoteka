@@ -18,14 +18,6 @@ export const movieDescriptionMurkup = ({
 
   return `
     <div class="movie__description" data-movie-id='${id}'>
-    <div class="movie__poster-wrappaer">
-      <img
-        src="${src}"
-        alt="${title}"
-        class="movie__poster"
-       
-      />
-    </div>
     <div class="movie__container">
       <h3 class="movie__title">${title}</h3>
       <div class="description__container">
@@ -52,3 +44,22 @@ export const movieDescriptionMurkup = ({
   </div>
   `;
 };
+
+export const moviePoster = ({ poster_path, title }) => {
+  const src = posterСheck(poster_path);
+  return `
+  <div>
+  <div class="movie__poster-wrappaer">
+      <img
+        src="${src}"
+        alt="${title}"
+        class="movie__poster"       
+      />
+    </div></div>`;
+};
+
+export function createMessage() {
+  console.log('розмітка');
+  return '<p class="js-empty-message">Ви ще не переглянули жодного фільму</p>';
+}
+

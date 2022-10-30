@@ -20,9 +20,9 @@ async function onClickMovie(e) {
 
   onOpenModal();
 
-  const id = e.target.parentElement.dataset.id;
+  let id = e.target.parentElement.dataset.id;
 
-  const detailsMovie = await serverApi.getDetailsMovie(id);
+  let detailsMovie = await serverApi.getDetailsMovie(id);
 
   const movieMurkup = await movieDescriptionMurkup(detailsMovie);
 
@@ -33,6 +33,22 @@ async function onClickMovie(e) {
   const watchBtn = document.querySelector('[data-add-watched]');
   const queueBtn = document.querySelector('[data-add-queue]');
 
-  watchBtn.addEventListener('click', () => onAddWatchClick(detailsMovie));
-  queueBtn.addEventListener('click', () => onAddQueueClick(detailsMovie));
+
+  await refs.addWatched.addEventListener('click', () => {
+    if (detailsMovie === '') {
+      return;
+    }
+
+    onAddWatchClick(detailsMovie);
+    detailsMovie = '';
+  });
+
+  await refs.addQueue.addEventListener('click', () => {
+    if (detailsMovie === '') {
+      return;
+    }
+    onAddQueueClick(detailsMovie);
+    detailsMovie = '';
+  });
+
 }
