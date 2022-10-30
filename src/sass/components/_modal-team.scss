@@ -8,7 +8,7 @@
   background-color: rgba(0, 0, 0, 0.5);
   opacity: 0;
   visibility: hidden;
-  transition: all 500ms ease-in-out;
+  transition: all 300ms $timing-function;
 
   &.visiable {
     opacity: 1;
@@ -31,7 +31,7 @@
   padding: 48px 20px 40px 20px;
   box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.17);
   transform: translate(-50%, -50%);
-
+  transition: transform 250ms $timing-function;
   @include tablet {
     overflow-y: hidden;
     width: 700px;
@@ -47,14 +47,16 @@
   }
 }
 .modal-team__close-btn {
+  width: 30px;
+  height: 30px;
   margin-left: auto;
   display: block;
   border: none;
   background-color: transparent;
   padding: 0;
   cursor: pointer;
-  stroke-width: 10px;
-  stroke: #000000;
+  stroke-width: 3px;
+  stroke: $color-main-text;
   transition: stroke 300ms $timing-function;
   &:hover,
   &:focus {
@@ -67,7 +69,6 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: 20px;
-  // color: $color-text;
 }
 .team-card {
   text-align: center;
@@ -114,10 +115,13 @@
   &:hover,
   &:focus {
     fill: $color-accent;
+    stroke: $color-accent;
   }
 }
 .modal-team-wrap.dark .team-git__icon {
-  fill: white;
+  stroke: $color-white;
+  fill: $color-white;
+  transition: fill 300ms $timing-function, stroke 300ms $timing-function;
 }
 .modal-team-wrap.dark .team-git__icon:hover,
 .modal-team-wrap.dark .team-git__icon:focus {

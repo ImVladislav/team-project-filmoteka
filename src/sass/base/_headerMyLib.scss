@@ -24,40 +24,35 @@
       url(/src/images/headerMyLib_background_tablet.jpg);
 
     @include retina {
-      background-image: linear-gradient(
-          rgba(0, 0, 0, 0.56),
-          rgba(0, 0, 0, 0.56)
-        ),
+      background-image: linear-gradient(rgba(0, 0, 0, 0.56),
+          rgba(0, 0, 0, 0.56)),
         url(/src/images/headerMyLib_background_tablet@x2.jpg);
     }
 
     @include retina3x {
-      background-image: linear-gradient(
-          rgba(0, 0, 0, 0.56),
-          rgba(0, 0, 0, 0.56)
-        ),
+      background-image: linear-gradient(rgba(0, 0, 0, 0.56),
+          rgba(0, 0, 0, 0.56)),
         url(/src/images/headerMyLib_background_tablet@x3.jpg);
     }
   }
 
   @include desktop {
     max-height: 219px;
+    max-width: 2000px;
+    margin: 0 auto;
+    margin-bottom: 20px;
     background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
       url(/src/images/headerMyLib_background.jpg);
 
     @include retina {
-      background-image: linear-gradient(
-          rgba(0, 0, 0, 0.56),
-          rgba(0, 0, 0, 0.56)
-        ),
+      background-image: linear-gradient(rgba(0, 0, 0, 0.56),
+          rgba(0, 0, 0, 0.56)),
         url(/src/images/headerMyLib_background@x2.jpg);
     }
 
     @include retina3x {
-      background-image: linear-gradient(
-          rgba(0, 0, 0, 0.56),
-          rgba(0, 0, 0, 0.56)
-        ),
+      background-image: linear-gradient(rgba(0, 0, 0, 0.56),
+          rgba(0, 0, 0, 0.56)),
         url(/src/images/headerMyLib_background@x3.jpg);
     }
   }
@@ -97,7 +92,7 @@
   display: block;
   text-align: center;
   font-size: 12px;
-  color: #ffffff;
+  color: $color-white;
   line-height: 1.33;
   font-weight: 500;
 
@@ -108,7 +103,7 @@
 
   width: 130px;
   height: 44px;
-  border: 1px solid #ffffff;
+  border: 1px solid $color-white;
   border-radius: 5px;
   background: none;
 

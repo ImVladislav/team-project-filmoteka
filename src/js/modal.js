@@ -1,5 +1,6 @@
 import { refs } from './utilitiesJS/refs';
 
+
 refs.overlay.addEventListener('click', onCloseModal);
 
 export function onOpenModal() {
@@ -7,6 +8,7 @@ export function onOpenModal() {
   refs.body.classList.add('no-scroll');
 
   window.addEventListener('keydown', onEscClick);
+
 }
 
 export function onCloseModal(e) {
@@ -22,9 +24,8 @@ function onEscClick(evt) {
   }
 }
 
-function closeModal() {
+export function closeModal() {
   refs.overlay.classList.remove('visiable');
   refs.body.classList.remove('no-scroll');
-  refs.movieDescription.firstElementChild.textContent = '';
-  refs.moviePoster.firstElementChild.textContent = '';
+  refs.movieDescription.textContent = '';
 }
