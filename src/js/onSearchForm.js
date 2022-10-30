@@ -2,9 +2,11 @@ import Notiflix from 'notiflix';
 import Pagination from 'tui-pagination';
 import { refs } from './utilitiesJS/refs';
 import { serverApi } from './utilitiesJS/serverApi';
+import { options } from './pagination';
 
 import { murkupGalleryOnPageLoading } from './utilitiesJS/murkupGalleryOnPageLoading';
 import { options } from './pagination';
+import { clearPage } from './utilitiesJS/clearPage';
 
 let searchQuery = ' ';
 refs.formRef.addEventListener('submit', onSubmitClick);
@@ -25,7 +27,8 @@ function onSubmitClick(event) {
     });
     return;
   }
-
+  clearPage();
+  options.template.page = '<a href="#" class="tui-page-btn">{{page}}</a>';
   murkupSearchMovie();
 
   const container = document.querySelector('.tui-pagination');
