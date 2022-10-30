@@ -1,10 +1,9 @@
 import Notiflix from 'notiflix';
 import Pagination from 'tui-pagination';
-
 import { refs } from './utilitiesJS/refs';
 import { serverApi } from './utilitiesJS/serverApi';
+
 import { murkupGalleryOnPageLoading } from './utilitiesJS/murkupGalleryOnPageLoading';
-import { clearPage } from './utilitiesJS/clearPage';
 import { options } from './pagination';
 
 let searchQuery = ' ';
@@ -24,16 +23,18 @@ function onSubmitClick(event) {
       borderRadius: '25px',
       clickToClose: true,
     });
-    clearPage();
     return;
   }
-  clearPage();
+
   murkupSearchMovie();
+
   const container = document.querySelector('.tui-pagination');
 
   const pagination = new Pagination(container, options);
 
-  pagination.on('beforeMove', async event => {
+  pagination.on('beforeMove', event => {
+    pagination.setTotalItems(serverApi.total_results);
+
     const currentPage = event.page;
     serverApi.setPage(currentPage);
     murkupSearchMovie();
@@ -45,6 +46,14 @@ export async function murkupSearchMovie() {
   const movies = data.results;
   const total_results = data.total_results;
   serverApi.setTotalResults(total_results);
+
+  if (total_results < 20) {
+    const item = document.querySelector('.tui-js');
+    item.classList.add('visually-hidden');
+  } else {
+    const item = document.querySelector('.tui-js');
+    item.classList.remove('visually-hidden');
+  }
 
   if (movies.length === 0) {
     Notiflix.Notify.failure(

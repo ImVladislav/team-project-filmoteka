@@ -1,14 +1,33 @@
 import { refs } from './utilitiesJS/refs';
 import { posterСheck } from './utilitiesJS/posterCheck';
 import { onOpenModal } from './modal';
+import { movieDescriptionMurkup, moviePoster } from './descriptionMurkup';
 import { serverApi } from './utilitiesJS/serverApi';
-import { movieDescriptionMurkup } from './descriptionMurkup';
+import { movieDescriptionMurkup, moviePoster } from './descriptionMurkup';
+import { onOpenModal } from './modal';
+import { onAddQueueClick, onAddWatchClick } from './addFavorites';
+
+import { clearPage } from './utilitiesJS/clearPage';
+
 
 refs.btnWathed.addEventListener('click', onBtnWatchedClick);
 
 function onBtnWatchedClick() {
-  const watched = JSON.parse(localStorage.getItem('watch'));
-  murkupGalleryOnBtnWatched(watched);
+
+  try {
+    const watched = JSON.parse(localStorage.getItem('watch'));
+    if (!watched) {
+      refs.mainList.classList.add('not-films');
+      refs.containerLib.insertAdjacentHTML('beforeend', createMessage());
+      refs.btnWathed.removeEventListener('click', onBtnWatchedClick);
+      return;
+    }
+
+    murkupGalleryOnBtnWatched(watched);
+  } catch (error) {
+    console.log(error.message);
+  }
+
 }
 
 function murkupGalleryOnBtnWatched(movies) {
@@ -25,7 +44,7 @@ function murkupGalleryOnBtnWatched(movies) {
     })
     .join(``);
 
-  return refs.galleryLibrary.insertAdjacentHTML(`beforeend`, moviesMurkup);
+  return (refs.galleryLibrary.innerHTML = moviesMurkup);
 }
 
 refs.galleryLibrary.addEventListener(`click`, onClickMovie);
@@ -36,19 +55,22 @@ async function onClickMovie(e) {
   }
 
   onOpenModal();
-
   const id = e.target.parentElement.dataset.id;
 
   const detailsMovie = await serverApi.getDetailsMovie(id);
 
   const movieMurkup = await movieDescriptionMurkup(detailsMovie);
 
-  refs.movieDescription.insertAdjacentHTML('beforeend', movieMurkup);
+  const moviePosterDescr = await moviePoster(detailsMovie);
 
-  document
-    .querySelector('[data-add-watched]')
-    .addEventListener('click', () => onAddWatchClick(detailsMovie));
-  document
-    .querySelector('[data-add-queue]')
-    .addEventListener('click', () => onAddQueueClick(detailsMovie));
+  await refs.movieDescription.insertAdjacentHTML('afterbegin', movieMurkup);
+  await refs.moviePoster.insertAdjacentHTML('afterbegin', moviePosterDescr);
+
+  await refs.addWatched.addEventListener('click', () =>
+    onAddWatchClick(detailsMovie)
+  );
+
+  await refs.addQueue.addEventListener('click', () =>
+    onAddQueueClick(detailsMovie)
+  );
 }

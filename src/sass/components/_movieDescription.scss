@@ -84,7 +84,7 @@
 .vote-accent {
   background-color: #ff6b01;
   border-radius: 5px;
-  color: #ffffff;
+  color: $color-white;
   display: inline-block;
   margin-right: 4px;
 }
@@ -139,7 +139,7 @@
   padding-bottom: 6px;
 
   border-radius: 5px;
-  border: 1px solid #000000;
+  border: 1px solid $color-main-text;
 
   font-family: 'Roboto';
   font-style: normal;
@@ -149,7 +149,7 @@
   text-align: center;
   text-transform: uppercase;
 
-  color: #000000;
+  color: $color-main-text;
 
   transition: all 250ms linear;
 
@@ -157,7 +157,7 @@
   &:focus {
     background: #ff6b01;
     border: 1px solid #ff6b01;
-    color: #ffffff;
+    color: $color-white;
   }
 
   @media screen and (min-width: 768px) {

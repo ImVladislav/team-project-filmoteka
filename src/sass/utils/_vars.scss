@@ -18,7 +18,7 @@
 $color-accent: #ff6b08;
 $color-footer: #f7f7f7;
 $color-text: #545454;
-$color-text-dark: #ffffff;
+$color-footer-dark: #191919;
 $color-bgn-dark: #2f2f2f;
 
 $color-white: #ffffff;
@@ -34,3 +34,5 @@ $icon-color: #fea5bb;
 $backdrop-color: rgba(75, 41, 49, 0.774);
 
 $timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+// transition: color 300ms $timing-function;
