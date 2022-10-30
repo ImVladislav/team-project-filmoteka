@@ -2,6 +2,7 @@ import Notiflix from 'notiflix';
 import Pagination from 'tui-pagination';
 import { refs } from './utilitiesJS/refs';
 import { serverApi } from './utilitiesJS/serverApi';
+import { options } from './pagination';
 
 import { murkupGalleryOnPageLoading } from './utilitiesJS/murkupGalleryOnPageLoading';
 import { options } from './pagination';

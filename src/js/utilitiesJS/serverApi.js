@@ -26,8 +26,10 @@ class ServerApi {
         this.#page
       }&include_adult=false&query=${query}`,
     });
+
     if (this.request_count === 1 && data.data.results.length) {
-      Notiflix.Notify.success('We found movies', {
+
+      Notiflix.Notify.success(`We found ${data.data.total_results} movies`, {
         position: 'center-top',
         fontFamily: 'inherit',
         borderRadius: '25px',
