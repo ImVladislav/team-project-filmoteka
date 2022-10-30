@@ -20,7 +20,9 @@ class ServerApi {
 
   async getMovieOnDemand(query) {
     const data = await axios({
-      url: `${this.baseUrl}/search/movie?${this.KEY}&language=en-US&include_adult=false&query=${query}`,
+      url: `${this.baseUrl}/search/movie?${this.KEY}&language=en-US&page=${
+        this.#page
+      }&include_adult=false&query=${query}`,
     });
     
     return await data.data;
