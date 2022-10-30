@@ -51,11 +51,7 @@ export function murkupGalleryOnPageLoading(movies) {
         } else {
           releaseDate = release_date.slice(0, 4);
         }
-
-
-        return `
-
-
+        
         return `
         <li class="film__item" data-id="${id}">
         <img src="${src}" class="film__img" alt="${original_title}" />
