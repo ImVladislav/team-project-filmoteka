@@ -4,9 +4,10 @@ import { refs } from './refs';
 import { serverApi } from './serverApi';
 import { posterСheck } from './posterCheck';
 import { options } from '../pagination';
+import { genres } from './genres';
 import { genresArr } from './genres';
-
 import { spinnerPlay, spinnerStop } from '../spinner';
+
 
 const container = document.querySelector('.tui-pagination');
 
@@ -15,7 +16,7 @@ const pagination = new Pagination(container, options);
 // spinnerPlay();
 
 pagination.on('beforeMove', async event => {
-  pagination.setTotalItems(serverApi.total_results);
+  pagination.setTotalItems(serverApi.totalResults);
   const currentPage = event.page;
   serverApi.setPage(currentPage);
   murkupGallery();
@@ -55,7 +56,7 @@ export function murkupGalleryOnPageLoading(movies) {
         } else {
           releaseDate = release_date.slice(0, 4);
         }
-        
+
         return `
         <li class="film__item" data-id="${id}">
         <img src="${src}" class="film__img" alt="${original_title}" />
@@ -78,5 +79,4 @@ export async function murkupGallery() {
   murkupGalleryOnPageLoading(movies.results);
 
   spinnerStop();
-
 }

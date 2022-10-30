@@ -58,19 +58,3 @@
     color: $color-accent;
   }
 }
-
-.not-films {
-  height: 500px;
-  background-image: url(/src/images/film.jpg);
-  background-size: cover;
-  background-position: top;
-  background-repeat: no-repeat;
-}
-
-.js-empty-message {
-  display: flex;
-  text-align: center;
-  font-family: 'Roboto', sans-serif;
-  font-size: 30px;
-  font-weight: 500;
-}

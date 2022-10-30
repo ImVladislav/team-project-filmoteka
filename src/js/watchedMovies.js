@@ -1,3 +1,5 @@
+import Pagination from 'tui-pagination';
+
 import { refs } from './utilitiesJS/refs';
 import { posterСheck } from './utilitiesJS/posterCheck';
 import { onOpenModal } from './modal';
@@ -7,25 +9,46 @@ import { movieDescriptionMurkup } from './descriptionMurkup';
 import { onOpenModal } from './modal';
 import { onAddQueueClick, onAddWatchClick } from './addFavorites';
 import { closeModal, onOpenModal } from './modal';
+import { options } from './pagination';
 import { genresArr } from './utilitiesJS/genres';
 import {
   makeQueueTextContent,
   makeWatchTextContent,
 } from './utilitiesJS/modalBtnTextContent';
+import { createMessage } from './utilitiesJS/createEmptyLibMessage';
 
 refs.btnWathed.addEventListener('click', onBtnWatchedClick);
 
 function onBtnWatchedClick() {
   try {
     const watched = JSON.parse(localStorage.getItem('watch'));
-    if (!watched) {
-      refs.mainList.classList.add('not-films');
+
+    if (!watched || watched.length === 0) {
+
       refs.containerLib.insertAdjacentHTML('beforeend', createMessage());
       refs.btnWathed.removeEventListener('click', onBtnWatchedClick);
+      const item = document.querySelector('.tui-js');
+      item.classList.add('visually-hidden');
       return;
+    } else {
+      const item = document.querySelector('.tui-js');
+      item.classList.remove('visually-hidden');
     }
 
-    murkupGalleryOnBtnWatched(watched);
+    murkupGalleryOnBtnWatched(watched.slice(start, end));
+
+    const container = document.querySelector('.tui-pagination');
+
+    const pagination = new Pagination(container, options);
+
+    pagination.on('beforeMove', event => {
+      const currentPage = event.page;
+      start = currentPage * options.itemsPerPage - 20;
+      end = currentPage * options.itemsPerPage;
+      serverApi.setPage(currentPage);
+      serverApi.incrementRequestCount();
+      murkupGalleryOnBtnWatched(watched.slice(start, end));
+    });
   } catch (error) {
     console.log(error.message);
   }

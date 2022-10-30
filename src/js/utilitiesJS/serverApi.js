@@ -5,8 +5,8 @@ const KEY = `7770a554235a470dd8487676c4d97407`;
 
 class ServerApi {
   #page = 1;
-  total_results = 200;
-  request_count = 1;
+  totalResults = 200;
+  requestCount = 1;
 
   KEY = `api_key=7770a554235a470dd8487676c4d97407`;
   baseUrl = `https://api.themoviedb.org/3`;
@@ -27,8 +27,8 @@ class ServerApi {
       }&include_adult=false&query=${query}`,
     });
 
-    if (this.request_count === 1 && data.data.results.length) {
 
+    if (this.requestCount === 1 && data.data.results.length) {
       Notiflix.Notify.success(`We found ${data.data.total_results} movies`, {
         position: 'center-top',
         fontFamily: 'inherit',
@@ -67,15 +67,15 @@ class ServerApi {
   }
 
   setTotalResults(total) {
-    this.total_results = total;
+    this.totalResults = total;
   }
 
   incrementRequestCount() {
-    this.request_count++;
+    this.requestCount++;
   }
 
   setRequestCount() {
-    this.request_count = 1;
+    this.requestCount = 1;
   }
 }
 

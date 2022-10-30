@@ -1,3 +1,5 @@
+import 'simplelightbox/dist/simple-lightbox.min.css';
+
 import { refs } from './utilitiesJS/refs';
 import { serverApi } from './utilitiesJS/serverApi';
 import 'simplelightbox/dist/simple-lightbox.min.css';
@@ -9,7 +11,6 @@ import {
   makeQueueTextContent,
   makeWatchTextContent,
 } from './utilitiesJS/modalBtnTextContent';
-
 import { handleClick } from './treiler';
 
 
