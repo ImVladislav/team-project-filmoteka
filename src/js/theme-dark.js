@@ -16,8 +16,8 @@ function addDarkClass() {
   try {
     if (localStorage.getItem('theme') === 'dark') {
       refs.htmlDark.classList.add('dark');
+      refs.htmlDark.classList.remove('light');
       refs.headerThemeText.textContent = 'Light';
-
       refs.iconSunBgc.classList.remove('visually-hidden');
       refs.iconMoonBgc.classList.add('visually-hidden');
       refs.footer.classList.add('dark');
@@ -27,11 +27,11 @@ function addDarkClass() {
       refs.contentTeam.classList.add('dark');
       refs.wrap.classList.add('dark');
       refs.btnClose.classList.add('dark');
-
       refs.scollIcon.classList.add('dark');
 
     } else {
       refs.htmlDark.classList.remove('dark');
+      refs.htmlDark.classList.add('light');
       refs.headerThemeText.textContent = 'Dark';
       refs.iconSunBgc.classList.add('visually-hidden');
       refs.iconMoonBgc.classList.remove('visually-hidden');
@@ -43,7 +43,6 @@ function addDarkClass() {
       refs.wrap.classList.remove('dark');
       refs.btnClose.classList.remove('dark');
       refs.scollIcon.classList.remove('dark');
-
     }
   } catch (err) {}
 }
