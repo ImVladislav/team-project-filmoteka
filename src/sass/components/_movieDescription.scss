@@ -126,6 +126,11 @@
 .about__text {
   margin-bottom: 20px;
 
+
+
+  overflow-y: scroll;
+  height: 100px;
+
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 500;
@@ -137,6 +142,7 @@
     height: 100px;
   }
 
+
   @include tablet {
     width: 264px;
   }
@@ -145,7 +151,6 @@
     width: 391px;
   }
 }
-
 .btn__container {
   display: flex;
   justify-content: space-between;
