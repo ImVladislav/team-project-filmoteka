@@ -9,6 +9,7 @@
 .movie__poster-wrappaer {
   @include tablet-close {
     margin-bottom: 20px;
+
   }
 
   @include tablet {
@@ -26,7 +27,8 @@
 .movie__poster {
   width: 240px;
   height: 357px;
-
+ margin-left: auto;
+ margin-right: auto;
   @include tablet {
     width: 264px;
     height: 373.55px;
@@ -50,6 +52,10 @@
   font-size: 20px;
   line-height: 1.15;
   text-transform: uppercase;
+  
+  @include tablet-close {
+    text-align: center;
+  }
 
   @media screen and (min-width: 1024px) {
     font-size: 30px;
@@ -123,7 +129,7 @@
 .about__text {
   margin-bottom: 20px;
   overflow-y: scroll;
-    height: 100px;
+  height: 100px;
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 500;
