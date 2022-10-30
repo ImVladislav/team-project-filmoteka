@@ -28,7 +28,6 @@ export function spinnerPlay() {
   spinner.spin(refs.spinner);
   refs.load.classList.remove('is-hidden');
 }
-
 export function spinnerStop() {
   refs.load.classList.add('is-hidden');
   spinner.stop();
