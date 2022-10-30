@@ -3,52 +3,42 @@
   margin-bottom: 20px;
   background-image: url(/src/images/header_background_mobile.jpg);
   background-position: center;
+  background-repeat: no-repeat;
   background-color: grey;
   background-size: cover;
-  @media (min-device-pixel-ratio: 2),
-    (-webkit-min-device-pixel-ratio: 2),
-    (min-resolution: 192dpi),
-    (min-resolution: 2dppx) {
+
+  @include retina {
     background-image: url(/src/images/header_background_mobile_x2.jpg);
   }
-  @media screen and (min-device-pixel-ratio: 3),
-    screen and (min-resolution: 288dpi),
-    screen and (min-resolution: 3dppx) {
+
+  @include retina3x {
     background-image: url(/src/images/header_background_mobile_x3.jpg);
   }
 
-  @media screen and (max-width: 1279px) {
-  }
-  @media screen and (min-width: 768px) {
+  @include tablet {
     background-image: url(/src/images/header_background_tablet.jpg);
-    @media (min-device-pixel-ratio: 2),
-      (-webkit-min-device-pixel-ratio: 2),
-      (min-resolution: 192dpi),
-      (min-resolution: 2dppx) {
+
+    @include retina {
       background-image: url(/src/images/header_background_tablet_x2.jpg);
     }
-    @media screen and (min-device-pixel-ratio: 3),
-      screen and (min-resolution: 288dpi),
-      screen and (min-resolution: 3dppx) {
+
+    @include retina3x {
       background-image: url(/src/images/header_background_tablet_x3.jpg);
     }
   }
-  @media screen and (min-width: 1280px) {
+
+  @include desktop {
     background-image: url(/src/images/header_background.jpg);
-    background-repeat: repeat;
-    background-size: contain;
-    @media (min-device-pixel-ratio: 2),
-      (-webkit-min-device-pixel-ratio: 2),
-      (min-resolution: 192dpi),
-      (min-resolution: 2dppx) {
+    max-width: 2000px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+
+    @include retina {
       background-image: url(/src/images/header_background_x2.jpg);
-      background-repeat: repeat;
     }
-    @media screen and (min-device-pixel-ratio: 3),
-      screen and (min-resolution: 288dpi),
-      screen and (min-resolution: 3dppx) {
+
+    @include retina3x {
       background-image: url(/src/images/header_background_x3.jpg);
-      background-repeat: repeat;
     }
   }
 }
@@ -56,7 +46,8 @@
 .header__container {
   padding-top: 40px;
   padding-bottom: 92px;
-  @media screen and (min-width: 768px) {
+
+  @include tablet {
     padding-top: 40px;
     padding-bottom: 20px;
   }
@@ -68,11 +59,9 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  @media screen and (min-width: 768px) {
-    margin-bottom: 41px;
-  }
 
-  @media screen and (min-width: 1280px) {
+  @include tablet {
+    margin-bottom: 41px;
   }
 }
 
@@ -97,6 +86,7 @@
   animation-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
   animation-iteration-count: infinite;
 }
+
 .header__logo-wrap {
   display: flex;
   position: relative;
@@ -115,11 +105,13 @@
 
 .header__logo-text {
   transition: color 300ms $timing-function;
+
   &:hover,
   &:focus {
     color: $color-accent;
   }
-  @media screen and (max-width: 767px) {
+
+  @include tablet-close {
     position: absolute;
     width: 1px;
     height: 1px;
@@ -132,7 +124,8 @@
     clip: rect(0 0 0 0);
     overflow: hidden;
   }
-  @media screen and (min-width: 768px) {
+
+  @include tablet {
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 500;
@@ -156,6 +149,7 @@
 
 .header__list-item {
   margin-right: 39px;
+
   &:last-child {
     margin-right: 0;
   }
@@ -177,10 +171,12 @@
   padding-top: 10px;
   padding-bottom: 10px;
   transition: color 300ms $timing-function;
+
   &:hover,
   &:focus {
     color: #ff6b08;
   }
+
   &-active::after {
     content: '';
     position: absolute;
@@ -194,8 +190,6 @@
 }
 
 .header__form {
-  @media screen and (min-width: 1280px) {
-  }
 
   display: flex;
   align-items: center;
@@ -206,6 +200,7 @@
   position: relative;
   width: 280px;
 }
+
 .header__form-input {
   font-size: 14px;
   max-width: 280px;
@@ -218,11 +213,13 @@
   caret-color: white;
   color: white;
   margin-bottom: 60;
+
   &:hover,
   &:focus {
     border-bottom: 0.5px solid $color-accent;
   }
 }
+
 .header__search {
   position: absolute;
   display: flex;
@@ -239,6 +236,7 @@
   align-items: center;
   justify-content: center;
 }
+
 .header__search:hover,
 .header__search:focus {
   stroke: $color-accent;
@@ -249,6 +247,7 @@
   0% {
     transform: translateY(24px);
   }
+
   100% {
     transform: translateY(0px);
   }
