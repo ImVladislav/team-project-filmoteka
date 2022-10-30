@@ -2,6 +2,7 @@ import 'simplelightbox/dist/simple-lightbox.min.css';
 
 import { refs } from './utilitiesJS/refs';
 import { serverApi } from './utilitiesJS/serverApi';
+import 'simplelightbox/dist/simple-lightbox.min.css';
 import { murkupGallery } from './utilitiesJS/murkupGalleryOnPageLoading';
 import { movieDescriptionMurkup } from './descriptionMurkup';
 import { closeModal, onOpenModal } from './modal';
@@ -11,6 +12,7 @@ import {
   makeWatchTextContent,
 } from './utilitiesJS/modalBtnTextContent';
 import { handleClick } from './treiler';
+
 
 murkupGallery();
 

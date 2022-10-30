@@ -9,7 +9,7 @@ html {
   display: flex;
   border: none;
   position: fixed;
-  bottom: 70px;
+  bottom: 80px;
   right: 50px;
   z-index: 9999;
 }
@@ -19,6 +19,7 @@ html {
   width: 32px;
   height: 32px;
   fill: $color-main-text;
+  stroke: $color-main-text;
   &:hover,
   &:focus {
     transition: 300ms;

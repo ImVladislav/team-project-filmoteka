@@ -6,6 +6,7 @@ import { serverApi } from './utilitiesJS/serverApi';
 import { options } from './pagination';
 import { murkupGalleryOnPageLoading } from './utilitiesJS/murkupGalleryOnPageLoading';
 
+
 let searchQuery = ' ';
 refs.formRef.addEventListener('submit', onSubmitClick);
 

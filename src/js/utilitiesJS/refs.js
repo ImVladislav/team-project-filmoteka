@@ -30,4 +30,14 @@ export const refs = {
 
   scrollBtn: document.querySelector('.is-show'),
   scollIcon: document.querySelector('.scroll-top__icon'),
+
+  openModalBtn: document.querySelector('[data-about-modal-open]'),
+  modal: document.querySelector('[data-about-modal]'),
+  registrationWrapper: document.querySelector('.registrationWrapper'),
+  registerBtn: document.querySelector('.register-btn'),
+  loginBtn: document.querySelector('.login-btn'),
+  changeFormRegister: document.querySelector('.register'),
+  changeFormLogin: document.querySelector('.login'),
+  registerForm: document.querySelector('.register-form'),
+  loginForm: document.querySelector('.login-form'),
 };

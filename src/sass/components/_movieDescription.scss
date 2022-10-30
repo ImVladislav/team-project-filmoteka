@@ -1,26 +1,47 @@
 .movie__description {
   position: relative;
 
-  @media screen and (min-width: 768px) {
+  @include tablet {
     display: flex;
   }
 }
 
 .movie__poster-wrappaer {
-  @media screen and (max-width: 767px) {
+  @include tablet-close {
     margin-bottom: 20px;
+
   }
 
-  @media screen and (min-width: 768px) {
+  @include tablet {
     margin-right: 68px;
     width: 264px;
   }
 
-  @media screen and (min-width: 1024px) {
+  @include tablet-plus {
     margin-right: 16px;
     width: 325px;
   }
 }
+
+
+.movie__poster {
+  width: 240px;
+  height: 357px;
+ margin-left: auto;
+ margin-right: auto;
+  @include tablet {
+    width: 264px;
+    height: 373.55px;
+  }
+ @include desktop {
+  width: 375px;
+  height: 478px;
+ }
+}
+
+// .movie__container {
+// }
+
 
 .movie__title {
   margin-bottom: 20px;
@@ -31,6 +52,10 @@
   font-size: 20px;
   line-height: 1.15;
   text-transform: uppercase;
+  
+  @include tablet-close {
+    text-align: center;
+  }
 
   @media screen and (min-width: 1024px) {
     font-size: 30px;
@@ -40,7 +65,7 @@
 .description__container {
   display: flex;
   margin-bottom: 20px;
-  height: 88px;
+  // height: 88px;
 }
 
 .description__title-wrapper {
@@ -103,18 +128,23 @@
 
 .about__text {
   margin-bottom: 20px;
-
+ 
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 500;
   font-size: 12px;
   line-height: 1.67;
+  
+  @include tablet-close {
+      overflow-y: scroll;
+      height: 100px;
+    }
 
-  @media screen and (min-width: 768px) {
+  @include tablet {
     width: 264px;
   }
 
-  @media screen and (min-width: 1024px) {
+  @include tablet-plus {
     width: 391px;
   }
 }
@@ -123,12 +153,12 @@
   display: flex;
   justify-content: space-between;
 
-  @media screen and (min-width: 768px) {
-    width: 264px;
+  @include tablet {
+    width: 300px;
   }
 
-  @media screen and (min-width: 1024px) {
-    width: 287px;
+  @include tablet-plus {
+    width: 400px;
   }
 }
 
@@ -160,11 +190,11 @@
     color: $color-white;
   }
 
-  @media screen and (min-width: 768px) {
+  @include tablet {
     width: 125px;
   }
 
-  @media screen and (min-width: 1024px) {
+  @include tablet-plus {
     width: 136px;
   }
 }
@@ -185,20 +215,57 @@
   padding: 0;
   cursor: pointer;
   stroke-width: 3px;
-  stroke: #000000;
+  stroke: $color-main-text;
   transition: stroke 300ms $timing-function;
+
   &:hover,
   &:focus {
     stroke: $color-accent;
   }
 
-  @media screen and (min-width: 768px) {
+  @include tablet {
     top: -30;
     right: -28;
   }
 
-  @media screen and (min-width: 1024px) {
+  @include tablet-plus {
     top: -25;
     right: 0;
   }
+
 }
+.modal-content.dark .modal__close {
+  stroke: $color-white;
+  transition: fill 300ms $timing-function, stroke 300ms $timing-function;
+}
+.modal-content.dark .modal__close:hover,
+.modal-content.dark .modal__close:focus {
+  stroke: $color-accent;
+}
+
+.youtube {
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  text-align: center;
+  transition: all 250ms linear;
+
+  &:hover,
+  &:focus {
+    background: transparent;
+    border: none;
+  }
+}
+.icon-youtube {
+  fill: red;
+  stroke: red;
+}
+
+.icon-youtube:hover,
+.icon-youtube:focus {
+  fill: $color-accent;
+  stroke: $color-accent;
+}
+
