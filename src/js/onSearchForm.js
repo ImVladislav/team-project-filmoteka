@@ -13,7 +13,10 @@ async function onSubmitClick(event) {
   event.preventDefault();
 
   const inputRef = document.querySelector('.header__form-input');
-  inputRef.addEventListener('change', () => serverApi.setPage(1));
+  inputRef.addEventListener('change', () => {
+    serverApi.setPage(1);
+    serverApi.setRequestCount();
+  });
 
   searchQuery = event.currentTarget.elements.serch_film.value
     .trim()
@@ -38,6 +41,7 @@ async function onSubmitClick(event) {
   pagination.on('beforeMove', event => {
     const currentPage = event.page;
     serverApi.setPage(currentPage);
+    serverApi.incrementRequestCount();
     murkupSearchMovie();
   });
 }
