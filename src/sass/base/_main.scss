@@ -1,46 +1,69 @@
 .film {
   &__list {
-    @media screen and (min-width: 768px) {
+    @include tablet {
       display: flex;
       flex-wrap: wrap;
       gap: 32px;
     }
-    @media screen and (min-width: 1280px) {
+
+    @include desktop {
       column-gap: 16px;
     }
   }
+
   &__item {
     margin-bottom: 20px;
     cursor: pointer;
-    &:nth-last-child(-n+3) {
-        margin-bottom: 0;
+
+    &:nth-last-child(-n + 3) {
+      margin-bottom: 0;
     }
-    @media screen and (min-width: 768px) {
+
+    @include tablet {
       width: calc((100% - 32px) / 2);
       margin: 0;
     }
-    @media screen and (min-width: 1280px) {
+
+    @include desktop {
       width: calc((100% - 32px) / 3);
       margin: 0;
     }
   }
+
   &__img {
-    width: 100%;
+    max-width: 100%;
     height: 591px;
     margin: 0 auto 8px;
     border-radius: 5px;
   }
+
   &__title {
     font-weight: 500;
     font-size: 12px;
     line-height: 1.3;
-    color: #000000;
     text-transform: uppercase;
   }
+
   &__genre {
     font-weight: 500;
     font-size: 12px;
     line-height: 1.3;
     color: #ff6b08;
   }
+}
+
+.not-films {
+  height: 500px;
+  background-image: url(/src/images/film.jpg);
+  background-size: cover;
+  background-position: top;
+  background-repeat: no-repeat;
+}
+
+.js-empty-message {
+  display: flex;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  font-size: 30px;
+  font-weight: 500;
 }

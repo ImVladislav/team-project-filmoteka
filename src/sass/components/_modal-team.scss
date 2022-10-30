@@ -1,0 +1,126 @@
+.modal-team-overlay {
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 500ms ease-in-out;
+
+  &.visiable {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.modal-team-content {
+  display: block;
+  overflow-y: scroll;
+
+  background-color: $color-footer;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: 0 auto;
+  width: 280px;
+  height: 90vh;
+
+  padding: 48px 20px 40px 20px;
+  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.17);
+  transform: translate(-50%, -50%);
+
+  @include tablet {
+    overflow-y: hidden;
+    width: 700px;
+    height: 500px;
+
+    padding: 40px 12px;
+  }
+  @include desktop {
+    width: 1000px;
+    height: 600px;
+
+    padding: 40px 12px;
+  }
+}
+.modal-team__close-btn {
+  margin-left: auto;
+  display: block;
+  border: none;
+  background-color: transparent;
+  padding: 0;
+  cursor: pointer;
+  stroke-width: 10px;
+  stroke: #000000;
+  transition: stroke 300ms $timing-function;
+  &:hover,
+  &:focus {
+    stroke: $color-accent;
+  }
+}
+
+.modal-team-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  // color: $color-text;
+}
+.team-card {
+  text-align: center;
+  border-radius: 30px;
+  transition: box-shadow 300ms $timing-function;
+  &:hover {
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.17);
+  }
+}
+.team-image {
+  border-radius: 15%;
+  padding-bottom: 10px;
+  @include tablet {
+    width: 100px;
+    height: 100px;
+  }
+  @include desktop {
+    width: 150px;
+    height: 150px;
+  }
+}
+.team-name {
+  font-size: 12px;
+
+  padding-bottom: 5px;
+  @include desktop {
+    font-size: 18px;
+  }
+}
+.team-role {
+  font-family: Roboto;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.67;
+  padding-bottom: 5px;
+  @include desktop {
+    font-size: 20px;
+    line-height: 1.4;
+  }
+}
+.team-git__icon {
+  transition: fill 300ms $timing-function, stroke 300ms $timing-function;
+  &:hover,
+  &:focus {
+    fill: $color-accent;
+  }
+}
+.modal-team-wrap.dark .team-git__icon {
+  fill: white;
+}
+.modal-team-wrap.dark .team-git__icon:hover,
+.modal-team-wrap.dark .team-git__icon:focus {
+  stroke: $color-accent;
+  fill: $color-accent;
+}

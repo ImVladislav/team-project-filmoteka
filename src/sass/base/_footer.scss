@@ -30,18 +30,22 @@
     margin-right: 10px;
     animation: pulsation 4s linear 1s infinite;
   }
-  &__link {
-    color: $color-text;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    text-decoration: underline;
-    cursor: pointer;
-    transition: color 250ms $timing-function;
-    &:hover,
-    :focus {
-      color: $color-accent;
-    }
+}
+.footer__link {
+  color: $color-text;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-decoration: underline;
+  cursor: pointer;
+  transition: color 300ms $timing-function;
+  &:hover,
+  :focus {
+    color: $color-accent;
   }
+}
+.footer__link.dark {
+  color: #fff;
+  background: #191919;
 }
 
 @keyframes pulsation {
