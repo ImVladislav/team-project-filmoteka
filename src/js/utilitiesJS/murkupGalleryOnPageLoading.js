@@ -28,6 +28,7 @@ export function murkupGalleryOnPageLoading(movies) {
         let releaseDate = null;
 
         // проверка на жанры фильмов
+
         const genresMovies = genresArr.reduce((acc, genre) => {
           if (genre_ids.includes(genre.id)) {
             acc.push(genre.name);
@@ -51,8 +52,11 @@ export function murkupGalleryOnPageLoading(movies) {
           releaseDate = release_date.slice(0, 4);
         }
 
+
         return `
 
+
+        return `
         <li class="film__item" data-id="${id}">
         <img src="${src}" class="film__img" alt="${original_title}" />
         <p class="film__title">${title}</p>
