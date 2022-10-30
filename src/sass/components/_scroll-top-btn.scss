@@ -1,24 +1,24 @@
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
 .scroll-top-btn {
-    cursor: pointer;
-    text-align: center;
-    background: none;
-    display: flex;
-    border: none;
-    position: fixed;
-    bottom: 70px;
-    right: 50px;
-    z-index: 9999;
+  cursor: pointer;
+  text-align: center;
+  background: none;
+  display: flex;
+  border: none;
+  position: fixed;
+  bottom: 70px;
+  right: 50px;
+  z-index: 9999;
 }
 
 .scroll-top__icon {
-    display: block;
-    width: 32px;
-    height: 32px;
-    fill: #000;
+  display: block;
+  width: 32px;
+  height: 32px;
+  fill: $color-main-text;
   &:hover,
   &:focus {
     transition: 300ms;
@@ -28,11 +28,11 @@ html {
 }
 
 .is-show {
-    opacity: 1;
-    transition: 400ms;
+  opacity: 1;
+  transition: 400ms;
 }
 
 .is-hidden {
-    visibility: hidden;
-    opacity: 0;
+  visibility: hidden;
+  opacity: 0;
 }
