@@ -12,14 +12,14 @@ import {
   makeQueueTextContent,
   makeWatchTextContent,
 } from './utilitiesJS/modalBtnTextContent';
+import { createMessage } from './utilitiesJS/createEmptyLibMessage';
 
 refs.btnWathed.addEventListener('click', onBtnWatchedClick);
 
 function onBtnWatchedClick() {
   try {
     const watched = JSON.parse(localStorage.getItem('watch'));
-    if (!watched) {
-      refs.mainList.classList.add('not-films');
+    if (!watched || watched.length === 0) {
       refs.containerLib.insertAdjacentHTML('beforeend', createMessage());
       refs.btnWathed.removeEventListener('click', onBtnWatchedClick);
       return;
