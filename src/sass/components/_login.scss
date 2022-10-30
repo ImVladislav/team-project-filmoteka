@@ -19,21 +19,28 @@
 .changeForm {
     &__text {
         text-align: center;
-        color: #00dfc4;
+        color: #ffffff;
         font-size: 18px;
     }
     &__span {
         font-size: 28px;
     }
-
+}
+.register-form.dark .changeForm__text,
+.login-form.dark .changeForm__text{
+    color: #000000;
 }
 .form-title {
     text-align: center;
     margin-bottom: 40px;
     font-weight: 700;
     font-size: 30px;
-    color: #00dfc4;
+    color: #ffffff;
     letter-spacing: 0.2em;
+}
+.register-form.dark .form-title,
+.login-form.dark .form-title{
+    color: #000000;
 }
 .register-form {
     display: flex;
@@ -54,6 +61,9 @@
     left: -100%;
     transition: 400ms ease-in-out;
 }
+.register-form.dark {
+    background-color: #ffffff;
+}
 .login-form {
     display: flex;
     flex-direction: column;
@@ -68,11 +78,13 @@
     padding: 20px;
     border-radius: 20px;
     transition: 250ms ease-in-out;
-
 }
 .register-form.hidden + .login-form.visiable {
     left: 50%;
     transition: 250ms ease-in-out;
+}
+.login-form.dark {
+    background-color: #ffffff;
 }
 
 .changeForm__span {
@@ -80,15 +92,13 @@
     transition: 250ms ease-in-out;
     &:hover,
     &:focus {
-        color: #0dc200;
+        color: $color-accent;
         transition: 250ms ease-in-out;
     }
 }
 
 .first-name,
-.last-name,
-.email,
-.message {
+.email {
     width: 100%;
     padding: 10px;
     border: 1px solid rgba(255, 255, 255, 0.25);
@@ -96,14 +106,15 @@
     border-radius: 5px;
     outline: none;
     margin-bottom: 30px;
-    color: #fff;
+    color: #ffffff;
     font-size: 1em;
     transition: 250ms;
     resize: none;
 }
 
-.message {
-    height: 200px;
+.register-form.dark  .email ~ .first-name,
+.login-form.dark  .email ~.first-name{
+    color: #000000;
 }
 
 label span {
@@ -116,25 +127,55 @@ label span {
     text-transform: uppercase;
     transition: 250ms;
 }
+.register-form.dark  label span,
+.login-form.dark label span {
+    color: #000000ba;
+}
 
-input:focus ~ span, textarea:focus ~ span,
-input:valid ~ span, textarea:valid ~ span {
-    color: #00dfc4;
+input:focus ~.pass-email-span,
+input:valid ~.pass-email-span {
+    color: #ffffff;
     transform: translateX(10px) translateY(-7px);
     font-size: 0.65em;
     padding: 0 10px;
-    background: #2a2a2a;
-    border-left: 1px solid #00dfc4;
-    border-right: 1px solid #00dfc4;
+    background: #212121;
+    border-left: 1px solid $color-accent;
+    border-right: 1px solid $color-accent;
     letter-spacing: 0.2em;
 }
 
-input:focus, textarea:focus,
-input:valid, textarea:valid {
-    border: 1px solid #00dfc4;
+.register-form.dark input:focus ~.pass-email-span,
+.login-form.dark input:focus ~.pass-email-span {
+    background-color: #ffffff;
 }
 
-.submit-btn {
+.register-form.dark input:valid ~.pass-email-span,
+.login-form.dark input:valid ~.pass-email-span {
+    background-color: #ffffff;
+}
+
+.register-form.dark input ~.pass-email-span,
+.login-form.dark input ~.pass-email-span {
+    background-color: inherit;
+}
+
+input:focus,
+input:valid{
+    border: 1px solid $color-accent;
+    
+}
+.register-form.dark input,
+.login-form.dark input {
+    border: 1px solid #000000;
+    color: #000;
+}
+.register-form.dark input:focus,
+.login-form.dark input:focus {
+    border: 1px solid $color-accent;
+}
+
+.register-btn,
+.login-btn {
    padding: 10px 50px;
    border: none;
    outline: none;
@@ -149,9 +190,21 @@ input:valid, textarea:valid {
    overflow: hidden;
 }
 
-.submit-btn:hover {
+.register-form.dark .register-btn,
+.login-form.dark .login-btn {
+    background-color: #212121;
+}
+
+.register-btn:hover,
+.login-btn:hover {
     background: rgba(96, 96, 96, 0.25);
 }
+
+.register-form.dark .register-btn:hover,
+.login-form.dark .login-btn:hover {
+    background-color: #6d6d6d;
+}
+
 .register-text {
     font-size: 16px;
 }
@@ -161,18 +214,19 @@ input:valid, textarea:valid {
     font-size: 16px;
 }
 
-.submit-btn.active .icon {
+.register-btn.active .icon,
+.login-btn.active .icon {
     animation: animateRocket 2s ease-in-out forwards;
 }
 
-.submit-btn::before {
+.register-btn::before {
     content: 'Registered';
     position: absolute;
     top: 0;
     left: 0;
     width: 0;
     height: 100%;
-    background: #00dfc4;
+    background: $color-accent;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -180,7 +234,23 @@ input:valid, textarea:valid {
     transition: 1s ease-in-out;
     transition-delay: 1s;
 }
-.submit-btn.active::before {
+.login-btn::before {
+    content: 'Logined';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: $color-accent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    transition: 1s ease-in-out;
+    transition-delay: 1s;
+}
+.register-btn.active::before,
+.login-btn.active::before {
     width: 100%;
 }
 @keyframes animateRocket {

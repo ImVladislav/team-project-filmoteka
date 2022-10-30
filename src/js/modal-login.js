@@ -30,7 +30,8 @@ function closeModal(evt) {
 
 
 
-refs.submitBtn.addEventListener('click', () => refs.submitBtn.classList.add('active'))
+refs.registerBtn.addEventListener('click', () => refs.registerBtn.classList.toggle('active'))
+refs.loginBtn.addEventListener('click', () => refs.loginBtn.classList.toggle('active'))
 
 refs.changeFormLogin.addEventListener('click', () => {
     refs.registerForm.classList.add('hidden')

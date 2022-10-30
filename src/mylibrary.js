@@ -5,3 +5,6 @@ import './js/queueMovies';
 import './js/pagination';
 import './js/theme-dark';
 import './js/scrollTop';
+
+import './js/modal-login';
+
