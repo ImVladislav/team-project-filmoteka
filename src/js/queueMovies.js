@@ -2,27 +2,22 @@ import Pagination from 'tui-pagination';
 
 import { refs } from './utilitiesJS/refs';
 import { posterСheck } from './utilitiesJS/posterCheck';
-import { clearPage } from './utilitiesJS/clearPage';
-import { genresArr } from './utilitiesJS/genres';
+import { serverApi } from './utilitiesJS/serverApi';
 import { options } from './pagination';
-
+import { genresArr } from './utilitiesJS/genres';
+import { createMessage } from './utilitiesJS/createEmptyLibMessage';
 
 refs.btnQueue.addEventListener('click', onBtnQueueClick);
 
 function onBtnQueueClick() {
-  // clearPage();
-
-  const queue = JSON.parse(localStorage.getItem('queue'));
-  murkupGalleryOnBtnQueued(queue);
-
   try {
     const queue = JSON.parse(localStorage.getItem('queue'));
+
     options.totalItems = queue.length;
     let start = 0;
     let end = 20;
 
     if (!queue.length) {
-      refs.mainList.classList.add('not-films');
       refs.containerLib.insertAdjacentHTML('beforeend', createMessage());
       refs.btnQueue.removeEventListener('click', onBtnQueueClick);
       const item = document.querySelector('.tui-js');
@@ -32,7 +27,6 @@ function onBtnQueueClick() {
       const item = document.querySelector('.tui-js');
       item.classList.remove('visually-hidden');
     }
-
     murkupGalleryOnBtnQueued(queue.slice(start, end));
 
     const container = document.querySelector('.tui-pagination');
