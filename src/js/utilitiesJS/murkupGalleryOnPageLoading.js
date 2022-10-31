@@ -4,19 +4,19 @@ import { refs } from './refs';
 import { serverApi } from './serverApi';
 import { posterСheck } from './posterCheck';
 import { options } from '../pagination';
-import { genresArr, genresUK } from './genres';
+import { genres } from './genres';
+import { genresArr } from './genres';
 import { spinnerPlay, spinnerStop } from '../spinner';
+import { genresArr, genresUK } from './genres';
+import { genresArr } from './genres';
+import { spinnerPlay, spinnerStop } from '../spinner';
+import warship from '../../images/warship.jpg';
 
 
-const container = document.querySelector('.tui-pagination');
-
-const pagination = new Pagination(container, options);
-
-spinnerPlay();
+const pagination = new Pagination(refs.tuiContainer, options);
 
 pagination.on('beforeMove', async event => {
-
-spinnerPlay();
+  spinnerPlay();
 
   pagination.setTotalItems(serverApi.totalResults);
   const currentPage = event.page;
@@ -37,6 +37,7 @@ export function murkupGalleryOnPageLoading(movies) {
         // проверка на жанры фильмов
 
         const genresMovies = genresArr.reduce((acc, genre) => {
+
           if (genre_ids.includes(genre.id)) {
             acc.push(genre.name);
           }
@@ -68,6 +69,10 @@ export function murkupGalleryOnPageLoading(movies) {
       }
     )
     .join(``);
+
+  if (refs.langValue.value === 'ru') {
+    return (refs.gallery.innerHTML = `<li class="warship"><img src="${warship}" /></li>`);
+  }
 
   return (refs.gallery.innerHTML = moviesMurkup);
 }
