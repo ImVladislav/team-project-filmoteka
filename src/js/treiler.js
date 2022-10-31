@@ -14,11 +14,12 @@ export const handleClick = async event => {
         trailerKey = element.key;
       }
     });
-    const instance = basicLightbox.create(`      
-        <div class="player-container"></div>
+    const instance = basicLightbox.create(`
+        <div class="player-container">
    <iframe class="player" src='https://www.youtube.com/embed/${trailerKey}'frameborder="0" 
    allow="accelerometer; autoplay; encrypted-media; gyroscope; 
    picture-in-picture" allowfullscreen></iframe> 
+   </div>
 `);
 
     instance.show();
