@@ -19,8 +19,8 @@ export const handleClick = async event => {
       }
     });
 
-    spinnerStop();
-
+    spinnerStop(); 
+    
     const instance = basicLightbox.create(`
         <div class="player-container">
    <iframe class="player" src='https://www.youtube.com/embed/${trailerKey}'frameborder="0"
