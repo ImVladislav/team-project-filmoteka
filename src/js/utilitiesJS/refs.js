@@ -18,7 +18,6 @@ export const refs = {
   btnWathed: document.querySelector('.js-watched'),
   btnQueue: document.querySelector('.js-queue'),
 
-  htmlDark: document.querySelector('html'),
   headerThemeText: document.querySelector('.header__theme-text'),
   iconSunBgc: document.querySelector('.header__icon--sun'),
   iconMoonBgc: document.querySelector('.header__icon--moon'),

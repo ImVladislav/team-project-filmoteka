@@ -7,11 +7,14 @@ import { options } from '../pagination';
 import { genres } from './genres';
 import { genresArr } from './genres';
 import { spinnerPlay, spinnerStop } from '../spinner';
+import { genresArr, genresUK } from './genres';
+
 
 const pagination = new Pagination(refs.tuiContainer, options);
 
-pagination.on('beforeMove', event => {
-  spinnerPlay();
+pagination.on('beforeMove', async event => {
+
+spinnerPlay();
 
   pagination.setTotalItems(serverApi.totalResults);
   const currentPage = event.page;
@@ -30,7 +33,9 @@ export function murkupGalleryOnPageLoading(movies) {
         let releaseDate = null;
 
         // проверка на жанры фильмов
-        const genresMovies = genres.reduce((acc, genre) => {
+
+        const genresMovies = genresArr.reduce((acc, genre) => {
+
           if (genre_ids.includes(genre.id)) {
             acc.push(genre.name);
           }
@@ -55,7 +60,7 @@ export function murkupGalleryOnPageLoading(movies) {
 
         return `
         <li class="film__item" data-id="${id}">
-        <img src="${src}" class="film__img" alt="${original_title}" />
+        <img src="${src}" class="film__img" alt="${original_title}" loading="lazy" width="368" height="591"/>
         <p class="film__title">${title}</p>
         <p class="film__genre">${genresMovie.join(`, `)} | ${releaseDate}</p>
       </li>`;

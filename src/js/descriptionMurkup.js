@@ -38,7 +38,7 @@ export const movieDescriptionMurkup = ({
             >${vote_count}</span
           >
         </p>
-        <p class="description__text">${popularity}</p>
+        <p class="description__text description__popularity">${popularity}</p>
         <p class="description__text">${original_title}</p>
         <p class="description__text">${genreList.join(', ')}</p>
       </div>
@@ -48,9 +48,12 @@ export const movieDescriptionMurkup = ({
     <div class="btn__container">
       <button type="button" class="modal__btn" data-add-watched></button>
       <button type="button" class="modal__btn" data-add-queue></button>
-      <button type="button" class="modal__btn btn-ytb">Trailer</button>
+      
     </div>
   </div>
+  <button type="button" class="btn-ytb youtube"><svg class="icon-youtube" width="44" height="44">
+      <use href="${symbol}#icon-youtube"></use>
+    </svg></button>
   <button type="button" class="modal__close" data-modal-close>
     <svg class="modal__close-icon" width="18" height="18">
       <use href="${symbol}#icon-close"></use>
@@ -59,4 +62,3 @@ export const movieDescriptionMurkup = ({
 </div>
   `;
 };
-

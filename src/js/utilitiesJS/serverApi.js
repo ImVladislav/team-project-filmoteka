@@ -1,12 +1,11 @@
 import axios from 'axios';
 import Notiflix from 'notiflix';
 
-const KEY = `7770a554235a470dd8487676c4d97407`;
-
 class ServerApi {
   #page = 1;
   totalResults = 200;
   requestCount = 1;
+  language = 'en-US';
 
   KEY = `api_key=7770a554235a470dd8487676c4d97407`;
   baseUrl = `https://api.themoviedb.org/3`;
@@ -14,7 +13,9 @@ class ServerApi {
 
   async getPopularMovie() {
     const data = await axios({
-      url: `${this.baseUrl}/trending/movie/week?${this.KEY}&page=${this.#page}`,
+      url: `${this.baseUrl}/trending/movie/week?${this.KEY}&page=${
+        this.#page
+      }&language=${this.language}`,
     });
 
     return await data.data;
@@ -22,9 +23,9 @@ class ServerApi {
 
   async getMovieOnDemand(query) {
     const data = await axios({
-      url: `${this.baseUrl}/search/movie?${this.KEY}&language=en-US&page=${
-        this.#page
-      }&include_adult=false&query=${query}`,
+      url: `${this.baseUrl}/search/movie?${this.KEY}&language=${
+        this.language
+      }&page=${this.#page}&include_adult=false&query=${query}`,
     });
 
     if (this.requestCount === 1 && data.data.results.length) {
@@ -41,7 +42,7 @@ class ServerApi {
 
   async getDetailsMovie(id) {
     const data = await axios({
-      url: `${this.baseUrl}/movie/${id}?${this.KEY}&language=en-US`,
+      url: `${this.baseUrl}/movie/${id}?${this.KEY}&language=${this.language}`,
     });
 
     return await data.data;
@@ -75,6 +76,10 @@ class ServerApi {
 
   setRequestCount() {
     this.requestCount = 1;
+  }
+
+  setlang(lang) {
+    this.language = lang;
   }
 }
 

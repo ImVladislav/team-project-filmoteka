@@ -1,6 +1,9 @@
-import { Spinner } from 'spin.js';
 
+
+import { Spinner } from 'spin.js';
 import { refs } from './utilitiesJS/refs';
+
+
 
 const opts = {
   lines: 14, // The number of lines to draw
@@ -25,12 +28,13 @@ const opts = {
 
 const spinner = new Spinner(opts).spin(refs.spinner);
 
+
 export function spinnerPlay() {
   spinner.spin(refs.spinner);
   refs.load.classList.remove('is-hidden');
 }
-
 export function spinnerStop() {
   refs.load.classList.add('is-hidden');
   spinner.stop();
 }
+
