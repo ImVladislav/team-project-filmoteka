@@ -1,8 +1,41 @@
+@import '../utils/mixins';
+
 .dark {
   color: $color-white;
-  background: $color-bgn-dark;
+
+
+  background-image: linear-gradient(rgba(0,0,0, 0.5), rgba(0,0,0, 0.6), rgba(0,0,0, 0.8)), url('/src/images/theme/home-them-dark-mob.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+
+    @include retina {
+        background-image: linear-gradient(rgba(0,0,0, 0.5), rgba(0,0,0, 0.6), rgba(0,0,0, 0.8)), url('/src/images/theme/home-theme-dark-mob@2x.jpg');
+    }
+
+    @include tablet {
+        background-image: linear-gradient(rgba(0,0,0, 0.5), rgba(0,0,0, 0.6), rgba(0,0,0, 0.8)), url('/src/images/theme/home-them-dark-tab.jpg');
+    }
+
+    @include retina {
+        background-image: linear-gradient(rgba(0,0,0, 0.5), rgba(0,0,0, 0.6), rgba(0,0,0, 0.8)), url('/src/images/theme/home-theme-dark-tab@2x.jpg');
+    }
+
+    @include desktop {
+        background-image: linear-gradient(rgba(0,0,0, 0.5), rgba(0,0,0, 0.6), rgba(0,0,0, 0.8)), url('/src/images/theme/home-them-dark.jpg');
+    }
+
+    @include retina {
+        background-image: linear-gradient(rgba(0,0,0, 0.5), rgba(0,0,0, 0.6), rgba(0,0,0, 0.8)), url('/src/images/theme/home-theme-dark@2x.jpg');
+    }
+  // background: $color-bgn-dark;
   fill: $color-white;
   stroke: $color-white;
+}
+
+.modal-content.dark {
+  background: $color-bgn-dark;
 }
 
 .footer.dark {
@@ -44,4 +77,5 @@
 
 .scroll-top__icon.dark {
   fill: $color-white;
+  background: transparent;
 }

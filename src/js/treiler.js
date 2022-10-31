@@ -1,6 +1,6 @@
 import * as basicLightbox from 'basiclightbox';
-import { refs } from './utilitiesJS/refs';
 
+import { refs } from './utilitiesJS/refs';
 import { serverApi } from './utilitiesJS/serverApi';
 
 export const handleClick = async event => {

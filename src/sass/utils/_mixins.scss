@@ -17,6 +17,12 @@
   }
 }
 
+@mixin tablet-plus {
+  @media screen and (min-width: 1024px) {
+    @content;
+  }
+}
+
 @mixin desktop {
   @media screen and (min-width: 1280px) {
     @content;
