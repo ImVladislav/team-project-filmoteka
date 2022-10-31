@@ -7,8 +7,8 @@
     opacity: 0;
     visibility: hidden;
     transition: 250ms ease-in-out;
+    overflow: hidden;
 }
-
 .registrationWrapper.visiable {
     opacity: 1;
     visibility: visible;
@@ -21,17 +21,14 @@
         color: #ffffff;
         font-size: 18px;
     }
-
     &__span {
         font-size: 28px;
     }
 }
-
 .register-form.dark .changeForm__text,
-.login-form.dark .changeForm__text {
+.login-form.dark .changeForm__text{
     color: #000000;
 }
-
 .form-title {
     text-align: center;
     margin-bottom: 40px;
@@ -40,12 +37,10 @@
     color: #ffffff;
     letter-spacing: 0.2em;
 }
-
 .register-form.dark .form-title,
-.login-form.dark .form-title {
+.login-form.dark .form-title{
     color: #000000;
 }
-
 .register-form {
     display: flex;
     flex-direction: column;
@@ -61,16 +56,13 @@
     border-radius: 20px;
     transition: 400ms ease-in-out;
 }
-
 .register-form.hidden {
     left: -100%;
     transition: 400ms ease-in-out;
 }
-
 .register-form.dark {
     background-color: #ffffff;
 }
-
 .login-form {
     display: flex;
     flex-direction: column;
@@ -79,19 +71,17 @@
     margin: 0 auto;
     position: absolute;
     top: 50%;
-    left: -150%;
+    left: 150%;
     transform: translate(-50%, -50%);
     background: #212121;
     padding: 20px;
     border-radius: 20px;
     transition: 250ms ease-in-out;
 }
-
-.register-form.hidden+.login-form.visiable {
+.register-form.hidden + .login-form.visiable {
     left: 50%;
     transition: 250ms ease-in-out;
 }
-
 .login-form.dark {
     background-color: #ffffff;
 }
@@ -99,7 +89,6 @@
 .changeForm__span {
     cursor: pointer;
     transition: 250ms ease-in-out;
-
     &:hover,
     &:focus {
         color: $color-accent;
@@ -122,8 +111,8 @@
     resize: none;
 }
 
-.register-form.dark .email~.first-name,
-.login-form.dark .email~.first-name {
+.register-form.dark  .email ~ .first-name,
+.login-form.dark  .email ~.first-name{
     color: #000000;
 }
 
@@ -137,14 +126,13 @@ label span {
     text-transform: uppercase;
     transition: 250ms;
 }
-
-.register-form.dark label span,
+.register-form.dark  label span,
 .login-form.dark label span {
     color: #000000ba;
 }
 
-input:focus~.pass-email-span,
-input:valid~.pass-email-span {
+input:focus ~.pass-email-span,
+input:valid ~.pass-email-span {
     color: #ffffff;
     transform: translateX(10px) translateY(-7px);
     font-size: 0.65em;
@@ -155,33 +143,31 @@ input:valid~.pass-email-span {
     letter-spacing: 0.2em;
 }
 
-.register-form.dark input:focus~.pass-email-span,
-.login-form.dark input:focus~.pass-email-span {
+.register-form.dark input:focus ~.pass-email-span,
+.login-form.dark input:focus ~.pass-email-span {
     background-color: #ffffff;
 }
 
-.register-form.dark input:valid~.pass-email-span,
-.login-form.dark input:valid~.pass-email-span {
+.register-form.dark input:valid ~.pass-email-span,
+.login-form.dark input:valid ~.pass-email-span {
     background-color: #ffffff;
 }
 
-.register-form.dark input~.pass-email-span,
-.login-form.dark input~.pass-email-span {
+.register-form.dark input ~.pass-email-span,
+.login-form.dark input ~.pass-email-span {
     background-color: inherit;
 }
 
 input:focus,
-input:valid {
+input:valid{
     border: 1px solid $color-accent;
-
+    
 }
-
 .register-form.dark input,
 .login-form.dark input {
     border: 1px solid #000000;
     color: #000;
 }
-
 .register-form.dark input:focus,
 .login-form.dark input:focus {
     border: 1px solid $color-accent;
@@ -189,18 +175,18 @@ input:valid {
 
 .register-btn,
 .login-btn {
-    padding: 10px 50px;
-    border: none;
-    outline: none;
-    background: rgba(255, 255, 255, 0.25);
-    margin: 0 auto 40px;
-    color: #fff;
-    display: flex;
-    cursor: pointer;
-    border-radius: 4px;
-    transition: 300ms ease;
-    position: relative;
-    overflow: hidden;
+   padding: 10px 50px;
+   border: none;
+   outline: none;
+   background: rgba(255, 255, 255, 0.25);
+   margin: 0 auto 40px;
+   color: #fff;
+   display: flex;
+   cursor: pointer;
+   border-radius: 4px;
+   transition: 300ms ease;
+   position: relative;
+   overflow: hidden;
 }
 
 .register-form.dark .register-btn,
@@ -221,7 +207,6 @@ input:valid {
 .register-text {
     font-size: 16px;
 }
-
 .icon {
     margin-right: 15px;
     position: relative;
@@ -233,8 +218,13 @@ input:valid {
     animation: animateRocket 2s ease-in-out forwards;
 }
 
+.register-btn .icon,
+.login-btn .icon {
+    animation: animateRocket2 3500ms ease-in forwards;
+}
+
 .register-btn::before {
-    content: 'Registered';
+    content: attr(data-content-register);
     position: absolute;
     top: 0;
     left: 0;
@@ -248,9 +238,8 @@ input:valid {
     transition: 1s ease-in-out;
     transition-delay: 1s;
 }
-
 .login-btn::before {
-    content: 'Logined';
+    content: attr(data-content-login);
     position: absolute;
     top: 0;
     left: 0;
@@ -264,31 +253,43 @@ input:valid {
     transition: 1s ease-in-out;
     transition-delay: 1s;
 }
-
 .register-btn.active::before,
 .login-btn.active::before {
     width: 100%;
 }
-
 @keyframes animateRocket {
-
-    0%,
-    5% {
+    0%, 5% {
         transform: rotate(0);
         left: 0;
     }
-
     25% {
         transform: rotate(45deg);
         left: 0;
     }
-
     50% {
         transform: rotate(45deg);
         left: -50px;
     }
-
     100% {
+        transform: rotate(45deg);
+        left: calc(100% + 50px);
+    }
+}
+
+@keyframes animateRocket2 {
+    100% {
+        transform: rotate(0);
+        left: 0;
+    }
+    50% {
+        transform: rotate(45deg);
+        left: 0;
+    }
+    25% {
+        transform: rotate(45deg);
+        left: -50px;
+    }
+    0%, 5% {
         transform: rotate(45deg);
         left: calc(100% + 50px);
     }

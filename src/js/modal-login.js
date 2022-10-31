@@ -28,15 +28,22 @@ function closeModal(evt) {
 
 }
 
-
-
-refs.registerBtn.addEventListener('click', () => refs.registerBtn.classList.toggle('active'))
-refs.loginBtn.addEventListener('click', () => refs.loginBtn.classList.toggle('active'))
+refs.registerBtn.addEventListener('click', () => {
+  refs.registerBtn.classList.add('active')
+  setTimeout(() => {
+    refs.registerBtn.classList.remove('active')
+  },2500)
+})
+refs.loginBtn.addEventListener('click', () => {
+  refs.loginBtn.classList.add('active')
+  setTimeout(() => {
+    refs.loginBtn.classList.remove('active')
+  },2500)
+})
 
 refs.changeFormLogin.addEventListener('click', () => {
     refs.registerForm.classList.add('hidden')
     refs.loginForm.classList.add('visiable')
-    console.log('click')
 })
 
 refs.changeFormRegister.addEventListener('click', () => {

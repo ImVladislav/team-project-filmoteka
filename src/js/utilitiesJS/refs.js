@@ -43,4 +43,5 @@ export const refs = {
   changeFormLogin: document.querySelector('.login'),
   registerForm: document.querySelector('.register-form'),
   loginForm: document.querySelector('.login-form'),
+  
 };
