@@ -69,7 +69,7 @@ export function murkupGalleryOnPageLoading(movies) {
     .join(``);
 
   if (refs.langValue.value === 'ru') {
-    return (refs.gallery.innerHTML = `<li style="margin: 0 auto"><img src="${warship}" /></li>`);
+    return (refs.gallery.innerHTML = `<li class="warship"><img src="${warship}" /></li>`);
   }
 
   return (refs.gallery.innerHTML = moviesMurkup);
