@@ -11,6 +11,7 @@ import {
   makeQueueTextContent,
   makeWatchTextContent,
 } from './utilitiesJS/modalBtnTextContent';
+import { handleClick } from './treiler';
 
 refs.btnWathed.addEventListener('click', onBtnWatchedClick);
 
@@ -68,6 +69,7 @@ async function onClickMovie(e) {
   const watchBtn = document.querySelector('[data-add-watched]');
   const queueBtn = document.querySelector('[data-add-queue]');
   const closeModalBtn = document.querySelector('[data-modal-close]');
+  const trailerBtn = document.querySelector('.btn-ytb');
 
   watchBtn.addEventListener('click', () => {
     onAddWatchClick(detailsMovie);
@@ -79,5 +81,6 @@ async function onClickMovie(e) {
     const queued = JSON.parse(localStorage.getItem('queue'));
     murkupGalleryOnBtnWatched(queued);
   });
+  trailerBtn.addEventListener('click', handleClick);
   closeModalBtn.addEventListener('click', closeModal);
 }
