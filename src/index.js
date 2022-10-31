@@ -1,4 +1,5 @@
 import './js/modal';
+import './js/utilitiesJS/selectLang';
 import './js/gallery';
 import './js/onSearchForm';
 import './js/pagination';
