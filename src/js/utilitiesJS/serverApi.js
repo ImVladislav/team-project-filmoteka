@@ -14,7 +14,7 @@ class ServerApi {
 
   async getPopularMovie() {
     const data = await axios({
-      url: `${this.baseUrl}/trending/movie/week?${this.KEY}&page=${this.#page}&language=uk`,
+      url: `${this.baseUrl}/trending/movie/week?${this.KEY}&page=${this.#page}&language=en-US`,
     });
       
     return await data.data;
@@ -42,7 +42,7 @@ class ServerApi {
 
   async getDetailsMovie(id) {
     const data = await axios({
-      url: `${this.baseUrl}/movie/${id}?${this.KEY}&language=uk`,
+      url: `${this.baseUrl}/movie/${id}?${this.KEY}&language=en-US`,
     });
 
     return await data.data;
