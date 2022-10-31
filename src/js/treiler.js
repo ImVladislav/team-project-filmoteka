@@ -2,8 +2,12 @@ import * as basicLightbox from 'basiclightbox';
 
 import { refs } from './utilitiesJS/refs';
 import { serverApi } from './utilitiesJS/serverApi';
+import { spinnerPlay, spinnerStop } from './spinner';
 
 export const handleClick = async event => {
+
+  spinnerPlay();
+
   const movieDescriptionId = document.querySelector('.movie__description');
   const trailerId = movieDescriptionId.dataset.movieId;
 
@@ -14,6 +18,9 @@ export const handleClick = async event => {
         trailerKey = element.key;
       }
     });
+
+    spinnerStop();
+    
     const instance = basicLightbox.create(`
       <button
         type="button"

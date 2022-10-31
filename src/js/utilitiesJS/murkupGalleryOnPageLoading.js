@@ -13,9 +13,12 @@ const container = document.querySelector('.tui-pagination');
 
 const pagination = new Pagination(container, options);
 
-// spinnerPlay();
+spinnerPlay();
 
 pagination.on('beforeMove', async event => {
+
+spinnerPlay();
+
   pagination.setTotalItems(serverApi.totalResults);
   const currentPage = event.page;
   serverApi.setPage(currentPage);

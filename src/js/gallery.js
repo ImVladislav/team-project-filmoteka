@@ -12,6 +12,7 @@ import {
   makeWatchTextContent,
 } from './utilitiesJS/modalBtnTextContent';
 import { handleClick } from './treiler';
+import { spinnerPlay, spinnerStop } from './spinner';
 
 
 murkupGallery();
@@ -25,6 +26,8 @@ async function onClickMovie(e) {
 
   onOpenModal();
 
+  spinnerPlay();
+
   const id = e.target.parentElement.dataset.id;
 
   const detailsMovie = await serverApi.getDetailsMovie(id);
@@ -32,6 +35,9 @@ async function onClickMovie(e) {
   const movieMurkup = await movieDescriptionMurkup(detailsMovie);
 
   refs.movieDescription.insertAdjacentHTML('beforeend', movieMurkup);
+
+  spinnerStop();
+  
   makeWatchTextContent(detailsMovie);
   makeQueueTextContent(detailsMovie);
 
