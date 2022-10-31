@@ -8,13 +8,15 @@ import { genres } from './genres';
 import { genresArr } from './genres';
 import { spinnerPlay, spinnerStop } from '../spinner';
 import { genresArr, genresUK } from './genres';
+import { genresArr } from './genres';
+import { spinnerPlay, spinnerStop } from '../spinner';
+import warship from '../../images/warship.jpg';
 
 
 const pagination = new Pagination(refs.tuiContainer, options);
 
 pagination.on('beforeMove', async event => {
-
-spinnerPlay();
+  spinnerPlay();
 
   pagination.setTotalItems(serverApi.totalResults);
   const currentPage = event.page;
@@ -67,6 +69,10 @@ export function murkupGalleryOnPageLoading(movies) {
       }
     )
     .join(``);
+
+  if (refs.langValue.value === 'ru') {
+    return (refs.gallery.innerHTML = `<li style="margin: 0 auto"><img src="${warship}" /></li>`);
+  }
 
   return (refs.gallery.innerHTML = moviesMurkup);
 }

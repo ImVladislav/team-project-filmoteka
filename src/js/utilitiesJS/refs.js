@@ -45,4 +45,5 @@ export const refs = {
   loginForm: document.querySelector('.login-form'),
 
   tuiContainer: document.querySelector('.tui-pagination'),
+  langValue: document.querySelector('.select__lang'),
 };

@@ -1,12 +1,11 @@
 import { serverApi } from './serverApi';
+import { refs } from './refs';
 
-const select = document.querySelector('.select__lang');
-
-select.addEventListener('change', onSelectChange);
+refs.langValue.addEventListener('change', onSelectChange);
 
 if (localStorage.getItem('language')) {
   const parsedData = JSON.parse(localStorage.getItem('language'));
-  select.value = parsedData;
+  refs.langValue.value = parsedData;
   serverApi.setlang(parsedData);
 }
 
