@@ -15,6 +15,9 @@ import {
   makeQueueTextContent,
   makeWatchTextContent,
 } from './utilitiesJS/modalBtnTextContent';
+import { handleClick } from './treiler';
+
+import { createMessage } from './utilitiesJS/createEmptyLibMessage';
 
 refs.btnWathed.addEventListener('click', onBtnWatchedClick);
 
@@ -25,30 +28,28 @@ function onBtnWatchedClick() {
     let start = 0;
     let end = 20;
 
+    const handleSlice = currentPage => {
+      start = currentPage * options.itemsPerPage - 20;
+      end = currentPage * options.itemsPerPage;
+    };
+
     if (!watched.length) {
       refs.mainList.classList.add('not-films');
       refs.containerLib.insertAdjacentHTML('beforeend', createMessage());
       refs.btnWathed.removeEventListener('click', onBtnWatchedClick);
-      const item = document.querySelector('.tui-js');
-      item.classList.add('visually-hidden');
+      refs.tuiContainer.classList.add('visually-hidden');
       return;
     } else {
-      const item = document.querySelector('.tui-js');
-      item.classList.remove('visually-hidden');
+      refs.tuiContainer.classList.remove('visually-hidden');
     }
 
     murkupGalleryOnBtnWatched(watched.slice(start, end));
 
-    const container = document.querySelector('.tui-pagination');
-
-    const pagination = new Pagination(container, options);
+    const pagination = new Pagination(refs.tuiContainer, options);
 
     pagination.on('beforeMove', event => {
       const currentPage = event.page;
-      start = currentPage * options.itemsPerPage - 20;
-      end = currentPage * options.itemsPerPage;
-      serverApi.setPage(currentPage);
-      serverApi.incrementRequestCount();
+      handleSlice(currentPage);
       murkupGalleryOnBtnWatched(watched.slice(start, end));
     });
   } catch (error) {

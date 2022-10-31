@@ -5,6 +5,7 @@ import { refs } from './utilitiesJS/refs';
 import { serverApi } from './utilitiesJS/serverApi';
 import { options } from './pagination';
 import { murkupGalleryOnPageLoading } from './utilitiesJS/murkupGalleryOnPageLoading';
+import { spinnerPlay, spinnerStop } from './spinner';
 
 let searchQuery = ' ';
 refs.formRef.addEventListener('submit', onSubmitClick);
@@ -34,9 +35,9 @@ async function onSubmitClick(event) {
 
   await murkupSearchMovie();
 
-  const container = document.querySelector('.tui-pagination');
+  spinnerStop();
 
-  const pagination = new Pagination(container, options);
+  const pagination = new Pagination(refs.tuiContainer, options);
 
   pagination.on('beforeMove', event => {
     const currentPage = event.page;
