@@ -17,40 +17,41 @@
 }
 
 .modal-team-content {
-  display: block;
-  overflow-y: scroll;
-
-  background-color: $color-footer;
   position: absolute;
   top: 50%;
   left: 50%;
+  overflow-y: scroll;
   margin: 0 auto;
   width: 280px;
   height: 90vh;
+  padding: 40px;
 
-  padding: 48px 20px 40px 20px;
+  background-color: $color-footer;
   box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.17);
+
   transform: translate(-50%, -50%);
   transition: transform 250ms $timing-function;
   @include tablet {
     overflow-y: hidden;
-    width: 700px;
-    height: 500px;
-
-    padding: 40px 12px;
+    width: 670px;
+    height: 450px;
   }
   @include desktop {
-    width: 1000px;
-    height: 600px;
-
-    padding: 40px 12px;
+    width: 920px;
+    height: 570px;
   }
 }
 .modal-team__close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
   width: 30px;
   height: 30px;
+
   margin-left: auto;
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border: none;
   background-color: transparent;
   padding: 0;
@@ -62,6 +63,16 @@
   &:focus {
     stroke: $color-accent;
   }
+
+  // @include tablet {
+  //   top: -30;
+  //   right: -28;
+  // }
+
+  // @include tablet-plus {
+  //   top: -25;
+  //   right: 0;
+  // }
 }
 
 .modal-team-wrap {

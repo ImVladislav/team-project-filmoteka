@@ -2,8 +2,12 @@ import * as basicLightbox from 'basiclightbox';
 
 import { refs } from './utilitiesJS/refs';
 import { serverApi } from './utilitiesJS/serverApi';
+import { spinnerPlay, spinnerStop } from './spinner';
 
 export const handleClick = async event => {
+
+  spinnerPlay();
+
   const movieDescriptionId = document.querySelector('.movie__description');
   const trailerId = movieDescriptionId.dataset.movieId;
 
@@ -14,6 +18,8 @@ export const handleClick = async event => {
         trailerKey = element.key;
       }
     });
+    spinnerStop();
+    
     const instance = basicLightbox.create(`
       <button
         type="button"
@@ -22,9 +28,9 @@ export const handleClick = async event => {
         ></button>
    <iframe class="player" width="560" height="315"
    src='https://www.youtube.com/embed/${trailerKey}'frameborder="0" 
+
    allow="accelerometer; autoplay; encrypted-media; gyroscope; 
-   picture-in-picture" allowfullscreen></iframe>
- 
+   picture-in-picture" allowfullscreen></iframe> 
 `);
 
     instance.show();
@@ -34,5 +40,3 @@ export const handleClick = async event => {
     modalCloseBtn.addEventListener('click', () => instance.close());
   });
 };
-
-// refs.trailerBtn.addEventListener('click', handleClick);

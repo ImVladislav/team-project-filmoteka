@@ -7,4 +7,4 @@ import './js/theme-dark';
 import './js/treiler';
 import './js/scrollTop';
 import './js/modal-login';
-
+import './js/spinner';

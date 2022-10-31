@@ -1,7 +1,7 @@
 import { refs } from './utilitiesJS/refs';
-// console.log('teamGitIcon', refs.teamGitIcon);
 
 refs.darkBtn.addEventListener('click', onClickDarkBtn);
+
 function onClickDarkBtn(e) {
   e.preventDefault();
   if (localStorage.getItem('theme') === 'dark') {
@@ -15,11 +15,15 @@ function onClickDarkBtn(e) {
 function addDarkClass() {
   try {
     if (localStorage.getItem('theme') === 'dark') {
-      refs.htmlDark.classList.add('dark');
+      refs.body.classList.add('dark');
+      refs.body.classList.add('img-dark');
+      refs.body.classList.remove('light');
+
       refs.headerThemeText.textContent = 'Light';
 
       refs.iconSunBgc.classList.remove('visually-hidden');
       refs.iconMoonBgc.classList.add('visually-hidden');
+
       refs.footer.classList.add('dark');
       refs.footerContainer.classList.add('dark');
       refs.team.classList.add('dark');
@@ -31,13 +35,17 @@ function addDarkClass() {
       refs.scollIcon.classList.add('dark');
 
       refs.registerForm.classList.add('dark');
-      refs.loginForm.classList.add('dark')
-
+      refs.loginForm.classList.add('dark');
     } else {
-      refs.htmlDark.classList.remove('dark');
+      refs.body.classList.add('light');
+      refs.body.classList.remove('dark');
+      refs.body.classList.remove('img-dark');
+
       refs.headerThemeText.textContent = 'Dark';
+
       refs.iconSunBgc.classList.add('visually-hidden');
       refs.iconMoonBgc.classList.remove('visually-hidden');
+
       refs.footer.classList.remove('dark');
       refs.footerContainer.classList.remove('dark');
       refs.team.classList.remove('dark');
@@ -48,8 +56,7 @@ function addDarkClass() {
       refs.scollIcon.classList.remove('dark');
 
       refs.registerForm.classList.remove('dark');
-      refs.loginForm.classList.remove('dark')
-
+      refs.loginForm.classList.remove('dark');
     }
   } catch (err) {}
 }
