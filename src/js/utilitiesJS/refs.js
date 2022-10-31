@@ -18,7 +18,6 @@ export const refs = {
   btnWathed: document.querySelector('.js-watched'),
   btnQueue: document.querySelector('.js-queue'),
 
-  htmlDark: document.querySelector('html'),
   headerThemeText: document.querySelector('.header__theme-text'),
   iconSunBgc: document.querySelector('.header__icon--sun'),
   iconMoonBgc: document.querySelector('.header__icon--moon'),
@@ -30,7 +29,6 @@ export const refs = {
 
   scrollBtn: document.querySelector('.is-show'),
   scollIcon: document.querySelector('.scroll-top__icon'),
-
 
   spinner: document.querySelector('.js-spinner'),
   load: document.querySelector('[data-load]'),
@@ -45,5 +43,4 @@ export const refs = {
   changeFormLogin: document.querySelector('.login'),
   registerForm: document.querySelector('.register-form'),
   loginForm: document.querySelector('.login-form'),
-
 };
