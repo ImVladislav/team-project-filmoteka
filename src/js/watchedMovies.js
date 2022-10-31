@@ -2,11 +2,8 @@ import Pagination from 'tui-pagination';
 
 import { refs } from './utilitiesJS/refs';
 import { posterСheck } from './utilitiesJS/posterCheck';
-import { onOpenModal } from './modal';
 import { movieDescriptionMurkup } from './descriptionMurkup';
 import { serverApi } from './utilitiesJS/serverApi';
-import { movieDescriptionMurkup } from './descriptionMurkup';
-import { onOpenModal } from './modal';
 import { onAddQueueClick, onAddWatchClick } from './addFavorites';
 import { closeModal, onOpenModal } from './modal';
 import { options } from './pagination';
@@ -23,7 +20,11 @@ function onBtnWatchedClick() {
   try {
     const watched = JSON.parse(localStorage.getItem('watch'));
 
-    if (!watched || watched.length === 0) {
+    options.totalItems = watched.length;
+    let start = 0;
+    let end = 20;
+
+    if (!watched.length) {
       refs.containerLib.insertAdjacentHTML('beforeend', createMessage());
       refs.btnWathed.removeEventListener('click', onBtnWatchedClick);
       const item = document.querySelector('.tui-js');
@@ -33,9 +34,7 @@ function onBtnWatchedClick() {
       const item = document.querySelector('.tui-js');
       item.classList.remove('visually-hidden');
     }
-
-    murkupGalleryOnBtnWatched(watched);
-    // murkupGalleryOnBtnWatched(watched.slice(start, end));
+    murkupGalleryOnBtnWatched(watched.slice(start, end));
 
     const container = document.querySelector('.tui-pagination');
 
