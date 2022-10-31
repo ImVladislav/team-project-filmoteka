@@ -24,7 +24,6 @@ function onBtnWatchedClick() {
     const watched = JSON.parse(localStorage.getItem('watch'));
 
     if (!watched || watched.length === 0) {
-
       refs.containerLib.insertAdjacentHTML('beforeend', createMessage());
       refs.btnWathed.removeEventListener('click', onBtnWatchedClick);
       const item = document.querySelector('.tui-js');
@@ -35,7 +34,8 @@ function onBtnWatchedClick() {
       item.classList.remove('visually-hidden');
     }
 
-    murkupGalleryOnBtnWatched(watched.slice(start, end));
+    murkupGalleryOnBtnWatched(watched);
+    // murkupGalleryOnBtnWatched(watched.slice(start, end));
 
     const container = document.querySelector('.tui-pagination');
 
