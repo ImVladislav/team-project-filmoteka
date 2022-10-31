@@ -40,9 +40,9 @@ async function onSubmitClick(event) {
   
   spinnerStop();
 
-  const container = document.querySelector('.tui-pagination');
+  spinnerStop();
 
-  const pagination = new Pagination(container, options);
+  const pagination = new Pagination(refs.tuiContainer, options);
 
   pagination.on('beforeMove', event => {
     const currentPage = event.page;
