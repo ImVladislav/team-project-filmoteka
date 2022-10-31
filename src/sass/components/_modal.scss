@@ -23,7 +23,7 @@
   left: 50%;
   
   margin: 0 auto;
-  width: 320px;
+  width: 280px;
   max-height: 90vh;
 
   padding: 48px 20px 40px 20px;
@@ -44,7 +44,7 @@
     padding: 40px 72px 40px 36px;
   }
 
-  @include tablet-plus {
+  @include desktop {
     width: 806px;
     height: 558px;
 

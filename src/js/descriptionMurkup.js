@@ -38,7 +38,7 @@ export const movieDescriptionMurkup = ({
             >${vote_count}</span
           >
         </p>
-        <p class="description__text">${popularity}</p>
+        <p class="description__text description__popularity">${popularity}</p>
         <p class="description__text">${original_title}</p>
         <p class="description__text">${genreList.join(', ')}</p>
       </div>
