@@ -50,7 +50,7 @@ export const teamItems = [
     img: vladislavZavertaylo,
     name: 'Vladislav',
     role: 'Developer',
-    git: '',
+    git: 'https://github.com/vladislavzaver91',
   },
   {
     img: vladyslavStepanov,
@@ -62,7 +62,7 @@ export const teamItems = [
     img: roman,
     name: 'Roman',
     role: 'Developer',
-    git: '',
+    git: 'https://github.com/skif6623',
   },
   {
     img: serhiy,

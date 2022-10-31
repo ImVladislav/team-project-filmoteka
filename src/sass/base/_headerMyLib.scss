@@ -22,6 +22,7 @@
     max-height: 219px;
     background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
       url(/src/images/headerMyLib_background_tablet.jpg);
+    margin-bottom: 60px;
 
     @include retina {
       background-image: linear-gradient(rgba(0, 0, 0, 0.56),
@@ -40,7 +41,7 @@
     max-height: 219px;
     max-width: 2000px;
     margin: 0 auto;
-    margin-bottom: 20px;
+    margin-bottom: 60px;
     background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
       url(/src/images/headerMyLib_background.jpg);
 

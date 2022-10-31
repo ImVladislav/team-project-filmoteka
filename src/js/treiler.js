@@ -1,9 +1,13 @@
 import * as basicLightbox from 'basiclightbox';
-import { refs } from './utilitiesJS/refs';
 
+import { refs } from './utilitiesJS/refs';
 import { serverApi } from './utilitiesJS/serverApi';
+import { spinnerPlay, spinnerStop } from './spinner';
 
 export const handleClick = async event => {
+
+  spinnerPlay();
+
   const movieDescriptionId = document.querySelector('.movie__description');
   const trailerId = movieDescriptionId.dataset.movieId;
 
@@ -14,9 +18,13 @@ export const handleClick = async event => {
         trailerKey = element.key;
       }
     });
+
     const instance = basicLightbox.create(`
         <div class="player-container">
    <iframe class="player" src='https://www.youtube.com/embed/${trailerKey}'frameborder="0" 
+
+    spinnerStop();
+   
    allow="accelerometer; autoplay; encrypted-media; gyroscope; 
    picture-in-picture" allowfullscreen></iframe> 
    </div>

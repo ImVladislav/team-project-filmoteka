@@ -13,3 +13,31 @@ body.no-scroll {
 .list {
   list-style: none;
 }
+
+.light {
+  background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.8)), url('/src/images/theme/home-theme-mob.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+
+    @include retina {
+        background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.8)), url('/src/images/theme/home-theme-mob@2x.jpg');
+    }
+
+    @include tablet {
+        background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.8)), url('/src/images/theme/home-theme-tab.jpg');
+    }
+
+    @include retina {
+        background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.8)), url('/src/images/theme/home-theme-tab@2x.jpg');
+    }
+
+    @include desktop {
+        background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.8)), url('/src/images/theme/home-theme.jpg');
+    }
+
+    @include retina {
+        background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.8)), url('/src/images/theme/home-theme@2x.jpg');
+    }
+}

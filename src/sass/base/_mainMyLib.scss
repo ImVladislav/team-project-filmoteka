@@ -1,3 +1,43 @@
 .main {
   min-height: calc(100vh - 350px);
 }
+
+.message-wrap {
+  padding-top: 30px;
+  padding-bottom: 50px;
+
+  @include desktop {
+    padding-top: 60px;
+  }
+}
+
+.sorry {
+  margin-bottom: 10px;
+  font-weight: 700;
+  font-size: 30px;
+  text-align: center;
+
+  color: $color-accent;
+
+  @include tablet {
+    font-size: 50px;
+  }
+}
+
+.message {
+  font-style: normal;
+  text-align: center;
+  font-weight: 500;
+  line-height: 1.33;
+
+  @include tablet {
+    font-size: 25px;
+  }
+}
+
+.accent {
+  display: block;
+  margin: 0 auto;
+  margin-top: 30px;
+  background-color: $color-accent;
+}
