@@ -29,10 +29,6 @@ export const handleClick = async event => {
    </div>
 `);
 
-    instance.show();
-    const modalCloseBtn = document.querySelector(
-      '[data-action="close-lightbox"]'
-    );
-    modalCloseBtn.addEventListener('click', () => instance.close());
+    instance.show();    
   });
 };
