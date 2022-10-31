@@ -292,3 +292,8 @@ input:valid ~ .pass-email-span {
     left: calc(100% + 50px);
   }
 }
+
+.fa-solid:hover,
+.fa-solid:focus {
+  color: $color-accent;
+}
