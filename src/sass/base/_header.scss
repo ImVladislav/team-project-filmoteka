@@ -197,7 +197,6 @@
 }
 
 .header__form {
-
   display: flex;
   align-items: center;
   justify-content: center;
@@ -258,4 +257,13 @@
   100% {
     transform: translateY(0px);
   }
+}
+
+.select__lang {
+  background-color: transparent;
+  color: $color-accent;
+  border: none;
+  outline: none;
+
+  cursor: pointer;
 }
