@@ -4,8 +4,7 @@ import { refs } from './refs';
 import { serverApi } from './serverApi';
 import { posterСheck } from './posterCheck';
 import { options } from '../pagination';
-import { genres } from './genres';
-import { genresArr } from './genres';
+import { genresArr, genresUK } from './genres';
 import { spinnerPlay, spinnerStop } from '../spinner';
 
 
