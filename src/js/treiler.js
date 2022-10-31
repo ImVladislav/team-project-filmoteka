@@ -18,7 +18,6 @@ export const handleClick = async event => {
         trailerKey = element.key;
       }
     });
-
     spinnerStop();
     
     const instance = basicLightbox.create(`
@@ -29,9 +28,9 @@ export const handleClick = async event => {
         ></button>
    <iframe class="player" width="560" height="315"
    src='https://www.youtube.com/embed/${trailerKey}'frameborder="0" 
+
    allow="accelerometer; autoplay; encrypted-media; gyroscope; 
-   picture-in-picture" allowfullscreen></iframe>
- 
+   picture-in-picture" allowfullscreen></iframe> 
 `);
 
     instance.show();
@@ -41,5 +40,3 @@ export const handleClick = async event => {
     modalCloseBtn.addEventListener('click', () => instance.close());
   });
 };
-
-// refs.trailerBtn.addEventListener('click', handleClick);
