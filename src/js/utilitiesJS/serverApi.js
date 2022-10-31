@@ -1,7 +1,7 @@
 import axios from 'axios';
 import Notiflix from 'notiflix';
 
-const KEY = `7770a554235a470dd8487676c4d97407`;
+
 
 class ServerApi {
   #page = 1;
@@ -14,9 +14,9 @@ class ServerApi {
 
   async getPopularMovie() {
     const data = await axios({
-      url: `${this.baseUrl}/trending/movie/week?${this.KEY}&page=${this.#page}`,
+      url: `${this.baseUrl}/trending/movie/week?${this.KEY}&page=${this.#page}&language=en-US`,
     });
-
+      
     return await data.data;
   }
 
