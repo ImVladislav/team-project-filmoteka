@@ -1,7 +1,7 @@
 import { refs } from './refs';
 import { posterСheck } from './posterCheck';
 import { genresArr } from './genres';
-import { murkupGallery } from './markupGllery';
+
 
 export function murkupGallery(movies) {
   const moviesMurkup = movies
