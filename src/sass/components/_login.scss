@@ -7,6 +7,10 @@
 .iconExit.active {
     display: block;
 }
+.iconExit,
+.iconEnter {
+    cursor: pointer;
+}
 
 //======================================
 //LOGED IN MODAL
@@ -39,6 +43,11 @@
     border-radius: 20px;
     transition: 250ms ease-in-out;
 }
+
+.loginedWrapper.dark .loginedModal {
+    background: #ffffff;
+}
+
 .content {
     text-align: center;
 }
@@ -48,11 +57,19 @@
     margin-bottom: 20px;
 }
 
+.loginedWrapper.dark .iconCamera {
+    color: #000000;
+}
+
 .content__text {
     color: white;
     margin-bottom: 20px;
     font-size: 20px;
     line-height: 1.3;
+}
+
+.loginedWrapper.dark .content__text {
+    color: #000000;
 }
 .exitBtnFromOnline {
     border: none;

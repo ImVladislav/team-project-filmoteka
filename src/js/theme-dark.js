@@ -36,6 +36,7 @@ function addDarkClass() {
 
       refs.registerForm.classList.add('dark');
       refs.loginForm.classList.add('dark');
+      refs.loginedWrapper.classList.add('dark');
     } else {
       refs.body.classList.add('light');
       refs.body.classList.remove('dark');
@@ -57,6 +58,7 @@ function addDarkClass() {
 
       refs.registerForm.classList.remove('dark');
       refs.loginForm.classList.remove('dark');
+      refs.loginedWrapper.classList.remove('dark');
     }
   } catch (err) {}
 }

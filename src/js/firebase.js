@@ -109,9 +109,6 @@ onAuthStateChanged(auth, (user) => {
     refs.iconEnter.classList.add('locked')
     refs.iconExit.classList.add('active')
     refs.modal.classList.remove('visiable');
-  } else {
-    // User is signed out
-    Notiflix.Notify.failure('User is signed out!');
   }
 });
 
