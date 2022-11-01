@@ -2,11 +2,14 @@ import Pagination from 'tui-pagination';
 import { refs } from './utilitiesJS/refs';
 import { options } from './pagination';
 import { createMessage } from './utilitiesJS/createEmptyLibMessage';
-import { murkupGalleryOnBtn } from './watchedMovies';
+import { murkupGallery } from './utilitiesJS/markupGllery';
 
 refs.btnQueue.addEventListener('click', onBtnQueueClick);
 
 export function onBtnQueueClick() {
+  refs.btnWathed.dataset.watch = '';
+  refs.btnQueue.dataset.queue = 'active';
+
   try {
     const queue = JSON.parse(localStorage.getItem('queue'));
 
@@ -25,14 +28,14 @@ export function onBtnQueueClick() {
       };
 
       refs.tuiContainer.classList.remove('visually-hidden');
-      murkupGalleryOnBtn(queue.slice(start, end));
+      murkupGallery(queue.slice(start, end));
 
       const pagination = new Pagination(refs.tuiContainer, options);
 
       pagination.on('beforeMove', event => {
         const currentPage = event.page;
         handleSlice(currentPage);
-        murkupGalleryOnBtn(queue.slice(start, end));
+        murkupGallery(queue.slice(start, end));
       });
     }
   } catch (error) {

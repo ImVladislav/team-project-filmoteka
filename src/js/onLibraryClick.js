@@ -2,10 +2,13 @@ import { refs } from './utilitiesJS/refs';
 import { createMessage } from './utilitiesJS/createEmptyLibMessage';
 import { onBtnWatchedClick } from './watchedMovies';
 import { onBtnQueueClick } from './queueMovies';
+import { serverApi } from './utilitiesJS/serverApi';
 
 onMyLibraryClick();
 
 function onMyLibraryClick() {
+  serverApi.setlang(JSON.parse(localStorage.getItem('language')));
+
   try {
     const watch = JSON.parse(localStorage.getItem('watch'));
     const queue = JSON.parse(localStorage.getItem('queue'));
