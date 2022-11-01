@@ -9,14 +9,19 @@ function onMyLibraryClick() {
   try {
     const watch = JSON.parse(localStorage.getItem('watch'));
     const queue = JSON.parse(localStorage.getItem('queue'));
+
     if (!watch && !queue) {
-      refs.containerLib.insertAdjacentHTML('beforeend', createMessage());
+      refs.galleryLibrary.insertAdjacentHTML('beforeend', createMessage());
       return;
-    } else if (watch) {
+    }
+    if (watch && watch.length !== 0) {
       onBtnWatchedClick();
-    } else if (!watch || queue) {
+      return;
+    } else if ((queue && queue.length !== 0 && !watch) || watch.length === 0) {
       onBtnQueueClick();
+      return;
     } else {
+      refs.galleryLibrary.insertAdjacentHTML('beforeend', createMessage());
       return;
     }
   } catch (error) {

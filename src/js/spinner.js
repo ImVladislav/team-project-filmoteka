@@ -1,4 +1,4 @@
-import { Spinner } from './spinner';
+import { Spinner } from 'spin.js';
 import { refs } from './utilitiesJS/refs';
 
 const opts = {
