@@ -2,6 +2,7 @@ import Pagination from 'tui-pagination';
 
 import { refs } from './utilitiesJS/refs';
 import { posterСheck } from './utilitiesJS/posterCheck';
+import { clearPage } from './utilitiesJS/clearPage';
 import { serverApi } from './utilitiesJS/serverApi';
 import { options } from './pagination';
 import { genresArr } from './utilitiesJS/genres';
@@ -17,28 +18,26 @@ function onBtnQueueClick() {
     let start = 0;
     let end = 20;
 
+    const handleSlice = currentPage => {
+      start = currentPage * options.itemsPerPage - 20;
+      end = currentPage * options.itemsPerPage;
+    };
+
     if (!queue.length) {
       refs.containerLib.insertAdjacentHTML('beforeend', createMessage());
       refs.btnQueue.removeEventListener('click', onBtnQueueClick);
-      const item = document.querySelector('.tui-js');
-      item.classList.add('visually-hidden');
+      refs.tuiContainer.classList.add('visually-hidden');
       return;
     } else {
-      const item = document.querySelector('.tui-js');
-      item.classList.remove('visually-hidden');
+      refs.tuiContainer.classList.remove('visually-hidden');
     }
     murkupGalleryOnBtnQueued(queue.slice(start, end));
 
-    const container = document.querySelector('.tui-pagination');
-
-    const pagination = new Pagination(container, options);
+    const pagination = new Pagination(refs.tuiContainer, options);
 
     pagination.on('beforeMove', event => {
       const currentPage = event.page;
-      start = currentPage * options.itemsPerPage - 20;
-      end = currentPage * options.itemsPerPage;
-      serverApi.setPage(currentPage);
-      serverApi.incrementRequestCount();
+      handleSlice(currentPage);
       murkupGalleryOnBtnQueued(queue.slice(start, end));
     });
   } catch (error) {
