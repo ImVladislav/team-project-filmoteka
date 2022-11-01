@@ -53,7 +53,7 @@ export function murkupGalleryOnPageLoading(movies) {
         }
 
         // проверка на дату релиза
-        if (release_date === '') {
+        if (!release_date) {
           releaseDate = 'Release data no found';
         } else {
           releaseDate = release_date.slice(0, 4);
