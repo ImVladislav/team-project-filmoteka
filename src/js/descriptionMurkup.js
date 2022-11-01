@@ -14,8 +14,15 @@ export const movieDescriptionMurkup = ({
 }) => {
   const src = posterСheck(poster_path);
 
+  const aboutText =
+    overview.length > 0
+      ? overview
+      : "Unfortunately, we don't have a description right now";
+
   const genreList = [];
   genres.forEach(({ name }) => genreList.push(name));
+  const genre =
+    genreList.length > 0 ? genreList.join(', ') : 'Genres not found';
 
   return `
   <div class="movie__description" data-movie-id="${id}">
@@ -40,11 +47,11 @@ export const movieDescriptionMurkup = ({
         </p>
         <p class="description__text description__popularity">${popularity}</p>
         <p class="description__text">${original_title}</p>
-        <p class="description__text">${genreList.join(', ')}</p>
+        <p class="description__text">${genre}</p>
       </div>
     </div>
     <h4 class="about__title">About</h4>
-    <p class="about__text">${overview}</p>
+    <p class="about__text">${aboutText}</p>
     <div class="btn__container">
       <button type="button" class="modal__btn" data-add-watched></button>
       <button type="button" class="modal__btn" data-add-queue></button>
