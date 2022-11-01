@@ -25,6 +25,8 @@ pagination.on('beforeMove', async event => {
 });
 
 export function murkupGalleryOnPageLoading(movies) {
+  serverApi.setPage(1);
+  
   const moviesMurkup = movies
 
     .map(
