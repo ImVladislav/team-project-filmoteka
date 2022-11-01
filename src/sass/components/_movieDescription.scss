@@ -4,6 +4,10 @@
   }
 }
 
+.movie__poster {
+  box-shadow: 3px 8px 9px 3px rgba(0, 0, 0, 0.32);
+}
+
 .movie__poster-wrappaer {
   @include tablet-close {
     margin-bottom: 20px;
@@ -158,6 +162,7 @@
 
   border-radius: 5px;
   border: 1px solid $color-main-text;
+  box-shadow: 3px 8px 9px 3px rgba(0, 0, 0, 0.32);
 
   font-family: 'Roboto';
   font-style: normal;
@@ -216,6 +221,16 @@
   &:hover,
   &:focus {
     stroke: $color-accent;
+  }
+
+  @include tablet {
+    top: -30;
+    right: -28;
+  }
+
+  @include tablet-plus {
+    top: -25;
+    right: 0;
   }
 }
 .modal-content.dark .modal__close {

@@ -222,8 +222,13 @@
 
   &:hover,
   &:focus {
-    border-bottom: 0.5px solid $color-accent;
+    border-color: $color-accent;
+    transition: color 300ms $timing-function;
   }
+}
+
+.header__form-input::placeholder {
+  color: $color-accent;
 }
 
 .header__search {
@@ -258,6 +263,7 @@
     transform: translateY(0px);
   }
 }
+
 
 .select__lang {
   background-color: transparent;
