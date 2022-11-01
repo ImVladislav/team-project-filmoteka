@@ -1,28 +1,44 @@
+import Pagination from 'tui-pagination';
 import { refs } from './utilitiesJS/refs';
-import { posterСheck } from './utilitiesJS/posterCheck';
-import { clearPage } from './utilitiesJS/clearPage';
+import { options } from './pagination';
+import { createMessage } from './utilitiesJS/createEmptyLibMessage';
+import { murkupGallery } from './utilitiesJS/markupGllery';
 
 refs.btnQueue.addEventListener('click', onBtnQueueClick);
 
-function onBtnQueueClick() {
-  // clearPage();
-  const queue = JSON.parse(localStorage.getItem('queue'));
-  murkupGalleryOnBtnQueued(queue);
-}
+export function onBtnQueueClick() {
+  refs.btnWathed.dataset.watch = '';
+  refs.btnQueue.dataset.queue = 'active';
 
-function murkupGalleryOnBtnQueued(movies) {
-  const moviesMurkup = movies
-    .map(({ original_title, title, poster_path, id }) => {
-      const src = posterСheck(poster_path);
+  try {
+    const queue = JSON.parse(localStorage.getItem('queue'));
 
-      return `
-        <li class="film__item" data-id="${id}">
-        <img src="${src}" class="film__img" alt="${original_title}" />
-        <p class="film__title">${title}</p>
-        <p class="film__genre">Drama, Action | 2020</p>
-      </li>`;
-    })
-    .join(``);
+    if (!queue || queue.length === 0) {
+      refs.galleryLibrary.innerHTML = createMessage();
+      refs.tuiContainer.classList.add('visually-hidden');
+      return;
+    } else {
+      options.totalItems = queue.length;
+      let start = 0;
+      let end = 20;
 
-  return (refs.galleryLibrary.innerHTML = moviesMurkup);
+      const handleSlice = currentPage => {
+        start = currentPage * options.itemsPerPage - 20;
+        end = currentPage * options.itemsPerPage;
+      };
+
+      refs.tuiContainer.classList.remove('visually-hidden');
+      murkupGallery(queue.slice(start, end));
+
+      const pagination = new Pagination(refs.tuiContainer, options);
+
+      pagination.on('beforeMove', event => {
+        const currentPage = event.page;
+        handleSlice(currentPage);
+        murkupGallery(queue.slice(start, end));
+      });
+    }
+  } catch (error) {
+    console.log(error.message);
+  }
 }

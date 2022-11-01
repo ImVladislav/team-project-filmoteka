@@ -1,7 +1,7 @@
 import { serverApi } from './utilitiesJS/serverApi';
 
 export const options = {
-  totalItems: serverApi.total_results,
+  totalItems: serverApi.totalResults,
   itemsPerPage: 20,
   visiblePages: 10,
   centerAlign: true,

@@ -1,9 +1,13 @@
 import * as basicLightbox from 'basiclightbox';
+
 import { refs } from './utilitiesJS/refs';
-
 import { serverApi } from './utilitiesJS/serverApi';
+import { spinnerPlay, spinnerStop } from './spinner';
 
-export const  handleClick = async event => {
+export const handleClick = async event => {
+
+  spinnerPlay();
+
   const movieDescriptionId = document.querySelector('.movie__description');
   const trailerId = movieDescriptionId.dataset.movieId;
 
@@ -14,25 +18,17 @@ export const  handleClick = async event => {
         trailerKey = element.key;
       }
     });
+
+    spinnerStop(); 
+    
     const instance = basicLightbox.create(`
-      <button
-        type="button"
-        class="lightbox__button"
-        data-action="close-lightbox"
-        ></button>
-   <iframe class="player" width="560" height="315"
-   src='https://www.youtube.com/embed/${trailerKey}'frameborder="0" 
+        <div class="player-container">
+   <iframe class="player" src='https://www.youtube.com/embed/${trailerKey}'frameborder="0"
    allow="accelerometer; autoplay; encrypted-media; gyroscope; 
-   picture-in-picture" allowfullscreen></iframe>
- 
+   picture-in-picture" allowfullscreen></iframe> 
+   </div>
 `);
 
-    instance.show();
-    const modalCloseBtn = document.querySelector(
-      '[data-action="close-lightbox"]'
-    );
-    modalCloseBtn.addEventListener('click', () => instance.close());
+    instance.show();    
   });
 };
-
-

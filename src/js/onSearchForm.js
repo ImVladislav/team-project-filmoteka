@@ -1,11 +1,12 @@
 import Notiflix from 'notiflix';
 import Pagination from 'tui-pagination';
+
 import { refs } from './utilitiesJS/refs';
 import { serverApi } from './utilitiesJS/serverApi';
 import { options } from './pagination';
-
 import { murkupGalleryOnPageLoading } from './utilitiesJS/murkupGalleryOnPageLoading';
-import { options } from './pagination';
+import { spinnerPlay, spinnerStop } from './spinner';
+
 
 let searchQuery = ' ';
 refs.formRef.addEventListener('submit', onSubmitClick);
@@ -13,8 +14,13 @@ refs.formRef.addEventListener('submit', onSubmitClick);
 async function onSubmitClick(event) {
   event.preventDefault();
 
+  spinnerPlay();
+
   const inputRef = document.querySelector('.header__form-input');
-  inputRef.addEventListener('change', () => serverApi.setPage(1));
+  inputRef.addEventListener('change', () => {
+    serverApi.setPage(1);
+    serverApi.setRequestCount();
+  });
 
   searchQuery = event.currentTarget.elements.serch_film.value
     .trim()
@@ -31,14 +37,17 @@ async function onSubmitClick(event) {
   }
 
   await murkupSearchMovie();
+  
+  spinnerStop();
 
-  const container = document.querySelector('.tui-pagination');
+  spinnerStop();
 
-  const pagination = new Pagination(container, options);
+  const pagination = new Pagination(refs.tuiContainer, options);
 
   pagination.on('beforeMove', event => {
     const currentPage = event.page;
     serverApi.setPage(currentPage);
+    serverApi.incrementRequestCount();
     murkupSearchMovie();
   });
 }

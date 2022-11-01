@@ -1,50 +1,54 @@
+import Pagination from 'tui-pagination';
 import { refs } from './utilitiesJS/refs';
-import { posterСheck } from './utilitiesJS/posterCheck';
-import { onOpenModal } from './modal';
 import { movieDescriptionMurkup } from './descriptionMurkup';
 import { serverApi } from './utilitiesJS/serverApi';
-import { movieDescriptionMurkup } from './descriptionMurkup';
-import { onOpenModal } from './modal';
 import { onAddQueueClick, onAddWatchClick } from './addFavorites';
 import { closeModal, onOpenModal } from './modal';
+import { options } from './pagination';
 import {
   makeQueueTextContent,
   makeWatchTextContent,
 } from './utilitiesJS/modalBtnTextContent';
+import { handleClick } from './treiler';
+import { createMessage } from './utilitiesJS/createEmptyLibMessage';
+import { murkupGallery } from './utilitiesJS/markupGllery';
 
 refs.btnWathed.addEventListener('click', onBtnWatchedClick);
 
-function onBtnWatchedClick() {
+export function onBtnWatchedClick() {
+  refs.btnWathed.dataset.watch = 'active';
+  refs.btnQueue.dataset.queue = '';
+
   try {
     const watched = JSON.parse(localStorage.getItem('watch'));
-    if (!watched) {
-      refs.mainList.classList.add('not-films');
-      refs.containerLib.insertAdjacentHTML('beforeend', createMessage());
-      refs.btnWathed.removeEventListener('click', onBtnWatchedClick);
-      return;
-    }
 
-    murkupGalleryOnBtnWatched(watched);
+    if (!watched || watched.length === 0) {
+      refs.galleryLibrary.innerHTML = createMessage();
+      refs.tuiContainer.classList.add('visually-hidden');
+      return;
+    } else {
+      options.totalItems = watched.length;
+      let start = 0;
+      let end = 20;
+
+      const handleSlice = currentPage => {
+        start = currentPage * options.itemsPerPage - 20;
+        end = currentPage * options.itemsPerPage;
+      };
+
+      refs.tuiContainer.classList.remove('visually-hidden');
+      murkupGallery(watched.slice(start, end));
+      const pagination = new Pagination(refs.tuiContainer, options);
+
+      pagination.on('beforeMove', event => {
+        const currentPage = event.page;
+        handleSlice(currentPage);
+        murkupGallery(watched.slice(start, end));
+      });
+    }
   } catch (error) {
     console.log(error.message);
   }
-}
-
-function murkupGalleryOnBtnWatched(movies) {
-  const moviesMurkup = movies
-    .map(({ original_title, title, poster_path, id }) => {
-      const src = posterСheck(poster_path);
-
-      return `
-        <li class="film__item" data-id="${id}">
-        <img src="${src}" class="film__img" alt="${original_title}" />
-        <p class="film__title">${title}</p>
-        <p class="film__genre">Drama, Action | 2020</p>
-      </li>`;
-    })
-    .join(``);
-
-  return (refs.galleryLibrary.innerHTML = moviesMurkup);
 }
 
 refs.galleryLibrary.addEventListener(`click`, onClickMovie);
@@ -55,6 +59,7 @@ async function onClickMovie(e) {
   }
 
   onOpenModal();
+
   const id = e.target.parentElement.dataset.id;
 
   const detailsMovie = await serverApi.getDetailsMovie(id);
@@ -62,22 +67,33 @@ async function onClickMovie(e) {
   const movieMurkup = await movieDescriptionMurkup(detailsMovie);
 
   refs.movieDescription.insertAdjacentHTML('beforeend', movieMurkup);
+
   makeWatchTextContent(detailsMovie);
   makeQueueTextContent(detailsMovie);
 
   const watchBtn = document.querySelector('[data-add-watched]');
   const queueBtn = document.querySelector('[data-add-queue]');
   const closeModalBtn = document.querySelector('[data-modal-close]');
+  const trailerBtn = document.querySelector('.btn-ytb');
 
   watchBtn.addEventListener('click', () => {
     onAddWatchClick(detailsMovie);
     const watched = JSON.parse(localStorage.getItem('watch'));
-    murkupGalleryOnBtnWatched(watched);
+
+    if (refs.btnWathed.dataset.watch === 'active') {
+      murkupGallery(watched);
+    }
   });
+
   queueBtn.addEventListener('click', () => {
     onAddQueueClick(detailsMovie);
     const queued = JSON.parse(localStorage.getItem('queue'));
-    murkupGalleryOnBtnWatched(queued);
+
+    if (refs.btnQueue.dataset.queue === 'active') {
+      murkupGallery(queued);
+    }
   });
+
+  trailerBtn.addEventListener('click', handleClick);
   closeModalBtn.addEventListener('click', closeModal);
 }

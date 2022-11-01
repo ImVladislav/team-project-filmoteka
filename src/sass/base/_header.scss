@@ -17,6 +17,7 @@
 
   @include tablet {
     background-image: url(/src/images/header_background_tablet.jpg);
+    margin-bottom: 60px;
 
     @include retina {
       background-image: url(/src/images/header_background_tablet_x2.jpg);
@@ -31,7 +32,7 @@
     background-image: url(/src/images/header_background.jpg);
     max-width: 2000px;
     margin: 0 auto;
-    margin-bottom: 20px;
+    margin-bottom: 60px;
 
     @include retina {
       background-image: url(/src/images/header_background_x2.jpg);
@@ -65,6 +66,12 @@
   }
 }
 
+.header__list-item {
+  cursor: pointer;
+  &:hover {
+    color: rgb(43, 255, 0);
+  }
+}
 .header__logo {
   display: flex;
   align-items: center;
@@ -183,7 +190,7 @@
     left: 50%;
     bottom: 6px;
     transform: translate(-50%, 0%);
-    background-color: red;
+    background-color: $color-accent;
     width: 100%;
     height: 3px;
   }
@@ -231,7 +238,7 @@
   border: none;
   stroke: white;
   fill: none;
-  top: 0;
+  top: -2;
   left: 101%;
   transform: translate(-100%);
   width: 24px;
@@ -255,4 +262,14 @@
   100% {
     transform: translateY(0px);
   }
+}
+
+
+.select__lang {
+  background-color: transparent;
+  color: $color-accent;
+  border: none;
+  outline: none;
+
+  cursor: pointer;
 }

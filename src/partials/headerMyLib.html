@@ -19,15 +19,46 @@
           <a href="/src/index.html" class="header__list-link">Home</a>
         </li>
         <li class="header__list-item">
-          <a href="/src/mylibrary.html" class="header__list-link header__list-link-active">My Library</a>
+          <a
+            href="/src/mylibrary.html"
+            class="header__list-link header__list-link-active"
+            >My Library</a
+          >
         </li>
+
+        <ul>
+          <li class="iconEnter" data-about-modal-open>
+            <i class="fas fa-lock fa-fw fa-2x fa-beat-fade" style="color: #d41443;"></i>
+          </li>
+          <li class="iconExit">
+            <i class="fas fa-lock-open fa-fw fa-2x fa-beat-fade" style="color: #d41443;"></i>
+          </li>
+        </ul>
+
+
+        <li class="header__list-item iconEnter" data-about-modal-open>
+          <i
+            class="fas fa-lock fa-fw fa-2x fa-beat-fade"
+            style="color: #ff6b08"
+          ></i>
+        </li>
+        <li class="header__list-item iconExit">
+          <i
+            class="fas fa-lock-open fa-fw fa-2x fa-beat-fade"
+            style="color: greenyellow"
+          ></i>
+        </li>
+
       </ul>
+
     </nav>
     <ul class="library__btns">
       <li>
-        <button class="library__button js-watched">WATCHED</button>
+        <button class="library__button js-watched" data-watch>WATCHED</button>
       </li>
-      <li><button class="library__button js-queue">QUEUE</button></li>
+      <li>
+        <button class="library__button js-queue" data-queue>QUEUE</button>
+      </li>
     </ul>
     <div class="header__theme">
       <span class="header__theme-text">Light</span>
@@ -35,10 +66,9 @@
         <svg class="header__icon--moon visually-hidden" width="24" height="24">
           <use href="./images/symbol-defs.svg#icon-moon"></use>
         </svg>
-        <svg class="header__icon--sun " width="24" height="24">
+        <svg class="header__icon--sun" width="24" height="24">
           <use href="./images/symbol-defs.svg#icon-sun"></use>
         </svg>
-
       </button>
     </div>
   </div>

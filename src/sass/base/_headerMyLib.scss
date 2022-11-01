@@ -22,16 +22,21 @@
     max-height: 219px;
     background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
       url(/src/images/headerMyLib_background_tablet.jpg);
+    margin-bottom: 60px;
 
     @include retina {
-      background-image: linear-gradient(rgba(0, 0, 0, 0.56),
-          rgba(0, 0, 0, 0.56)),
+      background-image: linear-gradient(
+          rgba(0, 0, 0, 0.56),
+          rgba(0, 0, 0, 0.56)
+        ),
         url(/src/images/headerMyLib_background_tablet@x2.jpg);
     }
 
     @include retina3x {
-      background-image: linear-gradient(rgba(0, 0, 0, 0.56),
-          rgba(0, 0, 0, 0.56)),
+      background-image: linear-gradient(
+          rgba(0, 0, 0, 0.56),
+          rgba(0, 0, 0, 0.56)
+        ),
         url(/src/images/headerMyLib_background_tablet@x3.jpg);
     }
   }
@@ -40,19 +45,23 @@
     max-height: 219px;
     max-width: 2000px;
     margin: 0 auto;
-    margin-bottom: 20px;
+    margin-bottom: 60px;
     background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
       url(/src/images/headerMyLib_background.jpg);
 
     @include retina {
-      background-image: linear-gradient(rgba(0, 0, 0, 0.56),
-          rgba(0, 0, 0, 0.56)),
+      background-image: linear-gradient(
+          rgba(0, 0, 0, 0.56),
+          rgba(0, 0, 0, 0.56)
+        ),
         url(/src/images/headerMyLib_background@x2.jpg);
     }
 
     @include retina3x {
-      background-image: linear-gradient(rgba(0, 0, 0, 0.56),
-          rgba(0, 0, 0, 0.56)),
+      background-image: linear-gradient(
+          rgba(0, 0, 0, 0.56),
+          rgba(0, 0, 0, 0.56)
+        ),
         url(/src/images/headerMyLib_background@x3.jpg);
     }
   }
@@ -127,6 +136,12 @@
 
   &:hover,
   &:focus {
+    background-color: #ff6b01;
+    border-color: #ff6b01;
+  }
+
+  &[data-queue='active'],
+  &[data-watch='active'] {
     background-color: #ff6b01;
     border-color: #ff6b01;
   }
