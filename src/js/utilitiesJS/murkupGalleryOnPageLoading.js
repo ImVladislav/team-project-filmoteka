@@ -17,7 +17,6 @@ const pagination = new Pagination(refs.tuiContainer, options);
 spinnerPlay(); // ! не пересовувати
 
 pagination.on('beforeMove', async event => {
-
   pagination.setTotalItems(serverApi.totalResults);
   const currentPage = event.page;
   serverApi.setPage(currentPage);

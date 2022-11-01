@@ -3,7 +3,7 @@ import Notiflix from 'notiflix';
 
 class ServerApi {
   #page = 1;
-  totalResults = 200;
+  totalResults = 20000;
   requestCount = 1;
   language = 'en-US';
 
