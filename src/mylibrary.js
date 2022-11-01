@@ -1,3 +1,4 @@
+import './js/onLibraryClick';
 import './js/modal';
 import './js/modal-team';
 import './js/watchedMovies';
@@ -7,4 +8,3 @@ import './js/theme-dark';
 import './js/scrollTop';
 
 import './js/modal-login';
-

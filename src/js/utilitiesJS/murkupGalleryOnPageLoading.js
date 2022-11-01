@@ -12,7 +12,6 @@ import { genresArr } from './genres';
 import { spinnerPlay, spinnerStop } from '../spinner';
 import warship from '../../images/warship.jpg';
 
-
 const pagination = new Pagination(refs.tuiContainer, options);
 
 pagination.on('beforeMove', async event => {
@@ -37,7 +36,6 @@ export function murkupGalleryOnPageLoading(movies) {
         // проверка на жанры фильмов
 
         const genresMovies = genresArr.reduce((acc, genre) => {
-
           if (genre_ids.includes(genre.id)) {
             acc.push(genre.name);
           }
