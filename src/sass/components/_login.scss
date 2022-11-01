@@ -1,295 +1,299 @@
 .registrationWrapper {
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.6);
-    position: absolute;
-    top: 0;
-    opacity: 0;
-    visibility: hidden;
-    transition: 250ms ease-in-out;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  position: absolute;
+  top: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: 250ms ease-in-out;
 }
 
 .registrationWrapper.visiable {
-    opacity: 1;
-    visibility: visible;
-    overflow: hidden;
+  opacity: 1;
+  visibility: visible;
+  overflow: hidden;
 }
 
 .changeForm {
-    &__text {
-        text-align: center;
-        color: #ffffff;
-        font-size: 18px;
-    }
+  &__text {
+    text-align: center;
+    color: #ffffff;
+    font-size: 18px;
+  }
 
-    &__span {
-        font-size: 28px;
-    }
+  &__span {
+    font-size: 28px;
+  }
 }
 
 .register-form.dark .changeForm__text,
 .login-form.dark .changeForm__text {
-    color: #000000;
+  color: #000000;
 }
 
 .form-title {
-    text-align: center;
-    margin-bottom: 40px;
-    font-weight: 700;
-    font-size: 30px;
-    color: #ffffff;
-    letter-spacing: 0.2em;
+  text-align: center;
+  margin-bottom: 40px;
+  font-weight: 700;
+  font-size: 30px;
+  color: #ffffff;
+  letter-spacing: 0.2em;
 }
 
 .register-form.dark .form-title,
 .login-form.dark .form-title {
-    color: #000000;
+  color: #000000;
 }
 
 .register-form {
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    width: 320px;
-    margin: 0 auto;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: #212121;
-    padding: 20px;
-    border-radius: 20px;
-    transition: 400ms ease-in-out;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 320px;
+  margin: 0 auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #212121;
+  padding: 20px;
+  border-radius: 20px;
+  transition: 400ms ease-in-out;
 }
 
 .register-form.hidden {
-    left: -100%;
-    transition: 400ms ease-in-out;
+  left: -100%;
+  transition: 400ms ease-in-out;
 }
 
 .register-form.dark {
-    background-color: #ffffff;
+  background-color: #ffffff;
 }
 
 .login-form {
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    width: 320px;
-    margin: 0 auto;
-    position: absolute;
-    top: 50%;
-    left: -150%;
-    transform: translate(-50%, -50%);
-    background: #212121;
-    padding: 20px;
-    border-radius: 20px;
-    transition: 250ms ease-in-out;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 320px;
+  margin: 0 auto;
+  position: absolute;
+  top: 50%;
+  left: -150%;
+  transform: translate(-50%, -50%);
+  background: #212121;
+  padding: 20px;
+  border-radius: 20px;
+  transition: 250ms ease-in-out;
 }
 
-.register-form.hidden+.login-form.visiable {
-    left: 50%;
-    transition: 250ms ease-in-out;
+.register-form.hidden + .login-form.visiable {
+  left: 50%;
+  transition: 250ms ease-in-out;
 }
 
 .login-form.dark {
-    background-color: #ffffff;
+  background-color: #ffffff;
 }
 
 .changeForm__span {
-    cursor: pointer;
-    transition: 250ms ease-in-out;
+  cursor: pointer;
+  transition: 250ms ease-in-out;
 
-    &:hover,
-    &:focus {
-        color: $color-accent;
-        transition: 250ms ease-in-out;
-    }
+  &:hover,
+  &:focus {
+    color: $color-accent;
+    transition: 250ms ease-in-out;
+  }
 }
 
 .first-name,
 .email {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid rgba(255, 255, 255, 0.25);
-    background: inherit;
-    border-radius: 5px;
-    outline: none;
-    margin-bottom: 30px;
-    color: #ffffff;
-    font-size: 1em;
-    transition: 250ms;
-    resize: none;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: inherit;
+  border-radius: 5px;
+  outline: none;
+  margin-bottom: 30px;
+  color: #ffffff;
+  font-size: 1em;
+  transition: 250ms;
+  resize: none;
 }
 
-.register-form.dark .email~.first-name,
-.login-form.dark .email~.first-name {
-    color: #000000;
+.register-form.dark .email ~ .first-name,
+.login-form.dark .email ~ .first-name {
+  color: #000000;
 }
 
 label span {
-    position: absolute;
-    left: 20px;
-    padding: 10px;
-    pointer-events: none;
-    font-size: 1em;
-    color: rgba(255, 255, 255, 0.25);
-    text-transform: uppercase;
-    transition: 250ms;
+  position: absolute;
+  left: 20px;
+  padding: 10px;
+  pointer-events: none;
+  font-size: 1em;
+  color: rgba(255, 255, 255, 0.25);
+  text-transform: uppercase;
+  transition: 250ms;
 }
 
 .register-form.dark label span,
 .login-form.dark label span {
-    color: #000000ba;
+  color: #000000ba;
 }
 
-input:focus~.pass-email-span,
-input:valid~.pass-email-span {
-    color: #ffffff;
-    transform: translateX(10px) translateY(-7px);
-    font-size: 0.65em;
-    padding: 0 10px;
-    background: #212121;
-    border-left: 1px solid $color-accent;
-    border-right: 1px solid $color-accent;
-    letter-spacing: 0.2em;
+input:focus ~ .pass-email-span,
+input:valid ~ .pass-email-span {
+  color: #ffffff;
+  transform: translateX(10px) translateY(-7px);
+  font-size: 0.65em;
+  padding: 0 10px;
+  background: #212121;
+  border-left: 1px solid $color-accent;
+  border-right: 1px solid $color-accent;
+  letter-spacing: 0.2em;
 }
 
-.register-form.dark input:focus~.pass-email-span,
-.login-form.dark input:focus~.pass-email-span {
-    background-color: #ffffff;
+.register-form.dark input:focus ~ .pass-email-span,
+.login-form.dark input:focus ~ .pass-email-span {
+  background-color: #ffffff;
 }
 
-.register-form.dark input:valid~.pass-email-span,
-.login-form.dark input:valid~.pass-email-span {
-    background-color: #ffffff;
+.register-form.dark input:valid ~ .pass-email-span,
+.login-form.dark input:valid ~ .pass-email-span {
+  background-color: #ffffff;
 }
 
-.register-form.dark input~.pass-email-span,
-.login-form.dark input~.pass-email-span {
-    background-color: inherit;
+.register-form.dark input ~ .pass-email-span,
+.login-form.dark input ~ .pass-email-span {
+  background-color: inherit;
 }
 
-input:focus,
-input:valid {
-    border: 1px solid $color-accent;
+// input:focus,
+// input:valid {
+//     border: 1px solid $color-accent;
 
-}
+// }
 
 .register-form.dark input,
 .login-form.dark input {
-    border: 1px solid #000000;
-    color: #000;
+  border: 1px solid #000000;
+  color: #000;
 }
 
 .register-form.dark input:focus,
 .login-form.dark input:focus {
-    border: 1px solid $color-accent;
+  border: 1px solid $color-accent;
 }
 
 .register-btn,
 .login-btn {
-    padding: 10px 50px;
-    border: none;
-    outline: none;
-    background: rgba(255, 255, 255, 0.25);
-    margin: 0 auto 40px;
-    color: #fff;
-    display: flex;
-    cursor: pointer;
-    border-radius: 4px;
-    transition: 300ms ease;
-    position: relative;
-    overflow: hidden;
+  padding: 10px 50px;
+  border: none;
+  outline: none;
+  background: rgba(255, 255, 255, 0.25);
+  margin: 0 auto 40px;
+  color: #fff;
+  display: flex;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: 300ms ease;
+  position: relative;
+  overflow: hidden;
 }
 
 .register-form.dark .register-btn,
 .login-form.dark .login-btn {
-    background-color: #212121;
+  background-color: #212121;
 }
 
 .register-btn:hover,
 .login-btn:hover {
-    background: rgba(96, 96, 96, 0.25);
+  background: rgba(96, 96, 96, 0.25);
 }
 
 .register-form.dark .register-btn:hover,
 .login-form.dark .login-btn:hover {
-    background-color: #6d6d6d;
+  background-color: #6d6d6d;
 }
 
 .register-text {
-    font-size: 16px;
+  font-size: 16px;
 }
 
 .icon {
-    margin-right: 15px;
-    position: relative;
-    font-size: 16px;
+  margin-right: 15px;
+  position: relative;
+  font-size: 16px;
 }
 
 .register-btn.active .icon,
 .login-btn.active .icon {
-    animation: animateRocket 2s ease-in-out forwards;
+  animation: animateRocket 2s ease-in-out forwards;
 }
 
 .register-btn::before {
-    content: 'Registered';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 0;
-    height: 100%;
-    background: $color-accent;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    transition: 1s ease-in-out;
-    transition-delay: 1s;
+  content: 'Registered';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background: $color-accent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  transition: 1s ease-in-out;
+  transition-delay: 1s;
 }
 
 .login-btn::before {
-    content: 'Logined';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 0;
-    height: 100%;
-    background: $color-accent;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    transition: 1s ease-in-out;
-    transition-delay: 1s;
+  content: 'Logined';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background: $color-accent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  transition: 1s ease-in-out;
+  transition-delay: 1s;
 }
 
 .register-btn.active::before,
 .login-btn.active::before {
-    width: 100%;
+  width: 100%;
 }
 
 @keyframes animateRocket {
+  0%,
+  5% {
+    transform: rotate(0);
+    left: 0;
+  }
 
-    0%,
-    5% {
-        transform: rotate(0);
-        left: 0;
-    }
+  25% {
+    transform: rotate(45deg);
+    left: 0;
+  }
 
-    25% {
-        transform: rotate(45deg);
-        left: 0;
-    }
+  50% {
+    transform: rotate(45deg);
+    left: -50px;
+  }
 
-    50% {
-        transform: rotate(45deg);
-        left: -50px;
-    }
+  100% {
+    transform: rotate(45deg);
+    left: calc(100% + 50px);
+  }
+}
 
-    100% {
-        transform: rotate(45deg);
-        left: calc(100% + 50px);
-    }
+.fa-solid:hover,
+.fa-solid:focus {
+  color: $color-accent;
 }

@@ -1,9 +1,6 @@
 .footer {
   background-color: $color-footer;
   &__container {
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 400;
     font-size: 14px;
     line-height: 1.14;
     color: $color-text;
@@ -13,28 +10,27 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    align-items: center;
     @include tablet {
       font-size: 16px;
       line-height: 1.19;
       padding-top: 30px;
     }
   }
-  &__text {
-    margin-bottom: 10px;
-    @include tablet {
-      margin-bottom: 0;
-    }
-  }
+
   &__icon {
     margin-left: 10px;
     margin-right: 10px;
     animation: pulsation 4s linear 1s infinite;
   }
 }
-.footer__link {
+.footer__button {
+  border: none;
+  background: transparent;
   color: $color-text;
-  padding-top: 10px;
-  padding-bottom: 10px;
+
+  padding: 10px 0;
+
   text-decoration: underline;
   cursor: pointer;
   transition: color 300ms $timing-function;
@@ -43,7 +39,7 @@
     color: $color-accent;
   }
 }
-.footer__link.dark {
+.footer__button.dark {
   color: #fff;
   background: #191919;
 }
