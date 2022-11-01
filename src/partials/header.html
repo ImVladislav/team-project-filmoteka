@@ -24,7 +24,9 @@
           >
         </li>
         <li class="header__list-item">
-          <a href="/src/mylibrary.html" class="header__list-link">My Library</a>
+          <a id="library" href="/src/mylibrary.html" class="header__list-link"
+            >My Library</a
+          >
         </li>
         <ul>
           <li class="iconEnter" data-about-modal-open>
@@ -46,7 +48,7 @@
           placeholder="Movie search"
           class="header__form-input js-input"
         />
-        <button type="submit" class="header__search">
+        <button type="submit" class="header__search" aria-label="seacrh button">
           <svg class="header__icon" width="24" height="24">
             <use href="./images/symbol-defs.svg#icon-search"></use>
           </svg>
@@ -55,7 +57,7 @@
     </form>
     <div class="header__theme">
       <span class="header__theme-text">Light</span>
-      <button type="button" class="header__theme-btn">
+      <button type="button" class="header__theme-btn" aria-label="toggle theme button">
         <svg class="header__icon--moon visually-hidden" width="24" height="24">
           <use href="./images/symbol-defs.svg#icon-moon"></use>
         </svg>
