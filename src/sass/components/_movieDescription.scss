@@ -222,16 +222,6 @@
   &:focus {
     stroke: $color-accent;
   }
-
-  @include tablet {
-    top: -30;
-    right: -28;
-  }
-
-  @include tablet-plus {
-    top: -25;
-    right: 0;
-  }
 }
 .modal-content.dark .modal__close {
   stroke: $color-white;
@@ -270,8 +260,8 @@
 }
 
 .icon-youtube {
-fill: transparent;
-stroke: transparent;
+  fill: transparent;
+  stroke: transparent;
 }
 
 .icon-youtube__enable {
