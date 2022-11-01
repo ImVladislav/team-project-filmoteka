@@ -14,8 +14,9 @@ import warship from '../../images/warship.jpg';
 
 const pagination = new Pagination(refs.tuiContainer, options);
 
+spinnerPlay(); // ! не пересовувати
+
 pagination.on('beforeMove', async event => {
-  spinnerPlay();
 
   pagination.setTotalItems(serverApi.totalResults);
   const currentPage = event.page;

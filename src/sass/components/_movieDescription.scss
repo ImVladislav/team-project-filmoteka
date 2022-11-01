@@ -253,16 +253,27 @@
     left: 25px;
   }
 }
+
 .icon-youtube {
-  fill: #ff0000;
-  stroke: #ff0000;
-  transition: all 250ms linear;
+fill: transparent;
+stroke: transparent;
 }
 
-.icon-youtube:hover,
-.icon-youtube:focus {
+.icon-youtube__enable {
+  fill: #ff0000;
+  stroke: #ff0000;
+  // transition: all 250ms linear;
+}
+
+.icon-youtube__enable:hover,
+.icon-youtube__enable:focus {
   fill: #b80000;
   stroke: #b80000;
+}
+
+.icon-youtube__disabled {
+  fill: #808080;
+  stroke: #000000;
 }
 
 .message-wrap {
