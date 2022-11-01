@@ -14,7 +14,6 @@ import {
 import { handleClick } from './treiler';
 import { spinnerPlay, spinnerStop } from './spinner';
 
-
 murkupGallery();
 
 refs.gallery.addEventListener(`click`, onClickMovie);
@@ -37,7 +36,7 @@ async function onClickMovie(e) {
   refs.movieDescription.insertAdjacentHTML('beforeend', movieMurkup);
 
   spinnerStop();
-  
+
   makeWatchTextContent(detailsMovie);
   makeQueueTextContent(detailsMovie);
 

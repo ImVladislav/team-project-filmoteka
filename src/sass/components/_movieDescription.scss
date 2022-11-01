@@ -1,9 +1,11 @@
 .movie__description {
-  
-
   @include tablet {
     display: flex;
   }
+}
+
+.movie__poster {
+  box-shadow: 3px 8px 9px 3px rgba(0, 0, 0, 0.32);
 }
 
 .movie__poster-wrappaer {
@@ -12,13 +14,12 @@
   }
 
   @include tablet {
-   
     width: 264px;
   }
 
   @include desktop {
     width: 375px;
-      height: 478px;
+    height: 478px;
   }
 }
 
@@ -37,20 +38,18 @@
 }
 
 .movie__container {
-
   @include tablet {
-  
-      margin-left: 68px;
-    }
+    margin-left: 68px;
+  }
 
-    @include desktop {
-      margin-left: 16px;
-    }
+  @include desktop {
+    margin-left: 16px;
+  }
 }
 
 .movie__title {
   margin-bottom: 20px;
-  
+
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 500;
@@ -66,19 +65,18 @@
 .description__container {
   display: flex;
   margin-bottom: 20px;
-  
 }
 
 .description__text-wrapper {
- margin-left: 41px;
+  margin-left: 41px;
 }
 
 .description__title {
   &:not(:last-child) {
     margin-bottom: 8px;
   }
- width: 69px;
- height: 16px;
+  width: 69px;
+  height: 16px;
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 500;
@@ -90,8 +88,8 @@
 
 .description__text {
   display: flex;
-    align-items: center;
-    
+  align-items: center;
+
   &:not(:last-child) {
     margin-bottom: 9px;
   }
@@ -101,7 +99,6 @@
   font-weight: 500;
   font-size: 12px;
   line-height: 1.333;
-
 }
 .description__popularity {
   height: 14px;
@@ -113,7 +110,6 @@
 }
 
 .vote-accent {
-  
   background-color: #ff6b01;
   border-radius: 5px;
   color: $color-white;
@@ -131,8 +127,6 @@
   line-height: 1.333;
 
   text-transform: uppercase;
-
-  
 }
 
 .about__text {
@@ -148,10 +142,8 @@
     height: 100px;
   }
 
-
   @include tablet {
     width: 264px;
-    
   }
 
   @include desktop {
@@ -170,6 +162,7 @@
 
   border-radius: 5px;
   border: 1px solid $color-main-text;
+  box-shadow: 3px 8px 9px 3px rgba(0, 0, 0, 0.32);
 
   font-family: 'Roboto';
   font-style: normal;
@@ -184,7 +177,7 @@
   transition: all 250ms linear;
 
   &:last-child {
-   margin-left: 20px;
+    margin-left: 20px;
   }
 
   &:hover,
@@ -198,8 +191,8 @@
     width: 125px;
 
     &:last-child {
-        margin-left: 15px;
-      }
+      margin-left: 15px;
+    }
   }
 
   @include desktop {
@@ -217,17 +210,27 @@
   align-items: center;
   justify-content: center;
   padding: 0;
-  
+
   stroke-width: 3px;
   cursor: pointer;
   border: none;
-   background-color: transparent;
+  background-color: transparent;
   stroke: $color-main-text;
   transition: stroke 300ms $timing-function;
 
   &:hover,
   &:focus {
     stroke: $color-accent;
+  }
+
+  @include tablet {
+    top: -30;
+    right: -28;
+  }
+
+  @include tablet-plus {
+    top: -25;
+    right: 0;
   }
 }
 .modal-content.dark .modal__close {
@@ -258,11 +261,11 @@
   transition: all 250ms linear;
   @include tablet {
     top: 50px;
-      left: 45px;
+    left: 45px;
   }
   @include desktop {
     top: 50px;
-      left: 25px;
+    left: 25px;
   }
 }
 .icon-youtube {
@@ -275,4 +278,9 @@
 .icon-youtube:focus {
   fill: #b80000;
   stroke: #b80000;
+}
+
+.message-wrap {
+  margin-left: auto;
+  margin-right: auto;
 }
