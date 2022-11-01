@@ -4,9 +4,11 @@ import Pagination from 'tui-pagination';
 import { refs } from './utilitiesJS/refs';
 import { serverApi } from './utilitiesJS/serverApi';
 import { options } from './pagination';
-import { murkupGalleryOnPageLoading } from './utilitiesJS/murkupGalleryOnPageLoading';
+import {
+  murkupGalleryOnPageLoading,
+  murkupGallery,
+} from './utilitiesJS/murkupGalleryOnPageLoading';
 import { spinnerPlay, spinnerStop } from './spinner';
-
 
 let searchQuery = ' ';
 refs.formRef.addEventListener('submit', onSubmitClick);
@@ -37,7 +39,7 @@ async function onSubmitClick(event) {
   }
 
   await murkupSearchMovie();
-  
+
   spinnerStop();
 
   spinnerStop();
@@ -67,6 +69,7 @@ export async function murkupSearchMovie() {
   }
 
   if (movies.length === 0) {
+    murkupGallery();
     Notiflix.Notify.failure(
       'Search result not successful. Enter the correct movie name and',
       {
