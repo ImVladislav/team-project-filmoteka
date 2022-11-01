@@ -13,17 +13,13 @@ import {
   makeWatchTextContent,
 } from './utilitiesJS/modalBtnTextContent';
 import { handleClick } from './treiler';
-
 import { createMessage } from './utilitiesJS/createEmptyLibMessage';
-
 import { handleClick } from './treiler';
-
 import { createMessage } from './utilitiesJS/createEmptyLibMessage';
-
 
 refs.btnWathed.addEventListener('click', onBtnWatchedClick);
 
-function onBtnWatchedClick() {
+export function onBtnWatchedClick() {
   try {
     const watched = JSON.parse(localStorage.getItem('watch'));
 
@@ -44,21 +40,21 @@ function onBtnWatchedClick() {
     } else {
       refs.tuiContainer.classList.remove('visually-hidden');
     }
-    murkupGalleryOnBtnWatched(watched.slice(start, end));
+    murkupGalleryOnBtn(watched.slice(start, end));
 
     const pagination = new Pagination(refs.tuiContainer, options);
 
     pagination.on('beforeMove', event => {
       const currentPage = event.page;
       handleSlice(currentPage);
-      murkupGalleryOnBtnWatched(watched.slice(start, end));
+      murkupGalleryOnBtn(watched.slice(start, end));
     });
   } catch (error) {
     console.log(error.message);
   }
 }
 
-function murkupGalleryOnBtnWatched(movies) {
+export function murkupGalleryOnBtn(movies) {
   const moviesMurkup = movies
     .map(({ original_title, title, poster_path, id, genres, release_date }) => {
       let genresMovie = null;
@@ -127,12 +123,12 @@ async function onClickMovie(e) {
   watchBtn.addEventListener('click', () => {
     onAddWatchClick(detailsMovie);
     const watched = JSON.parse(localStorage.getItem('watch'));
-    murkupGalleryOnBtnWatched(watched);
+    murkupGalleryOnBtn(watched);
   });
   queueBtn.addEventListener('click', () => {
     onAddQueueClick(detailsMovie);
     const queued = JSON.parse(localStorage.getItem('queue'));
-    murkupGalleryOnBtnWatched(queued);
+    murkupGalleryOnBtn(queued);
   });
   trailerBtn.addEventListener('click', handleClick);
   closeModalBtn.addEventListener('click', closeModal);

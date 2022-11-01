@@ -50,5 +50,4 @@ export const refs = {
 
   tuiContainer: document.querySelector('.tui-pagination'),
   langValue: document.querySelector('.select__lang'),
-
 };
