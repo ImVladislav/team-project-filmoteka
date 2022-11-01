@@ -7,4 +7,4 @@ import './js/theme-dark';
 import './js/scrollTop';
 
 import './js/modal-login';
-
+import './js/firebase';
