@@ -2,7 +2,6 @@ import 'simplelightbox/dist/simple-lightbox.min.css';
 
 import { refs } from './utilitiesJS/refs';
 import { serverApi } from './utilitiesJS/serverApi';
-import 'simplelightbox/dist/simple-lightbox.min.css';
 import { murkupGallery } from './utilitiesJS/murkupGalleryOnPageLoading';
 import { movieDescriptionMurkup } from './descriptionMurkup';
 import { closeModal, onOpenModal } from './modal';
@@ -22,7 +21,6 @@ async function onClickMovie(e) {
   if (e.target.parentElement.className !== 'film__item') {
     return;
   }
-
 
   onOpenModal();
 
@@ -47,18 +45,16 @@ async function onClickMovie(e) {
   const trailerBtn = document.querySelector('.btn-ytb');
   const iconTrailerBtn = document.querySelector('.icon-youtube');
 
-
   serverApi.getTrailer(id).then(({ results }) => {
-  
     if (results.length !== 0) {
       iconTrailerBtn.classList.add('icon-youtube__enable');
       iconTrailerBtn.classList.remove('icon-youtube__disabled');
-      } else {
-        iconTrailerBtn.classList.remove('icon-youtube__enable');
-        iconTrailerBtn.classList.add('icon-youtube__disabled');
-        trailerBtn.setAttribute("disabled", true);
-      }
-    });
+    } else {
+      iconTrailerBtn.classList.remove('icon-youtube__enable');
+      iconTrailerBtn.classList.add('icon-youtube__disabled');
+      trailerBtn.setAttribute('disabled', true);
+    }
+  });
 
   watchBtn.addEventListener('click', () => onAddWatchClick(detailsMovie));
   queueBtn.addEventListener('click', () => onAddQueueClick(detailsMovie));

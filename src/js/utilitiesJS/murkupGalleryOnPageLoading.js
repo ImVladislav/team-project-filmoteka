@@ -4,11 +4,8 @@ import { refs } from './refs';
 import { serverApi } from './serverApi';
 import { posterСheck } from './posterCheck';
 import { options } from '../pagination';
-import { genres } from './genres';
-import { genresArr } from './genres';
 import { spinnerPlay, spinnerStop } from '../spinner';
 import { genresArr, genresUK } from './genres';
-import { genresArr } from './genres';
 import { spinnerPlay, spinnerStop } from '../spinner';
 import warship from '../../images/warship.jpg';
 
@@ -17,7 +14,6 @@ const pagination = new Pagination(refs.tuiContainer, options);
 spinnerPlay(); // ! не пересовувати
 
 pagination.on('beforeMove', async event => {
-
   pagination.setTotalItems(serverApi.totalResults);
   const currentPage = event.page;
   serverApi.setPage(currentPage);
@@ -26,7 +22,7 @@ pagination.on('beforeMove', async event => {
 
 export function murkupGalleryOnPageLoading(movies) {
   serverApi.setPage(1);
-  
+
   const moviesMurkup = movies
 
     .map(
