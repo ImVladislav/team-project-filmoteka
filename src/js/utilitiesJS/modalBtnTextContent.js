@@ -4,8 +4,8 @@ export const makeWatchTextContent = data => {
   if (localStorage.getItem('watch')) {
     storage = JSON.parse(localStorage.getItem('watch'));
   }
+
   let findedItem = storage.some(item => item.id === data.id);
-  const watchBtn = document.querySelector('[data-add-watched]');
 
   document.querySelector('[data-add-watched]').textContent = findedItem
     ? 'remove from watched'
@@ -19,7 +19,6 @@ export const makeQueueTextContent = data => {
     storage = JSON.parse(localStorage.getItem('queue'));
   }
   let findedItem = storage.some(item => item.id === data.id);
-  const queueBtn = document.querySelector('[data-add-queue]');
 
   document.querySelector('[data-add-queue]').textContent = findedItem
     ? 'remove from queue'
