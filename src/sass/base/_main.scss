@@ -63,15 +63,16 @@
   margin: 0 auto;
 
   & img {
-    min-width: 280px;
+    width: 280px;
     height: auto;
+    margin: 0 auto;
 
     @media screen and (min-width: 375px) {
-      width: 370px;
+      width: 335px;
     }
 
     @media screen and (min-width: 768px) {
-      width: 750px;
+      width: 700px;
     }
 
     @media screen and (min-width: 1024px) {
