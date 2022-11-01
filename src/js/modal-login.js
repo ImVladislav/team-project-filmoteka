@@ -9,6 +9,7 @@ function openModal() {
   refs.body.classList.add('no-scroll');
   window.addEventListener('keydown', onEscClick);
 
+
 }
 
 function onEscClick(evt) {
@@ -18,12 +19,16 @@ function onEscClick(evt) {
     }
   }
 
-function closeModal(evt) {
+export function closeModal(evt) {
   if (evt.target === refs.registrationWrapper) {
     refs.modal.classList.remove('visiable');
     refs.body.classList.remove('no-scroll');
     refs.registerForm.classList.remove('hidden')
     refs.loginForm.classList.remove('visiable')
+  }
+
+  if (evt.target === refs.loginedWrapper) {
+    refs.loginedWrapper.classList.remove('active')
   }
 
 }
@@ -50,3 +55,12 @@ refs.changeFormRegister.addEventListener('click', () => {
     refs.registerForm.classList.remove('hidden')
     refs.loginForm.classList.remove('visiable')
 })
+
+
+//модалка пользователя, который в онлайне
+
+refs.iconExit.addEventListener('click', () => {
+  refs.loginedWrapper.classList.add('active')
+})
+
+refs.loginedWrapper.addEventListener('click', closeModal)

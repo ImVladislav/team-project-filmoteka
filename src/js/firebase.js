@@ -4,8 +4,12 @@ import {
   getAuth,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  signOut,
+  onAuthStateChanged,
 } from 'firebase/auth';
 import { getDatabase, ref, set, update } from 'firebase/database';
+import { refs } from './utilitiesJS/refs';
+import closeModal from './modal-login';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyAr9PnJjkOaXP4O6n2hAHTbJJCMzH43B44',
@@ -21,6 +25,9 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth();
 const db = getDatabase(app);
+
+const storageWatch = JSON.parse(localStorage.getItem('watch'));
+const storageQueue = JSON.parse(localStorage.getItem('queue'));
 
 const attrErrorRegister = document.querySelector('[data-content-register]');
 const registerBtn = document.querySelector('.register-btn');
@@ -46,12 +53,17 @@ registerBtn.addEventListener('click', e => {
       Notiflix.Notify.failure(errorMessage);
       document.querySelector('.emailRegister').value = '';
       document.querySelector('.passRegister').value = '';
-      attrErrorRegister.setAttribute('data-content-register', "Hi there, it's ERROR");
+      attrErrorRegister.setAttribute(
+        'data-content-register',
+        "Hi there, it's ERROR"
+      );
     });
 });
 
 const attrErrorLogin = document.querySelector('[data-content-login]');
 const loginBtn = document.querySelector('.login-btn');
+
+console.log(storageQueue);
 loginBtn.addEventListener('click', e => {
   const emailLogin = document.querySelector('.emailLogin').value;
   const passwordLogin = document.querySelector('.passLogin').value;
@@ -66,6 +78,7 @@ loginBtn.addEventListener('click', e => {
       });
       Notiflix.Notify.success('User loged in!');
       attrErrorLogin.setAttribute('data-content-login', 'User loged in!');
+
     })
     .catch(error => {
       const errorCode = error.code;
@@ -77,3 +90,41 @@ loginBtn.addEventListener('click', e => {
       document.querySelector('.passLogin').value = '';
     });
 });
+
+const event = new CustomEvent('localdatachanged');
+document.dispatchEvent(event);
+
+//Перевіряємо, якщо користувачь залогінився, то слідкуємо за його діями і додаємо в базу фильми
+document.addEventListener('localdatachanged', () => {
+  // handler
+});
+
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    const uid = user.uid;
+    update(ref(db, 'users/' + uid), {
+      watch: storageWatch,
+      queue: storageQueue,
+    });
+    refs.iconEnter.classList.add('locked')
+    refs.iconExit.classList.add('active')
+    refs.modal.classList.remove('visiable');
+  } else {
+    // User is signed out
+    Notiflix.Notify.failure('User is signed out!');
+  }
+});
+
+
+// выход из системы
+refs.exitBtnFromOnline.addEventListener('click', () => {
+  const auth = getAuth();
+  signOut(auth).then(() => {
+    // Sign-out successful.
+    refs.iconEnter.classList.remove('locked')
+    refs.iconExit.classList.remove('active')
+    refs.loginedWrapper.classList.remove('active')
+  }).catch((error) => {
+    Notiflix.Notify.failure('User is signed out!');
+  });
+})

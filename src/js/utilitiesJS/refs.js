@@ -43,6 +43,10 @@ export const refs = {
   changeFormLogin: document.querySelector('.login'),
   registerForm: document.querySelector('.register-form'),
   loginForm: document.querySelector('.login-form'),
+  iconEnter: document.querySelector('.iconEnter'),
+  iconExit: document.querySelector('.iconExit'),
+  loginedWrapper: document.querySelector('.loginedWrapper'),
+  exitBtnFromOnline: document.querySelector('.exitBtnFromOnline'),
 
   tuiContainer: document.querySelector('.tui-pagination'),
   langValue: document.querySelector('.select__lang'),
