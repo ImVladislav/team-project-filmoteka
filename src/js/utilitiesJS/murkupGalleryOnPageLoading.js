@@ -60,9 +60,12 @@ export function murkupGalleryOnPageLoading(movies) {
 
         return `
         <li class="film__item" data-id="${id}">
-        <img src="${src}" class="film__img" alt="${original_title}" loading="lazy" width="368" height="591"/>
+        <img src="${src}" class="film__img" alt="${original_title}" />
+        <div>
         <p class="film__title">${title}</p>
-        <p class="film__genre">${genresMovie.join(`, `)} | ${releaseDate}</p>
+        <p class="film__genre">${genresMovie.join(
+          `, `
+        )} | ${releaseDate}</p></div>
       </li>`;
       }
     )
