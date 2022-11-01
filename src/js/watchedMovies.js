@@ -17,7 +17,6 @@ import { handleClick } from './treiler';
 
 import { createMessage } from './utilitiesJS/createEmptyLibMessage';
 
-
 refs.btnWathed.addEventListener('click', onBtnWatchedClick);
 
 function onBtnWatchedClick() {
