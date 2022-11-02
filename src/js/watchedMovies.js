@@ -1,4 +1,5 @@
 import Pagination from 'tui-pagination';
+import Notiflix from 'notiflix';
 import { refs } from './utilitiesJS/refs';
 import { movieDescriptionMurkup } from './descriptionMurkup';
 import { serverApi } from './utilitiesJS/serverApi';
@@ -103,6 +104,12 @@ async function onClickMovie(e) {
       iconTrailerBtn.classList.remove('icon-youtube__enable');
       iconTrailerBtn.classList.add('icon-youtube__disabled');
       trailerBtn.setAttribute('disabled', true);
+      Notiflix.Notify.failure('Oh! Unfortunately there is no trailer', {
+        position: 'center-top',
+        fontFamily: 'inherit',
+        borderRadius: '25px',
+        clickToClose: true,
+      });
     }
   });
 
