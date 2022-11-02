@@ -60,12 +60,10 @@ export async function murkupSearchMovie() {
   const total_results = data.total_results;
   options.totalItems = total_results;
 
-  if (total_results < 20) {
-    const item = document.querySelector('.tui-js');
-    item.classList.add('visually-hidden');
+  if (total_results < 20 && total_results !== 0) {
+    refs.tuiContainer.classList.add('visually-hidden');
   } else {
-    const item = document.querySelector('.tui-js');
-    item.classList.remove('visually-hidden');
+    refs.tuiContainer.classList.remove('visually-hidden');
   }
 
   if (movies.length === 0) {
@@ -80,6 +78,7 @@ export async function murkupSearchMovie() {
       }
     );
     searchQuery = ' ';
+    history.goBack();
     return;
   }
 
