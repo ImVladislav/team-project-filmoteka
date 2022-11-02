@@ -4,19 +4,16 @@ import { refs } from './refs';
 import { serverApi } from './serverApi';
 import { posterСheck } from './posterCheck';
 import { options } from '../pagination';
-import { genres } from './genres';
-import { genresArr } from './genres';
 import { spinnerPlay, spinnerStop } from '../spinner';
 import { genresArr, genresUK } from './genres';
-import { genresArr } from './genres';
 import { spinnerPlay, spinnerStop } from '../spinner';
 import warship from '../../images/warship.jpg';
 
 const pagination = new Pagination(refs.tuiContainer, options);
 
-pagination.on('beforeMove', async event => {
-  spinnerPlay();
+spinnerPlay(); // ! не пересовувати
 
+pagination.on('beforeMove', async event => {
   pagination.setTotalItems(serverApi.totalResults);
   const currentPage = event.page;
   serverApi.setPage(currentPage);
@@ -24,6 +21,8 @@ pagination.on('beforeMove', async event => {
 });
 
 export function murkupGalleryOnPageLoading(movies) {
+  serverApi.setPage(1);
+
   const moviesMurkup = movies
 
     .map(
@@ -52,7 +51,7 @@ export function murkupGalleryOnPageLoading(movies) {
         }
 
         // проверка на дату релиза
-        if (release_date === '') {
+        if (!release_date) {
           releaseDate = 'Release data no found';
         } else {
           releaseDate = release_date.slice(0, 4);

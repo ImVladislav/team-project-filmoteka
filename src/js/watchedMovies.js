@@ -75,6 +75,7 @@ async function onClickMovie(e) {
   const queueBtn = document.querySelector('[data-add-queue]');
   const closeModalBtn = document.querySelector('[data-modal-close]');
   const trailerBtn = document.querySelector('.btn-ytb');
+  const iconTrailerBtn = document.querySelector('.icon-youtube');
 
   watchBtn.addEventListener('click', () => {
     onAddWatchClick(detailsMovie);
@@ -91,6 +92,17 @@ async function onClickMovie(e) {
 
     if (refs.btnQueue.dataset.queue === 'active') {
       murkupGallery(queued);
+    }
+  });
+
+  serverApi.getTrailer(id).then(({ results }) => {
+    if (results.length !== 0) {
+      iconTrailerBtn.classList.add('icon-youtube__enable');
+      iconTrailerBtn.classList.remove('icon-youtube__disabled');
+    } else {
+      iconTrailerBtn.classList.remove('icon-youtube__enable');
+      iconTrailerBtn.classList.add('icon-youtube__disabled');
+      trailerBtn.setAttribute('disabled', true);
     }
   });
 

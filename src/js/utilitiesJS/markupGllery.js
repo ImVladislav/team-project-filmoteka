@@ -1,9 +1,13 @@
 import { refs } from './refs';
 import { posterСheck } from './posterCheck';
 import { genresArr } from './genres';
-
+import { createMessage } from './createEmptyLibMessage';
 
 export function murkupGallery(movies) {
+  if (!movies.length) {
+    refs.tuiContainer.classList.add('visually-hidden');
+  }
+
   const moviesMurkup = movies
     .map(({ original_title, title, poster_path, id, genres, release_date }) => {
       let genresMovie = null;
