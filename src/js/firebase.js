@@ -63,6 +63,7 @@ registerBtn.addEventListener('click', e => {
 const attrErrorLogin = document.querySelector('[data-content-login]');
 const loginBtn = document.querySelector('.login-btn');
 
+
 loginBtn.addEventListener('click', e => {
   const emailLogin = document.querySelector('.emailLogin').value;
   const passwordLogin = document.querySelector('.passLogin').value;

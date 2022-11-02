@@ -217,8 +217,8 @@ label span {
     color: #000000ba;
 }
 
-input:focus ~.pass-email-span,
-input:valid ~.pass-email-span {
+.input:focus ~.pass-email-span,
+.input:valid ~.pass-email-span {
     color: #ffffff;
     transform: translateX(10px) translateY(-7px);
     font-size: 0.65em;
@@ -229,33 +229,33 @@ input:valid ~.pass-email-span {
     letter-spacing: 0.2em;
 }
 
-.register-form.dark input:focus ~.pass-email-span,
-.login-form.dark input:focus ~.pass-email-span {
+.register-form.dark .input:focus ~.pass-email-span,
+.login-form.dark .input:focus ~.pass-email-span {
     background-color: #ffffff;
 }
 
-.register-form.dark input:valid ~.pass-email-span,
-.login-form.dark input:valid ~.pass-email-span {
+.register-form.dark .input:valid ~.pass-email-span,
+.login-form.dark .input:valid ~.pass-email-span {
     background-color: #ffffff;
 }
 
-.register-form.dark input ~.pass-email-span,
-.login-form.dark input ~.pass-email-span {
+.register-form.dark .input ~.pass-email-span,
+.login-form.dark .input ~.pass-email-span {
     background-color: inherit;
 }
 
-input:focus,
-input:valid{
+.input:focus,
+.input:valid{
     border: 1px solid $color-accent;
     
 }
-.register-form.dark input,
-.login-form.dark input {
+.register-form.dark .input,
+.login-form.dark .input {
     border: 1px solid #000000;
     color: #000;
 }
-.register-form.dark input:focus,
-.login-form.dark input:focus {
+.register-form.dark .input:focus,
+.login-form.dark .input:focus {
     border: 1px solid $color-accent;
 }
 
