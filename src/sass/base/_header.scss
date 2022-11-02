@@ -264,12 +264,22 @@
   }
 }
 
-
 .select__lang {
   background-color: transparent;
   color: $color-accent;
   border: none;
   outline: none;
+
+  cursor: pointer;
+}
+
+.select__trend {
+  // background-color: #272e34;
+  background-color: transparent;
+  color: $color-accent;
+  border: none;
+  outline: none;
+  text-align: center;
 
   cursor: pointer;
 }
