@@ -14,12 +14,17 @@ const pagination = new Pagination(refs.tuiContainer, options);
 spinnerPlay(); // ! не пересовувати
 
 pagination.on('beforeMove', async event => {
+
+  spinnerPlay();
+  pagination.setTotalItems(serverApi.totalResults);
+
   if (refs.trend.value === 'top' || refs.trend.value === 'popular') {
     pagination.setTotalItems(10000);
     serverApi.setTotalResults(10000);
   } else {
     pagination.setTotalItems(serverApi.totalResults);
   }
+
 
   const currentPage = event.page;
   serverApi.setPage(currentPage);

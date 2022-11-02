@@ -35,12 +35,11 @@ async function onSubmitClick(event) {
       borderRadius: '25px',
       clickToClose: true,
     });
+    spinnerStop();
     return;
   }
 
   await murkupSearchMovie();
-
-  spinnerStop();
 
   spinnerStop();
 
