@@ -35,6 +35,7 @@ async function onSubmitClick(event) {
       borderRadius: '25px',
       clickToClose: true,
     });
+    spinnerStop();
     return;
   }
 
@@ -42,7 +43,7 @@ async function onSubmitClick(event) {
 
   spinnerStop();
 
-  spinnerStop();
+  // spinnerStop();
 
   const pagination = new Pagination(refs.tuiContainer, options);
 
