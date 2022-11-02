@@ -31,14 +31,19 @@
         <li>
           <ul>
             <li class="iconEnter" data-about-modal-open>
-              <i class="fas fa-lock fa-fw fa-2x fa-beat-fade" style="color: #d41443;"></i>
+              <i
+                class="fas fa-lock fa-fw fa-2x fa-beat-fade"
+                style="color: #d41443"
+              ></i>
             </li>
             <li class="iconExit">
-              <i class="fas fa-lock-open fa-fw fa-2x fa-beat-fade" style="color: #d41443;"></i>
+              <i
+                class="fas fa-lock-open fa-fw fa-2x fa-beat-fade"
+                style="color: #d41443"
+              ></i>
             </li>
           </ul>
         </li>
-
       </ul>
     </nav>
 
@@ -61,7 +66,11 @@
     </form>
     <div class="header__theme">
       <span class="header__theme-text">Light</span>
-      <button type="button" class="header__theme-btn" aria-label="toggle theme button">
+      <button
+        type="button"
+        class="header__theme-btn"
+        aria-label="toggle theme button"
+      >
         <svg class="header__icon--moon visually-hidden" width="24" height="24">
           <use href="./images/symbol-defs.svg#icon-moon"></use>
         </svg>
@@ -74,6 +83,13 @@
         <option value="en-US">English</option>
         <option value="uk">Ukraine</option>
         <option value="ru">Russian</option>
+      </select>
+
+      <select name="trends" class="select__trend">
+        <option value="week" data-trend-week>Week</option>
+        <option value="day" data-trend-day>Day</option>
+        <option value="top" data-latest>Top Rated</option>
+        <option value="popular" data-latest>Popular</option>
       </select>
     </div>
   </div>
