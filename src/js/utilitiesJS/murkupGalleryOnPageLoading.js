@@ -14,7 +14,13 @@ const pagination = new Pagination(refs.tuiContainer, options);
 spinnerPlay(); // ! не пересовувати
 
 pagination.on('beforeMove', async event => {
-  pagination.setTotalItems(serverApi.totalResults);
+  if (refs.trend.value === 'top' || refs.trend.value === 'popular') {
+    pagination.setTotalItems(10000);
+    serverApi.setTotalResults(10000);
+  } else {
+    pagination.setTotalItems(serverApi.totalResults);
+  }
+
   const currentPage = event.page;
   serverApi.setPage(currentPage);
   murkupGallery();
@@ -78,12 +84,22 @@ export function murkupGalleryOnPageLoading(movies) {
 }
 
 export async function murkupGallery() {
-  const movies = await serverApi.getPopularMovie();
+  try {
+    let movies = [];
 
-  const total_results = movies.total_results;
-  serverApi.setTotalResults(total_results);
+    if (refs.trend.value === 'top') {
+      movies = await serverApi.getTop();
+    } else if (refs.trend.value === 'popular') {
+      movies = await serverApi.getPopular();
+    } else {
+      movies = await serverApi.getPopularMovie();
+    }
 
-  murkupGalleryOnPageLoading(movies.results);
+    serverApi.setTotalResults(movies.total_results);
+    murkupGalleryOnPageLoading(movies.results);
+  } catch (error) {
+    console.log(error);
+  }
 
   spinnerStop();
 }
