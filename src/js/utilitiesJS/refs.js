@@ -21,7 +21,7 @@ export const refs = {
   headerThemeText: document.querySelector('.header__theme-text'),
   iconSunBgc: document.querySelector('.header__icon--sun'),
   iconMoonBgc: document.querySelector('.header__icon--moon'),
-  darkBtn: document.querySelector('.header__theme-btn'),
+  darkBtn: document.querySelector('.header__theme'),
   footer: document.querySelector('.footer'),
   footerContainer: document.querySelector('.footer__container'),
 
