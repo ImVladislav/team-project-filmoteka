@@ -9,7 +9,9 @@
 }
 
 .movie__poster-wrappaer {
+
   position: relative;
+
   @include tablet-close {
     margin-bottom: 20px;
   }
@@ -135,7 +137,9 @@
 }
 
 .about__text {
+
   overflow-y: auto;
+
   margin-bottom: 20px;
   font-family: 'Roboto';
   font-style: normal;
