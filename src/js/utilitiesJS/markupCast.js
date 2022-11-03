@@ -13,9 +13,7 @@ export const markupCast = async id => {
   if (data.length > 10) {
     casts = data.slice(0, 10);
   }
-  console.log('markupCast : casts', casts);
 
-  console.log('markupCast : casts', casts);
   cast = casts.map(
     item =>
       `<li class="cast__item">
