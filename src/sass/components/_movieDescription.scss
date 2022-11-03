@@ -9,7 +9,6 @@
 }
 
 .movie__poster-wrappaer {
-
   position: relative;
 
   @include tablet-close {
@@ -137,7 +136,6 @@
 }
 
 .about__text {
-
   overflow-y: auto;
 
   margin-bottom: 20px;
@@ -286,13 +284,12 @@
 .icon-youtube__enable {
   fill: #ff0000;
   stroke: #ff0000;
-  // transition: all 250ms linear;
-}
-
-.icon-youtube__enable:hover,
-.icon-youtube__enable:focus {
-  fill: #b80000;
-  stroke: #b80000;
+  transition: all 250ms linear;
+  &:hover,
+  &focus {
+    fill: #b80000;
+    stroke: #b80000;
+  }
 }
 
 .icon-youtube__disabled {
@@ -303,4 +300,26 @@
 .message-wrap {
   margin-left: auto;
   margin-right: auto;
+}
+.btn-cast {
+  position: relative;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all 250ms linear;
+  fill: #ff0000;
+  stroke: #000000;
+  &:hover,
+  &:focus {
+    fill: #b80000;
+    stroke: #000000;
+  }
+}
+
+.btn-cast-text {
+  position: absolute;
+  bottom: 5px;
+  right: 10px;
+  font-weight: 700;
+  font-size: 13px;
 }
