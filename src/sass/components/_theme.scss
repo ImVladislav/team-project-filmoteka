@@ -80,6 +80,9 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  @include tablet {
+    justify-content: space-evenly;
+  }
 }
 .header__theme-wrap {
   display: flex;
