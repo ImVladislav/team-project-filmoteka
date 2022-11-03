@@ -12,7 +12,7 @@ export const handleClick = async () => {
   let trailerKey = '';
   serverApi.getTrailer(trailerId).then(({ results }) => {
     results.map(element => {
-      if (element.type === 'Trailer' && element.name === 'Official Trailer') {
+      if (element.name === 'Official Trailer' || element.type === 'Trailer') {
         trailerKey = element.key;
       }
     });
