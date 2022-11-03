@@ -12,6 +12,7 @@ import {
 } from './utilitiesJS/modalBtnTextContent';
 import { handleClick } from './treiler';
 import { spinnerPlay, spinnerStop } from './spinner';
+import { markupCast } from './utilitiesJS/markupCast';
 
 murkupGallery();
 
@@ -44,6 +45,7 @@ async function onClickMovie(e) {
   const closeModalBtn = document.querySelector('[data-modal-close]');
   const trailerBtn = document.querySelector('.btn-ytb');
   const iconTrailerBtn = document.querySelector('.icon-youtube');
+  const castBtn = document.querySelector('[data-cast]');
 
   serverApi.getTrailer(id).then(({ results }) => {
     if (results.length !== 0) {
@@ -65,6 +67,7 @@ async function onClickMovie(e) {
   watchBtn.addEventListener('click', () => onAddWatchClick(detailsMovie));
   queueBtn.addEventListener('click', () => onAddQueueClick(detailsMovie));
   trailerBtn.addEventListener('click', handleClick);
+  castBtn.addEventListener('click', () => markupCast(id));
 
   closeModalBtn.addEventListener('click', closeModal);
 }
