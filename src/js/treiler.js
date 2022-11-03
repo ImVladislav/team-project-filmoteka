@@ -11,12 +11,11 @@ export const handleClick = async () => {
 
   let trailerKey = '';
   serverApi.getTrailer(trailerId).then(({ results }) => {
-    trailerKey = results[0].key;
-    // results.map(element => {
-    //   if (element.type === 'Trailer' && element.name === 'Official Trailer') {
-    //   trailerKey = element.key;
-    //   }
-    // });
+     results.map(element => {
+      if (element.name === 'Official Trailer' || element.type === 'Trailer') {
+       trailerKey = element.key;
+       }
+     });
 
     spinnerStop();
 
