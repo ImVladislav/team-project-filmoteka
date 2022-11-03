@@ -19,11 +19,7 @@
           <a href="/src/index.html" class="header__list-link">Home</a>
         </li>
         <li class="header__list-item">
-          <a
-            href="/src/mylibrary.html"
-            class="header__list-link header__list-link-active"
-            >My Library</a
-          >
+          <a href="/src/mylibrary.html" class="header__list-link header__list-link-active">My Library</a>
         </li>
         <li>
           <ul>
@@ -48,15 +44,28 @@
       </li>
     </ul>
     <div class="header__theme">
-      <span class="header__theme-text">Light</span>
-      <button type="botton" class="header__theme-btn">
-        <svg class="header__icon--moon visually-hidden" width="24" height="24">
-          <use href="./images/symbol-defs.svg#icon-moon"></use>
-        </svg>
-        <svg class="header__icon--sun" width="24" height="24">
-          <use href="./images/symbol-defs.svg#icon-sun"></use>
-        </svg>
-      </button>
+      <div class="header__theme-wrap"><span class="header__theme-text">Light</span>
+        <button type="button" class="header__theme-btn" aria-label="toggle theme button">
+          <svg class="header__icon--moon visu ally-hidden" width="24" height="24">
+            <use href="./images/symbol-defs.svg#icon-moon"></use>
+          </svg>
+          <svg class="header__icon--sun" width="24" height="24">
+            <use href="./images/symbol-defs.svg#icon-sun"></use>
+          </svg>
+        </button>
+      </div>
+
+      <select name="trends" class="select__trend">
+        <option value="week" data-trend-week>Week</option>
+        <option value="day" data-trend-day>Day</option>
+        <option value="top" data-latest>Top Rated</option>
+        <option value="popular" data-latest>Popular</option>
+      </select>
+      <select name="language" class="select__lang">
+        <option value="en-US">English</option>
+        <option value="uk">Ukraine</option>
+        <option value="ru">Russian</option>
+      </select>
     </div>
   </div>
 </header>
