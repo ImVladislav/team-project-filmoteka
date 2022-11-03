@@ -28,6 +28,7 @@ export const movieDescriptionMurkup = ({
   <div class="movie__description" data-movie-id="${id}">
   <div class="movie__poster-wrappaer">
     <img src="${src}" alt="${title}" class="movie__poster" />
+    <button type="button" class="btn-cast" data-cast>Cast</button>
   </div>
   <div class="movie__container">
     <h3 class="movie__title">${title}</h3>
@@ -55,12 +56,14 @@ export const movieDescriptionMurkup = ({
     <div class="btn__container">
       <button type="button" class="modal__btn" data-add-watched></button>
       <button type="button" class="modal__btn" data-add-queue></button>
-      
+
     </div>
   </div>
   <button type="button" class="btn-ytb youtube"><svg class="icon-youtube" width="44" height="44">
       <use href="${symbol}#icon-youtube"></use>
     </svg></button>
+
+
   <button type="button" class="modal__close" data-modal-close>
     <svg class="modal__close-icon" width="18" height="18">
       <use href="${symbol}#icon-close"></use>

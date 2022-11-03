@@ -84,6 +84,14 @@ class ServerApi {
 
     return await data.data;
   }
+
+  async getCasts(id) {
+    const data = await axios.get(
+      `${this.baseUrl}/movie/${id}/credits?${this.KEY}&language=${this.language}`
+    );
+
+    return await data.data.cast;
+  }
   // async getTrailer(id) {
   //   const data = await axios({
   //     url: `${this.baseUrl}/movie/${id}?${this.KEY}&language=en-US`,

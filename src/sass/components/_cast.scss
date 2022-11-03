@@ -1,0 +1,78 @@
+.cast__container {
+  width: 280px;
+  max-height: 90vh;
+
+  padding: 10px;
+  overflow-y: auto;
+
+  background-color: #f4f4f4;
+  //   box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.17);
+  //   transform: translate(-50%, -50%);
+
+  @include tablet-close {
+    overflow-y: scroll;
+  }
+
+  @include tablet {
+    width: 704px;
+    height: 552px;
+
+    padding: 20px;
+  }
+
+  @include tablet-plus {
+    width: 806px;
+    height: 558px;
+  }
+}
+
+.cast__list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  grid-gap: 16px;
+  list-style: none;
+
+  @include tablet {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  }
+}
+
+.cast__item {
+  text-align: center;
+
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
+    rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+}
+
+.cast__poster {
+  width: 100%;
+  margin-bottom: 8px;
+}
+
+.cast__wrapper {
+  padding: 0px 6px 8px;
+}
+
+.cast__name,
+.cast__character,
+.cast__popularity {
+  font-size: 12px;
+
+  @include tablet {
+    font-size: 14px;
+  }
+
+  &:not(:last-child) {
+    margin-bottom: 4px;
+  }
+
+  & span {
+    font-weight: 500;
+  }
+}
+
+.btn-cast {
+  position: absolute;
+  top: 10;
+  right: 10;
+}

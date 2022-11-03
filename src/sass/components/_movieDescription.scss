@@ -9,6 +9,7 @@
 }
 
 .movie__poster-wrappaer {
+  position: relative;
   @include tablet-close {
     margin-bottom: 20px;
   }
