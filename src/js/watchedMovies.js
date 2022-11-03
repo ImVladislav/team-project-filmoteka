@@ -13,6 +13,7 @@ import {
 import { handleClick } from './treiler';
 import { createMessage } from './utilitiesJS/createEmptyLibMessage';
 import { murkupGallery } from './utilitiesJS/markupGllery';
+import { markupCast } from './utilitiesJS/markupCast';
 
 refs.btnWathed.addEventListener('click', onBtnWatchedClick);
 
@@ -77,6 +78,7 @@ async function onClickMovie(e) {
   const closeModalBtn = document.querySelector('[data-modal-close]');
   const trailerBtn = document.querySelector('.btn-ytb');
   const iconTrailerBtn = document.querySelector('.icon-youtube');
+  const castBtn = document.querySelector('[data-cast]');
 
   watchBtn.addEventListener('click', () => {
     onAddWatchClick(detailsMovie);
@@ -114,5 +116,6 @@ async function onClickMovie(e) {
   });
 
   trailerBtn.addEventListener('click', handleClick);
+  castBtn.addEventListener('click', () => markupCast(id));
   closeModalBtn.addEventListener('click', closeModal);
 }
