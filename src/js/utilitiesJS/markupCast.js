@@ -10,21 +10,23 @@ export const markupCast = async id => {
 
   const casts = data.slice(0, 15);
 
-  const castMarkup = casts.map(item => {
-    const poster = item.profile_path
-      ? `${serverApi.baseSrc}${item.profile_path}`
-      : image;
-    return `<li class="cast__item">
+  const castMarkup = casts.map(
+    ({ profile_path, name, popularity, character }) => {
+      const poster = profile_path
+        ? `${serverApi.baseSrc}${profile_path}`
+        : image;
+      return `<li class="cast__item">
         <img src="${poster}" class="cast__poster"/>
         <div class="cast__wrapper">
-        <p class="cast__name">Name: <span>${item.name}</span></p>
+        <p class="cast__name">Name: <span>${name}</span></p>
         <p class="cast__popularity">Popularity: <span>${Number.parseInt(
-          item.popularity
+          popularity
         )}</span></p>
-        <p class="cast__character">Cast: <span>${item.character}</span></p>
+        <p class="cast__character">Cast: <span>${character}</span></p>
         </div>
         </li>`;
-  });
+    }
+  );
 
   const instance = basicLightbox.create(`
 <div class="cast__container">
