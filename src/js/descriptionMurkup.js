@@ -13,6 +13,9 @@ export const movieDescriptionMurkup = ({
   vote_count,
 }) => {
   const src = posterСheck(poster_path);
+  const popular = popularity.toString().includes('.')
+    ? popularity.toFixed('1')
+    : popularity;
 
   const aboutText =
     overview.length > 0
@@ -48,9 +51,7 @@ export const movieDescriptionMurkup = ({
             >${vote_count}</span
           >
         </p>
-        <p class="description__text description__popularity">${Number.parseInt(
-          popularity
-        )}</p>
+        <p class="description__text description__popularity">${popular}</p>
         <p class="description__text">${original_title}</p>
         <p class="description__text">${genre}</p>
       </div>
