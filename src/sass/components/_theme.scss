@@ -76,11 +76,18 @@
   background: $color-footer-dark;
 }
 .header__theme {
-  color: $color-white;
   cursor: pointer;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  @include tablet {
+    justify-content: space-evenly;
+  }
+}
+.header__theme-wrap {
+  display: flex;
+  align-items: center;
+  color: $color-white;
   fill: $color-white;
   stroke: $color-white;
   transition: fill 300ms $timing-function, color 300ms $timing-function,
@@ -92,7 +99,6 @@
     stroke: $color-accent;
   }
 }
-
 .header__theme-btn {
   text-align: center;
   background: none;

@@ -218,7 +218,7 @@
   border-bottom: 0.5px solid white;
   caret-color: white;
   color: white;
-  margin-bottom: 60;
+  margin-bottom: 30px;
 
   &:hover,
   &:focus {
@@ -266,20 +266,32 @@
 
 .select__lang {
   background-color: transparent;
-  color: $color-accent;
+
   border: none;
   outline: none;
 
   cursor: pointer;
+  color: $color-white;
+  transition: color 300ms $timing-function;
+  &:hover,
+  &:focus {
+    color: $color-accent;
+  }
 }
 
 .select__trend {
   // background-color: #272e34;
   background-color: transparent;
-  color: $color-accent;
+
   border: none;
   outline: none;
   text-align: center;
 
   cursor: pointer;
+  color: $color-white;
+  transition: color 300ms $timing-function;
+  &:hover,
+  &:focus {
+    color: $color-accent;
+  }
 }

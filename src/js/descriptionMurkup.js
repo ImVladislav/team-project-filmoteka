@@ -28,7 +28,11 @@ export const movieDescriptionMurkup = ({
   <div class="movie__description" data-movie-id="${id}">
   <div class="movie__poster-wrappaer">
     <img src="${src}" alt="${title}" class="movie__poster" />
-    <button type="button" class="btn-cast" data-cast>Cast</button>
+    <button type="button" class="btn-cast" data-cast>
+    <svg class="icon-cast" width="35" height="35">
+      <use href="${symbol}#icon-cast"></use>
+    </svg><span class="btn-cast-text">Cast</span>
+    </button>
   </div>
   <div class="movie__container">
     <h3 class="movie__title">${title}</h3>
