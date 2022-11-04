@@ -14,6 +14,7 @@ import { handleClick } from './treiler';
 import { createMessage } from './utilitiesJS/createEmptyLibMessage';
 import { murkupGallery } from './utilitiesJS/markupGllery';
 import { markupCast } from './utilitiesJS/markupCast';
+import { markupRewiew } from './utilitiesJS/markupRewiews';
 
 refs.btnWathed.addEventListener('click', onBtnWatchedClick);
 
@@ -79,6 +80,7 @@ async function onClickMovie(e) {
   const trailerBtn = document.querySelector('.btn-ytb');
   const iconTrailerBtn = document.querySelector('.icon-youtube');
   const castBtn = document.querySelector('[data-cast]');
+  const rewiewBtn = document.querySelector('[data-rewiews]');
 
   watchBtn.addEventListener('click', () => {
     onAddWatchClick(detailsMovie);
@@ -120,8 +122,15 @@ async function onClickMovie(e) {
       castBtn.setAttribute('disabled', true);
     }
   });
+  serverApi.getRewiews(id).then(data => {
+    if (data.length === 0) {
+      rewiewBtn.setAttribute('disabled', true);
+    }
+  });
 
   trailerBtn.addEventListener('click', handleClick);
   castBtn.addEventListener('click', () => markupCast(id));
+  rewiewBtn.addEventListener('click', () => markupRewiew(id));
+
   closeModalBtn.addEventListener('click', closeModal);
 }

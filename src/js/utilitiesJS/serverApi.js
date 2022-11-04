@@ -93,6 +93,14 @@ class ServerApi {
     return await data.data.cast;
   }
 
+  async getRewiews(id) {
+    const data = await axios.get(
+      `${this.baseUrl}/movie/${id}/reviews?${this.KEY}&language=${this.language}`
+    );
+
+    return await data.data.results;
+  }
+
   setPage(page) {
     this.#page = page;
   }
