@@ -92,12 +92,6 @@ class ServerApi {
 
     return await data.data.cast;
   }
-  // async getTrailer(id) {
-  //   const data = await axios({
-  //     url: `${this.baseUrl}/movie/${id}?${this.KEY}&language=en-US`,
-  //   });
-  //   return await data;
-  // }
 
   setPage(page) {
     this.#page = page;
