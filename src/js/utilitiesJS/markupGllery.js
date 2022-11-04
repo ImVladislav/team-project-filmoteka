@@ -6,6 +6,7 @@ import { createMessage } from './createEmptyLibMessage';
 export function murkupGallery(movies) {
   if (!movies.length) {
     refs.tuiContainer.classList.add('visually-hidden');
+    return (refs.galleryLibrary.innerHTML = createMessage());
   }
 
   const moviesMurkup = movies
