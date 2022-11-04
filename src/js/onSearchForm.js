@@ -78,7 +78,7 @@ export async function murkupSearchMovie() {
         clickToClose: true,
       }
     );
-    searchQuery = ' ';
+    window.history.go();
     return;
   }
 
