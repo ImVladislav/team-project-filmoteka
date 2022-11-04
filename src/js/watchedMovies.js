@@ -115,6 +115,12 @@ async function onClickMovie(e) {
     }
   });
 
+  serverApi.getCasts(id).then(data => {
+    if (data.length === 0) {
+      castBtn.setAttribute('disabled', true);
+    }
+  });
+
   trailerBtn.addEventListener('click', handleClick);
   castBtn.addEventListener('click', () => markupCast(id));
   closeModalBtn.addEventListener('click', closeModal);
