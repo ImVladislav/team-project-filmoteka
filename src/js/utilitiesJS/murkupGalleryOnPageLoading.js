@@ -14,7 +14,6 @@ const pagination = new Pagination(refs.tuiContainer, options);
 spinnerPlay(); // ! не пересовувати
 
 pagination.on('beforeMove', async event => {
-
   spinnerPlay();
   pagination.setTotalItems(serverApi.totalResults);
 
@@ -24,7 +23,6 @@ pagination.on('beforeMove', async event => {
   } else {
     pagination.setTotalItems(serverApi.totalResults);
   }
-
 
   const currentPage = event.page;
   serverApi.setPage(currentPage);
@@ -42,30 +40,58 @@ export function murkupGalleryOnPageLoading(movies) {
 
         let genresMovie = null;
         let releaseDate = null;
+        let genresMovies = null;
 
         // проверка на жанры фильмов
 
-        const genresMovies = genresArr.reduce((acc, genre) => {
-          if (genre_ids.includes(genre.id)) {
-            acc.push(genre.name);
-          }
-          return acc;
-        }, []);
-
-        if (genresMovies.length > 3) {
-          genresMovie = genresMovies.slice(0, 2);
-          genresMovie.splice(2, 1, 'Other');
-        } else if (genresMovies.length === 0) {
-          genresMovie = [`Genres not found`];
-        } else {
-          genresMovie = genresMovies;
+        if (refs.langValue.value === 'ru') {
+          return (refs.gallery.innerHTML = `<li class="warship"><img src="${warship}" /></li>`);
         }
 
-        // проверка на дату релиза
-        if (!release_date) {
-          releaseDate = 'Release data no found';
-        } else {
-          releaseDate = release_date.slice(0, 4);
+        if (refs.langValue.value === 'en-US') {
+          genresMovies = genresArr.reduce((acc, genre) => {
+            if (genre_ids.includes(genre.id)) {
+              acc.push(genre.name);
+            }
+            return acc;
+          }, []);
+
+          if (genresMovies.length > 3) {
+            genresMovie = genresMovies.slice(0, 2);
+            genresMovie.splice(2, 1, 'Other');
+          } else if (genresMovies.length === 0) {
+            genresMovie = [`Genres not found`];
+          } else {
+            genresMovie = genresMovies;
+          }
+
+          if (!release_date) {
+            releaseDate = 'Release data no found';
+          } else {
+            releaseDate = release_date.slice(0, 4);
+          }
+        } else if (refs.langValue.value === 'uk') {
+          genresMovies = genresUK.reduce((acc, genre) => {
+            if (genre_ids.includes(genre.id)) {
+              acc.push(genre.name);
+            }
+            return acc;
+          }, []);
+
+          if (genresMovies.length > 3) {
+            genresMovie = genresMovies.slice(0, 2);
+            genresMovie.splice(2, 1, 'Інше');
+          } else if (genresMovies.length === 0) {
+            genresMovie = [`Жанрів не знайдено`];
+          } else {
+            genresMovie = genresMovies;
+          }
+
+          if (!release_date) {
+            releaseDate = 'Дату релізу не знайдено';
+          } else {
+            releaseDate = release_date.slice(0, 4);
+          }
         }
 
         return `
@@ -80,10 +106,6 @@ export function murkupGalleryOnPageLoading(movies) {
       }
     )
     .join(``);
-
-  if (refs.langValue.value === 'ru') {
-    return (refs.gallery.innerHTML = `<li class="warship"><img src="${warship}" /></li>`);
-  }
 
   return (refs.gallery.innerHTML = moviesMurkup);
 }
