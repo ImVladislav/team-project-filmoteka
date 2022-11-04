@@ -51,8 +51,8 @@ async function onSubmitClick(event) {
     serverApi.incrementRequestCount();
     murkupSearchMovie();
   });
-  
-    event.target.reset();
+
+  event.target.reset();
 }
 
 export async function murkupSearchMovie() {
@@ -79,7 +79,6 @@ export async function murkupSearchMovie() {
       }
     );
     searchQuery = ' ';
-    history.goBack();
     return;
   }
 
