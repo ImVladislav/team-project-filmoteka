@@ -22,6 +22,7 @@ export function closeModal(evt) {
     refs.modal.classList.remove('visiable');
     refs.registerForm.classList.remove('hidden')
     refs.loginForm.classList.remove('visiable')
+    refs.body.classList.remove('no-scroll');
   }
 
   if (evt.target === refs.loginedWrapper) {
