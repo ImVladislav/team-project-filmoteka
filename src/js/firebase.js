@@ -42,7 +42,7 @@ registerBtn.addEventListener('click', e => {
         emailRegister: emailRegister,
         passwordRegister: passwordRegister,
       });
-      Notiflix.Notify.success('User Crated');
+      Notiflix.Notify.success('User Created');
       document.querySelector('.emailRegister').value = '';
       document.querySelector('.passRegister').value = '';
       attrErrorRegister.setAttribute('data-content-register', 'Registered');
@@ -120,6 +120,7 @@ refs.exitBtnFromOnline.addEventListener('click', () => {
       refs.iconEnter.classList.remove('locked');
       refs.iconExit.classList.remove('active');
       refs.loginedWrapper.classList.remove('active');
+      refs.body.classList.remove('no-scroll');
     })
     .catch(error => {
       Notiflix.Notify.failure('User is signed out!');

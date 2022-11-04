@@ -202,7 +202,7 @@
     color: #000000;
 }
 
-label span {
+.pass-email-span {
     position: absolute;
     left: 20px;
     padding: 10px;
@@ -212,8 +212,8 @@ label span {
     text-transform: uppercase;
     transition: 250ms;
 }
-.register-form.dark  label span,
-.login-form.dark label span {
+.register-form.dark  .pass-email-span,
+.login-form.dark .pass-email-span {
     color: #000000ba;
 }
 
@@ -229,14 +229,16 @@ label span {
     letter-spacing: 0.2em;
 }
 
-.register-form.dark .input:focus ~.pass-email-span,
+.register-form.dark .input:focus  ~.pass-email-span,
 .login-form.dark .input:focus ~.pass-email-span {
     background-color: #ffffff;
+    color: #000000;
 }
 
 .register-form.dark .input:valid ~.pass-email-span,
 .login-form.dark .input:valid ~.pass-email-span {
     background-color: #ffffff;
+    color: #000000;
 }
 
 .register-form.dark .input ~.pass-email-span,
@@ -252,7 +254,7 @@ label span {
 .register-form.dark .input,
 .login-form.dark .input {
     border: 1px solid #000000;
-    color: #000;
+    color: #000000;
 }
 .register-form.dark .input:focus,
 .login-form.dark .input:focus {
