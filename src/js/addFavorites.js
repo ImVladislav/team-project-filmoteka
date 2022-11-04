@@ -11,7 +11,7 @@ export const onAddWatchClick = data => {
       'watch',
       JSON.stringify(storage.filter(item => item.id !== data.id))
     );
-    location.reload();
+    // location.reload();
     btn.textContent = 'add to watched';
     return;
   }
@@ -35,7 +35,7 @@ export const onAddQueueClick = data => {
       'queue',
       JSON.stringify(storage.filter(item => item.id !== data.id))
     );
-    location.reload();
+    // location.reload();
     btn.textContent = 'add to queue';
     return;
   }

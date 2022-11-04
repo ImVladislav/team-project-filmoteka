@@ -32,6 +32,10 @@ pagination.on('beforeMove', async event => {
 export function murkupGalleryOnPageLoading(movies) {
   serverApi.setPage(1);
 
+  if (refs.langValue.value === 'ru') {
+    return (refs.gallery.innerHTML = `<li class="warship"><img src="${warship}" /></li>`);
+  }
+
   const moviesMurkup = movies
 
     .map(
@@ -43,10 +47,6 @@ export function murkupGalleryOnPageLoading(movies) {
         let genresMovies = null;
 
         // проверка на жанры фильмов
-
-        if (refs.langValue.value === 'ru') {
-          return (refs.gallery.innerHTML = `<li class="warship"><img src="${warship}" /></li>`);
-        }
 
         if (refs.langValue.value === 'en-US') {
           genresMovies = genresArr.reduce((acc, genre) => {

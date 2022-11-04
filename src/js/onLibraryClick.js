@@ -13,10 +13,6 @@ function onMyLibraryClick() {
     const watch = JSON.parse(localStorage.getItem('watch'));
     const queue = JSON.parse(localStorage.getItem('queue'));
 
-    if (!watch && !queue) {
-      refs.galleryLibrary.insertAdjacentHTML('beforeend', createMessage());
-      return;
-    }
     if (watch && watch.length !== 0) {
       onBtnWatchedClick();
       return;
