@@ -1,11 +1,9 @@
 import * as basicLightbox from 'basiclightbox';
 
-import { refs } from './utilitiesJS/refs';
 import { serverApi } from './utilitiesJS/serverApi';
 import { spinnerPlay, spinnerStop } from './spinner';
 
-export const handleClick = async event => {
-
+export const handleClick = async () => {
   spinnerPlay();
 
   const movieDescriptionId = document.querySelector('.movie__description');
@@ -14,13 +12,13 @@ export const handleClick = async event => {
   let trailerKey = '';
   serverApi.getTrailer(trailerId).then(({ results }) => {
     results.map(element => {
-      if (element.type === 'Trailer' && element.name === 'Official Trailer') {
+      if (element.name === 'Official Trailer' || element.type === 'Trailer') {
         trailerKey = element.key;
       }
     });
 
-    spinnerStop(); 
-    
+    spinnerStop();
+
     const instance = basicLightbox.create(`
         <div class="player-container">
    <iframe class="player" src='https://www.youtube.com/embed/${trailerKey}'frameborder="0"
@@ -29,6 +27,6 @@ export const handleClick = async event => {
    </div>
 `);
 
-    instance.show();    
+    instance.show();
   });
 };

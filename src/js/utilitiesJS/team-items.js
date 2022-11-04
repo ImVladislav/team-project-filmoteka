@@ -4,7 +4,7 @@ import yuriy from '../../images/teams/yuriy_kulinichenko.jpg';
 import oleksandr from '../../images/teams/aleksandr-kurzhiy.jpg';
 import andrey from '../../images/teams/andrey-dymov.jpg';
 import rustem from '../../images/teams/rustem-dzhuraiev.jpg';
-import vladislavZavertaylo from '../../images/teams/vladislav-zavertaylo.jpg';
+import vladyslavZavertaylo from '../../images/teams/vladislav-zavertaylo.jpg';
 import vladyslavStepanov from '../../images/teams/vladyslav.jpg';
 import roman from '../../images/teams/roman-tunkiv.jpg';
 import serhiy from '../../images/teams/serhiy-nazarov.jpg';
@@ -41,16 +41,16 @@ export const teamItems = [
     git: 'https://github.com/Heyswor',
   },
   {
+    img: vladyslavZavertaylo,
+    name: 'Vladyslav',
+    role: 'Developer',
+    git: 'https://github.com/vladislavzaver91',
+  },
+  {
     img: rustem,
     name: 'Rustem',
     role: 'Developer',
     git: 'https://github.com/RustDzhur',
-  },
-  {
-    img: vladislavZavertaylo,
-    name: 'Vladislav',
-    role: 'Developer',
-    git: 'https://github.com/vladislavzaver91',
   },
   {
     img: vladyslavStepanov,

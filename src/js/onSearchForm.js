@@ -4,9 +4,11 @@ import Pagination from 'tui-pagination';
 import { refs } from './utilitiesJS/refs';
 import { serverApi } from './utilitiesJS/serverApi';
 import { options } from './pagination';
-import { murkupGalleryOnPageLoading } from './utilitiesJS/murkupGalleryOnPageLoading';
+import {
+  murkupGalleryOnPageLoading,
+  murkupGallery,
+} from './utilitiesJS/murkupGalleryOnPageLoading';
 import { spinnerPlay, spinnerStop } from './spinner';
-
 
 let searchQuery = ' ';
 refs.formRef.addEventListener('submit', onSubmitClick);
@@ -33,12 +35,11 @@ async function onSubmitClick(event) {
       borderRadius: '25px',
       clickToClose: true,
     });
+    spinnerStop();
     return;
   }
 
   await murkupSearchMovie();
-  
-  spinnerStop();
 
   spinnerStop();
 
@@ -50,6 +51,8 @@ async function onSubmitClick(event) {
     serverApi.incrementRequestCount();
     murkupSearchMovie();
   });
+  
+    event.target.reset();
 }
 
 export async function murkupSearchMovie() {
@@ -58,15 +61,14 @@ export async function murkupSearchMovie() {
   const total_results = data.total_results;
   options.totalItems = total_results;
 
-  if (total_results < 20) {
-    const item = document.querySelector('.tui-js');
-    item.classList.add('visually-hidden');
+  if (total_results < 20 && total_results !== 0) {
+    refs.tuiContainer.classList.add('visually-hidden');
   } else {
-    const item = document.querySelector('.tui-js');
-    item.classList.remove('visually-hidden');
+    refs.tuiContainer.classList.remove('visually-hidden');
   }
 
   if (movies.length === 0) {
+    murkupGallery();
     Notiflix.Notify.failure(
       'Search result not successful. Enter the correct movie name and',
       {
@@ -77,6 +79,7 @@ export async function murkupSearchMovie() {
       }
     );
     searchQuery = ' ';
+    history.goBack();
     return;
   }
 

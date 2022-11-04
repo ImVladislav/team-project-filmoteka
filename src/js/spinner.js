@@ -6,7 +6,7 @@ const opts = {
   length: 27, // The length of each line
   width: 20, // The line thickness
   radius: 33, // The radius of the inner circle
-  scale: 1.95, // Scales overall size of the spinner
+  scale: 0.5, // Scales overall size of the spinner
   corners: 1, // Corner roundness (0..1)
   speed: 1, // Rounds per second
   rotate: 18, // The rotation offset

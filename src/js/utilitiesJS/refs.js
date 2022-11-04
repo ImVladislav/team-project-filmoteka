@@ -21,7 +21,7 @@ export const refs = {
   headerThemeText: document.querySelector('.header__theme-text'),
   iconSunBgc: document.querySelector('.header__icon--sun'),
   iconMoonBgc: document.querySelector('.header__icon--moon'),
-  darkBtn: document.querySelector('.header__theme-btn'),
+  darkBtn: document.querySelector('.header__theme-wrap'),
   footer: document.querySelector('.footer'),
   footerContainer: document.querySelector('.footer__container'),
 
@@ -50,4 +50,6 @@ export const refs = {
 
   tuiContainer: document.querySelector('.tui-pagination'),
   langValue: document.querySelector('.select__lang'),
+
+  trend: document.querySelector('.select__trend'),
 };

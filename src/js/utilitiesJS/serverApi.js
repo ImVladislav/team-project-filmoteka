@@ -3,9 +3,10 @@ import Notiflix from 'notiflix';
 
 class ServerApi {
   #page = 1;
-  totalResults = 200;
+  totalResults = 20000;
   requestCount = 1;
   language = 'en-US';
+  trend = 'week';
 
   KEY = `api_key=7770a554235a470dd8487676c4d97407`;
   baseUrl = `https://api.themoviedb.org/3`;
@@ -13,7 +14,7 @@ class ServerApi {
 
   async getPopularMovie() {
     const data = await axios({
-      url: `${this.baseUrl}/trending/movie/week?${this.KEY}&page=${
+      url: `${this.baseUrl}/trending/movie/${this.trend}?${this.KEY}&page=${
         this.#page
       }&language=${this.language}`,
     });
@@ -41,19 +42,55 @@ class ServerApi {
   }
 
   async getDetailsMovie(id) {
-    const data = await axios({
-      url: `${this.baseUrl}/movie/${id}?${this.KEY}&language=${this.language}`,
-    });
+    try {
+      const data = await axios({
+        url: `${this.baseUrl}/movie/${id}?${this.KEY}&language=${this.language}`,
+      });
+
+      return await data.data;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  async getTrailer(id) {
+    try {
+      const response = await axios.get(
+        `${this.baseUrl}/movie/${id}/videos?${this.KEY}&language=en-US`
+      );
+
+      return await response.data;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  async getTop() {
+    const data = await axios.get(
+      `${this.baseUrl}/movie/top_rated?${this.KEY}&language=${
+        this.language
+      }&page=${this.getPage()}`
+    );
 
     return await data.data;
   }
 
-  async getTrailer(id) {
-    const response = await fetch(
-      `https://api.themoviedb.org/3/movie/${id}/videos?api_key=7770a554235a470dd8487676c4d97407&language=en-US`
+  async getPopular() {
+    const data = await axios.get(
+      `${this.baseUrl}/movie/popular?${this.KEY}&language=${
+        this.language
+      }&page=${this.getPage()}`
     );
-    const data = response.json();
-    return data;
+
+    return await data.data;
+  }
+
+  async getCasts(id) {
+    const data = await axios.get(
+      `${this.baseUrl}/movie/${id}/credits?${this.KEY}&language=${this.language}`
+    );
+
+    return await data.data.cast;
   }
   // async getTrailer(id) {
   //   const data = await axios({
@@ -80,6 +117,18 @@ class ServerApi {
 
   setlang(lang) {
     this.language = lang;
+  }
+
+  setTrend(trend) {
+    this.trend = trend;
+  }
+
+  getTrend() {
+    return this.trend;
+  }
+
+  getPage() {
+    return this.#page > 500 ? 500 : this.#page;
   }
 }
 

@@ -9,30 +9,36 @@
 }
 
 .movie__poster-wrappaer {
+  position: relative;
+
   @include tablet-close {
     margin-bottom: 20px;
   }
 
   @include tablet {
-    width: 264px;
+    // width: 264px;
   }
 
-  @include desktop {
-    width: 375px;
+  @include tablet-plus {
+    // width: 375px;
     height: 478px;
   }
 }
 
 .movie__poster {
   width: 240px;
-  height: 357px;
+  height: auto;
+
+  @media screen and (min-width: 375px) {
+    width: 100%;
+  }
 
   @include tablet {
     width: 264px;
     height: 373.55px;
   }
-  @include desktop {
-    width: 375px;
+  @include tablet-plus {
+    width: auto;
     height: 478px;
   }
 }
@@ -42,7 +48,7 @@
     margin-left: 68px;
   }
 
-  @include desktop {
+  @include tablet-plus {
     margin-left: 16px;
   }
 }
@@ -57,7 +63,7 @@
   line-height: 1.15;
   text-transform: uppercase;
 
-  @include desktop {
+  @include tablet-plus {
     font-size: 30px;
   }
 }
@@ -130,28 +136,39 @@
 }
 
 .about__text {
+  overflow-y: auto;
+
   margin-bottom: 20px;
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 500;
   font-size: 12px;
   line-height: 1.67;
-
-  @include tablet-close {
-    overflow-y: scroll;
-    height: 100px;
-  }
+  max-height: 120px;
 
   @include tablet {
     width: 264px;
+    max-height: 140px;
   }
 
-  @include desktop {
+  @include tablet-plus {
     width: 391px;
+    max-height: 180px;
   }
 }
 .btn__container {
   display: flex;
+  justify-content: space-around;
+
+  @include tablet {
+    width: 265px;
+    justify-content: space-between;
+  }
+
+  @include tablet-plus {
+    width: 295px;
+    justify-content: space-around;
+  }
 }
 
 .modal__btn {
@@ -176,9 +193,9 @@
 
   transition: all 250ms linear;
 
-  &:last-child {
-    margin-left: 20px;
-  }
+  // &:last-child {
+  //   margin-left: 20px;
+  // }
 
   &:hover,
   &:focus {
@@ -195,7 +212,7 @@
     }
   }
 
-  @include desktop {
+  @include tablet-plus {
     width: 136px;
   }
 }
@@ -221,16 +238,6 @@
   &:hover,
   &:focus {
     stroke: $color-accent;
-  }
-
-  @include tablet {
-    top: -30;
-    right: -28;
-  }
-
-  @include tablet-plus {
-    top: -25;
-    right: 0;
   }
 }
 .modal-content.dark .modal__close {
@@ -263,24 +270,56 @@
     top: 50px;
     left: 45px;
   }
-  @include desktop {
+  @include tablet-plus {
     top: 50px;
     left: 25px;
   }
 }
+
 .icon-youtube {
+  fill: transparent;
+  stroke: transparent;
+}
+
+.icon-youtube__enable {
   fill: #ff0000;
   stroke: #ff0000;
   transition: all 250ms linear;
+  &:hover,
+  &focus {
+    fill: #b80000;
+    stroke: #b80000;
+  }
 }
 
-.icon-youtube:hover,
-.icon-youtube:focus {
-  fill: #b80000;
-  stroke: #b80000;
+.icon-youtube__disabled {
+  fill: #808080;
+  stroke: #000000;
 }
 
 .message-wrap {
   margin-left: auto;
   margin-right: auto;
+}
+.btn-cast {
+  position: relative;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all 250ms linear;
+  fill: #ff0000;
+  stroke: #000000;
+  &:hover,
+  &:focus {
+    fill: #b80000;
+    stroke: #000000;
+  }
+}
+
+.btn-cast-text {
+  position: absolute;
+  bottom: 5px;
+  right: 10px;
+  font-weight: 700;
+  font-size: 13px;
 }

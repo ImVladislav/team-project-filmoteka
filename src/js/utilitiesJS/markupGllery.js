@@ -1,37 +1,67 @@
 import { refs } from './refs';
 import { posterСheck } from './posterCheck';
-import { genresArr } from './genres';
-
+import { genresArr, genresUK } from './genres';
+import { createMessage } from './createEmptyLibMessage';
 
 export function murkupGallery(movies) {
+  if (!movies.length) {
+    refs.tuiContainer.classList.add('visually-hidden');
+  }
+
   const moviesMurkup = movies
     .map(({ original_title, title, poster_path, id, genres, release_date }) => {
       let genresMovie = null;
       let releaseDate = null;
+      let genresMovies = null;
 
+      const currentLanguage = JSON.parse(localStorage.getItem('language'));
       const genresId = genres.map(genre => genre.id);
       const src = posterСheck(poster_path);
 
-      const genresMovies = genresArr.reduce((acc, genre) => {
-        if (genresId.includes(genre.id)) {
-          acc.push(genre.name);
+      if (currentLanguage === 'uk') {
+        genresMovies = genresUK.reduce((acc, genre) => {
+          if (genresId.includes(genre.id)) {
+            acc.push(genre.name);
+          }
+          return acc;
+        }, []);
+
+        if (genresMovies.length > 3) {
+          genresMovie = genresMovies.slice(0, 2);
+          genresMovie.splice(2, 1, 'Інше');
+        } else if (genresMovies.length === 0) {
+          genresMovie = [`Жанрів не знайдено`];
+        } else {
+          genresMovie = genresMovies;
         }
-        return acc;
-      }, []);
 
-      if (genresMovies.length > 3) {
-        genresMovie = genresMovies.slice(0, 2);
-        genresMovie.splice(2, 1, 'Other');
-      } else if (genresMovies.length === 0) {
-        genresMovie = [`Genres not found`];
+        if (release_date === '') {
+          releaseDate = 'Дату релізу не знайдено';
+        } else {
+          releaseDate = release_date.slice(0, 4);
+        }
       } else {
-        genresMovie = genresMovies;
-      }
+        genresMovies = genresArr.reduce((acc, genre) => {
+          if (genresId.includes(genre.id)) {
+            acc.push(genre.name);
+          }
+          return acc;
+        }, []);
 
-      if (release_date === '') {
-        releaseDate = 'Release data no found';
-      } else {
-        releaseDate = release_date.slice(0, 4);
+        if (genresMovies.length > 3) {
+          genresMovie = genresMovies.slice(0, 2);
+          genresMovie.splice(2, 1, 'Other');
+        } else if (genresMovies.length === 0) {
+          genresMovie = [`Genres not found`];
+        } else {
+          genresMovie = genresMovies;
+        }
+
+        if (release_date === '') {
+          releaseDate = 'Release data no found';
+        } else {
+          releaseDate = release_date.slice(0, 4);
+        }
       }
 
       return `

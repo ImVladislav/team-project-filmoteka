@@ -1,5 +1,6 @@
 import './js/modal';
 import './js/utilitiesJS/selectLang';
+import './js/utilitiesJS/selectTrend';
 import './js/gallery';
 import './js/onSearchForm';
 import './js/pagination';

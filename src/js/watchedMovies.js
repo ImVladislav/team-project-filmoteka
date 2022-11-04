@@ -1,4 +1,5 @@
 import Pagination from 'tui-pagination';
+import Notiflix from 'notiflix';
 import { refs } from './utilitiesJS/refs';
 import { movieDescriptionMurkup } from './descriptionMurkup';
 import { serverApi } from './utilitiesJS/serverApi';
@@ -12,6 +13,7 @@ import {
 import { handleClick } from './treiler';
 import { createMessage } from './utilitiesJS/createEmptyLibMessage';
 import { murkupGallery } from './utilitiesJS/markupGllery';
+import { markupCast } from './utilitiesJS/markupCast';
 
 refs.btnWathed.addEventListener('click', onBtnWatchedClick);
 
@@ -75,6 +77,8 @@ async function onClickMovie(e) {
   const queueBtn = document.querySelector('[data-add-queue]');
   const closeModalBtn = document.querySelector('[data-modal-close]');
   const trailerBtn = document.querySelector('.btn-ytb');
+  const iconTrailerBtn = document.querySelector('.icon-youtube');
+  const castBtn = document.querySelector('[data-cast]');
 
   watchBtn.addEventListener('click', () => {
     onAddWatchClick(detailsMovie);
@@ -94,6 +98,24 @@ async function onClickMovie(e) {
     }
   });
 
+  serverApi.getTrailer(id).then(({ results }) => {
+    if (results.length !== 0) {
+      iconTrailerBtn.classList.add('icon-youtube__enable');
+      iconTrailerBtn.classList.remove('icon-youtube__disabled');
+    } else {
+      iconTrailerBtn.classList.remove('icon-youtube__enable');
+      iconTrailerBtn.classList.add('icon-youtube__disabled');
+      trailerBtn.setAttribute('disabled', true);
+      Notiflix.Notify.failure('Oh! Unfortunately there is no trailer', {
+        position: 'center-top',
+        fontFamily: 'inherit',
+        borderRadius: '25px',
+        clickToClose: true,
+      });
+    }
+  });
+
   trailerBtn.addEventListener('click', handleClick);
+  castBtn.addEventListener('click', () => markupCast(id));
   closeModalBtn.addEventListener('click', closeModal);
 }
