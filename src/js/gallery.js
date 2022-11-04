@@ -64,6 +64,12 @@ async function onClickMovie(e) {
     }
   });
 
+  serverApi.getCasts(id).then(data => {
+    if (data.length === 0) {
+      castBtn.setAttribute('disabled', true);
+    }
+  });
+
   watchBtn.addEventListener('click', () => onAddWatchClick(detailsMovie));
   queueBtn.addEventListener('click', () => onAddQueueClick(detailsMovie));
   trailerBtn.addEventListener('click', handleClick);

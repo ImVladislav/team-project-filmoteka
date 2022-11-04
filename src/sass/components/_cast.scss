@@ -97,4 +97,9 @@
   position: absolute;
   top: 10;
   right: 10;
+
+  &[disabled] {
+    fill: #808080;
+    stroke: #000000;
+  }
 }
