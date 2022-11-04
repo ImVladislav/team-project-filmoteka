@@ -42,7 +42,7 @@ registerBtn.addEventListener('click', e => {
         emailRegister: emailRegister,
         passwordRegister: passwordRegister,
       });
-      Notiflix.Notify.success('User Crated');
+      Notiflix.Notify.success('User Created');
       document.querySelector('.emailRegister').value = '';
       document.querySelector('.passRegister').value = '';
       attrErrorRegister.setAttribute('data-content-register', 'Registered');
@@ -78,7 +78,6 @@ loginBtn.addEventListener('click', e => {
       });
       Notiflix.Notify.success('User loged in!');
       attrErrorLogin.setAttribute('data-content-login', 'User loged in!');
-
     })
     .catch(error => {
       const errorCode = error.code;
@@ -99,29 +98,31 @@ document.addEventListener('localdatachanged', () => {
   // handler
 });
 
-onAuthStateChanged(auth, (user) => {
+onAuthStateChanged(auth, user => {
   if (user) {
     const uid = user.uid;
     update(ref(db, 'users/' + uid), {
       watch: storageWatch,
       queue: storageQueue,
     });
-    refs.iconEnter.classList.add('locked')
-    refs.iconExit.classList.add('active')
+    refs.iconEnter.classList.add('locked');
+    refs.iconExit.classList.add('active');
     refs.modal.classList.remove('visiable');
   }
 });
 
-
 // выход из системы
 refs.exitBtnFromOnline.addEventListener('click', () => {
   const auth = getAuth();
-  signOut(auth).then(() => {
-    // Sign-out successful.
-    refs.iconEnter.classList.remove('locked')
-    refs.iconExit.classList.remove('active')
-    refs.loginedWrapper.classList.remove('active')
-  }).catch((error) => {
-    Notiflix.Notify.failure('User is signed out!');
-  });
-})
+  signOut(auth)
+    .then(() => {
+      // Sign-out successful.
+      refs.iconEnter.classList.remove('locked');
+      refs.iconExit.classList.remove('active');
+      refs.loginedWrapper.classList.remove('active');
+      refs.body.classList.remove('no-scroll');
+    })
+    .catch(error => {
+      Notiflix.Notify.failure('User is signed out!');
+    });
+});
