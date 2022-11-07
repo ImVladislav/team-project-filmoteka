@@ -36,6 +36,10 @@ export const movieDescriptionMurkup = ({
       <use href="${symbol}#icon-cast"></use>
     </svg><span class="btn-cast-text">Cast</span>
     </button>
+    <button type="button" class="btn-rewiews" data-rewiews>
+    <svg class="icon-review" width="35" height="35">
+    <use href="${symbol}#icon-review"></use>
+  </svg></button>
   </div>
   <div class="movie__container">
     <h3 class="movie__title">${title}</h3>

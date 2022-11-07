@@ -5,9 +5,10 @@ import { serverApi } from './serverApi';
 import { posterСheck } from './posterCheck';
 import { options } from '../pagination';
 import { spinnerPlay, spinnerStop } from '../spinner';
-import { genresArr, genresUK } from './genres';
 import { spinnerPlay, spinnerStop } from '../spinner';
 import warship from '../../images/warship.jpg';
+import { makeGenres } from './makeGenres';
+import { makeDate } from './makeReleaseDate';
 
 const pagination = new Pagination(refs.tuiContainer, options);
 
@@ -30,6 +31,10 @@ pagination.on('beforeMove', async event => {
 });
 
 export function murkupGalleryOnPageLoading(movies) {
+  if (!JSON.parse(localStorage.getItem('language'))) {
+    localStorage.setItem('language', JSON.stringify(refs.langValue.value));
+  }
+
   serverApi.setPage(1);
 
   if (refs.langValue.value === 'ru') {
@@ -42,66 +47,14 @@ export function murkupGalleryOnPageLoading(movies) {
       ({ original_title, title, poster_path, id, genre_ids, release_date }) => {
         const src = posterСheck(poster_path);
 
-        let genresMovie = null;
-        let releaseDate = null;
-        let genresMovies = null;
-
-        // проверка на жанры фильмов
-
-        if (refs.langValue.value === 'en-US') {
-          genresMovies = genresArr.reduce((acc, genre) => {
-            if (genre_ids.includes(genre.id)) {
-              acc.push(genre.name);
-            }
-            return acc;
-          }, []);
-
-          if (genresMovies.length > 3) {
-            genresMovie = genresMovies.slice(0, 2);
-            genresMovie.splice(2, 1, 'Other');
-          } else if (genresMovies.length === 0) {
-            genresMovie = [`Genres not found`];
-          } else {
-            genresMovie = genresMovies;
-          }
-
-          if (!release_date) {
-            releaseDate = 'Release data no found';
-          } else {
-            releaseDate = release_date.slice(0, 4);
-          }
-        } else if (refs.langValue.value === 'uk') {
-          genresMovies = genresUK.reduce((acc, genre) => {
-            if (genre_ids.includes(genre.id)) {
-              acc.push(genre.name);
-            }
-            return acc;
-          }, []);
-
-          if (genresMovies.length > 3) {
-            genresMovie = genresMovies.slice(0, 2);
-            genresMovie.splice(2, 1, 'Інше');
-          } else if (genresMovies.length === 0) {
-            genresMovie = [`Жанрів не знайдено`];
-          } else {
-            genresMovie = genresMovies;
-          }
-
-          if (!release_date) {
-            releaseDate = 'Дату релізу не знайдено';
-          } else {
-            releaseDate = release_date.slice(0, 4);
-          }
-        }
+        const genres = makeGenres(genre_ids);
 
         return `
         <li class="film__item" data-id="${id}">
         <img src="${src}" class="film__img" alt="${original_title}" />
         <div>
         <p class="film__title">${title}</p>
-        <p class="film__genre">${genresMovie.join(
-          `, `
-        )} | ${releaseDate}</p></div>
+        <p class="film__genre">${genres} | ${makeDate(release_date)}</p></div>
       </li>`;
       }
     )
