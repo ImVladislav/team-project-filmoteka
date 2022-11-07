@@ -101,6 +101,14 @@ class ServerApi {
     return await data.data.results;
   }
 
+  async getMoviesByActorId(id) {
+    const data = await axios.get(
+      `${this.baseUrl}/discover/movie?${this.KEY}&language=${this.language}&sort_by=vote_average.desc&include_adult=false&page=${this.page}&with_cast=${id}`
+    );
+
+    return await data.data.results;
+  }
+
   setPage(page) {
     this.#page = page;
   }
