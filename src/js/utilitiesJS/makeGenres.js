@@ -2,7 +2,7 @@ import { genresArr, genresUK } from './genres';
 
 export const makeGenres = genre_ids => {
   const langValue = JSON.parse(localStorage.getItem('language'));
-  let genresMovie = null;
+  let genresMovies = null;
 
   if (langValue === 'en-US') {
     genresMovies = genresArr.reduce((acc, genre) => {
@@ -13,12 +13,12 @@ export const makeGenres = genre_ids => {
     }, []);
 
     if (genresMovies.length > 3) {
-      genresMovie = genresMovies.slice(0, 2);
-      genresMovie.splice(2, 1, 'Other');
+      genresMovies = genresMovies.slice(0, 2);
+      genresMovies.splice(2, 1, 'Other');
     } else if (genresMovies.length === 0) {
-      genresMovie = [`Genres not found`];
+      genresMovies = [`Genres not found`];
     } else {
-      genresMovie = genresMovies;
+      genresMovies = genresMovies;
     }
   } else if (langValue === 'uk') {
     genresMovies = genresUK.reduce((acc, genre) => {
@@ -29,14 +29,14 @@ export const makeGenres = genre_ids => {
     }, []);
 
     if (genresMovies.length > 3) {
-      genresMovie = genresMovies.slice(0, 2);
-      genresMovie.splice(2, 1, 'Інше');
+      genresMovies = genresMovies.slice(0, 2);
+      genresMovies.splice(2, 1, 'Інше');
     } else if (genresMovies.length === 0) {
-      genresMovie = [`Жанрів не знайдено`];
+      genresMovies = [`Жанрів не знайдено`];
     } else {
-      genresMovie = genresMovies;
+      genresMovies = genresMovies;
     }
   }
 
-  return genresMovie;
+  return genresMovies;
 };
