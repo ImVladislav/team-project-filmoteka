@@ -70,53 +70,42 @@
 }
 
 .btn-rewiews {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  fill: #ff0000;
+  stroke: #ff0000;
+
   position: absolute;
   top: 10;
   left: 50%;
 
+  border: none;
+
   transform: translateX(-50%);
 
-  width: 110px;
-  height: 44px;
-
-  padding-top: 6px;
-  padding-bottom: 6px;
   background: transparent;
 
-  border-radius: 5px;
-  border: 1px solid #ff6b01;
-
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 1.333;
-  text-align: center;
-  text-transform: uppercase;
-
-  color: #ff6b01;
+  // color: #ff6b01;
 
   transition: all 250ms linear;
 
   &:not(:disabled) {
     &:hover,
     &:focus {
-      background: #ff6b01;
-      border: 1px solid #ff6b01;
-      color: $color-white;
+      fill: #b80000;
+      stroke: #b80000;
     }
-  }
-
-  @include tablet {
-    width: 125px;
-  }
-
-  @include tablet-plus {
-    width: 136px;
   }
 
   &[disabled] {
     fill: #808080;
     stroke: #000000;
   }
+}
+
+.icon-review {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
